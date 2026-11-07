@@ -1,0 +1,551 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Pork Song Pentaduc</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky header bar, then a single-column ledger of five positions; III sits on a raised panel as the center. */
+:root {
+  --bg: #EBF0ED;
+  --surface: #FFFFFF;
+  --panel: #F6F9F7;
+  --ink: #10201B;
+  --muted: #4E615A;
+  --line: #C6D3CD;
+  --accent: #C8321F;
+  --accent-2: #1F6F5C;
+  --gold: #8A5F00;
+  --blue: #2E5E8C;
+  --plum: #7A4A8C;
+  --on-fill: #FFFFFF;
+  --shadow: 0 1px 0 rgba(16, 32, 27, .06), 0 10px 28px rgba(16, 32, 27, .10);
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1A1B;
+    --surface: #10262A;
+    --panel: #0F2226;
+    --ink: #E8F1ED;
+    --muted: #9BB1AA;
+    --line: #25434A;
+    --accent: #FF7A5C;
+    --accent-2: #52C7A8;
+    --gold: #E4B646;
+    --blue: #86B6E6;
+    --plum: #C9A0DC;
+    --on-fill: #0B1A1B;
+    --shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 10px 28px rgba(0, 0, 0, .45);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1A1B;
+  --surface: #10262A;
+  --panel: #0F2226;
+  --ink: #E8F1ED;
+  --muted: #9BB1AA;
+  --line: #25434A;
+  --accent: #FF7A5C;
+  --accent-2: #52C7A8;
+  --gold: #E4B646;
+  --blue: #86B6E6;
+  --plum: #C9A0DC;
+  --on-fill: #0B1A1B;
+  --shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 10px 28px rgba(0, 0, 0, .45);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 15px/1.55 var(--font-body);
+  -webkit-text-size-adjust: 100%;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  background: var(--bg);
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Header */
+.top {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding-block: 10px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; color: var(--ink); text-decoration: none; }
+.logo { flex: none; width: 34px; height: 34px; color: var(--accent); animation: turn 120s linear infinite; }
+.logo path { fill: none; stroke: currentColor; stroke-width: 2.1; stroke-linejoin: round; }
+@keyframes turn { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .logo { animation: none; } }
+.brand b { font: 700 1.15rem/1 var(--font-display); letter-spacing: -.01em; }
+.brand span { display: block; font: 500 10.5px/1.3 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.tools { display: flex; align-items: center; gap: 8px; }
+.btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--accent); }
+.btn[aria-expanded="true"] { border-color: var(--accent); color: var(--accent); }
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: max(16px, env(safe-area-inset-right, 0px));
+  width: min(330px, calc(100vw - 32px));
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  padding: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+.tile {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 12px 4px 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  text-align: center;
+}
+.tile:hover { background: var(--panel); }
+.tile[aria-current="true"] { border-color: var(--accent); }
+.tile strong { font: 800 1.7rem/1 var(--font-display); color: var(--accent-2); }
+.tile[data-center] strong { color: var(--accent); }
+.tile small { font: 500 10.5px/1.3 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+
+/* Page */
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding-block: 36px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.eyebrow { font: 500 12px/1.4 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+h1 {
+  margin: 12px 0 14px;
+  font: 700 clamp(2.2rem, 7vw, 3.8rem)/1 var(--font-display);
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.lede { max-width: 62ch; margin: 0 0 22px; color: var(--muted); font-size: 1.05rem; }
+.ops { display: flex; flex-wrap: wrap; gap: 6px 8px; margin: 0; padding: 0; list-style: none; }
+.ops li { padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font: 500 12px/1.2 var(--font-mono); }
+.ops li b { color: var(--accent-2); font-weight: 500; }
+.ops li.mid b { color: var(--accent); }
+
+.pos {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: 8px 24px;
+  margin-top: 36px;
+  padding-block: 36px 8px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: calc(70px + env(safe-area-inset-top, 0px));
+}
+.pos.center {
+  padding: 32px clamp(16px, 3vw, 28px);
+  background: var(--panel);
+  border: 1px solid var(--accent);
+  border-radius: 14px;
+}
+.num { font: 800 3.4rem/.9 var(--font-display); color: var(--accent-2); }
+.center .num { color: var(--accent); }
+.content { min-width: 0; }
+h2 { margin: 0; font: 700 1.6rem/1.1 var(--font-display); letter-spacing: -.01em; }
+.sub { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin: 6px 0 18px; }
+.op { font: 500 11px/1.4 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-2); }
+.center .op { color: var(--accent); }
+.sub span:last-child { color: var(--muted); }
+.note { max-width: 66ch; margin: 14px 0 0; color: var(--muted); font-size: .9rem; }
+h3 { margin: 30px 0 10px; font: 700 1.15rem/1.2 var(--font-display); }
+
+/* Tables */
+.tw { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; font-variant-numeric: tabular-nums; }
+th {
+  padding: 8px 14px 8px 0;
+  border-bottom: 1px solid var(--ink);
+  font: 500 11px/1.3 var(--font-mono);
+  letter-spacing: .1em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+td { padding: 11px 14px 11px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+td:first-child { font-weight: 600; }
+.st { display: inline-flex; align-items: center; gap: 7px; font: 500 12px/1.3 var(--font-mono); white-space: nowrap; }
+.st::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--muted)); }
+.st.low { --c: var(--muted); }
+.st.ok { --c: var(--accent-2); }
+.st.mid { --c: var(--gold); }
+.st.hot { --c: var(--accent); }
+
+/* Energy bars (scale: 1,500 kcal = full width) */
+.bars { display: grid; gap: 10px; margin-top: 22px; }
+.brow { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); align-items: center; gap: 12px; font-size: .85rem; }
+.track { display: flex; height: 28px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+.track i {
+  display: flex;
+  align-items: center;
+  padding-inline: 8px;
+  overflow: hidden;
+  color: var(--on-fill);
+  font: 500 11px/1 var(--font-mono);
+  font-style: normal;
+  white-space: nowrap;
+}
+.walk { background: var(--accent-2); }
+.stand { background: var(--gold); }
+
+/* Figure */
+.fig { max-width: 520px; margin: 4px 0 0; }
+.fig svg { display: block; width: 100%; height: auto; }
+.fig figcaption { margin-top: 8px; color: var(--muted); font-size: .88rem; }
+.ring { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+.star { fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linejoin: round; }
+.node { fill: var(--surface); stroke: var(--ink); stroke-width: 1.5; }
+.node.mid { fill: var(--accent); stroke: var(--accent); }
+.nn { fill: var(--ink); font: 700 14px var(--font-display); text-anchor: middle; dominant-baseline: central; }
+.nn.mid { fill: var(--on-fill); }
+.nl { fill: var(--ink); font: 600 12.5px var(--font-display); }
+.nl.sm { fill: var(--muted); font: 500 11px var(--font-mono); }
+
+.life { display: flex; height: 18px; margin-top: 8px; overflow: hidden; border-radius: 4px; }
+.life i { display: block; min-width: 1px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 10px 0 0; padding: 0; list-style: none; font-size: .85rem; font-variant-numeric: tabular-nums; }
+.legend li { display: flex; align-items: center; gap: 7px; }
+.legend s { width: 10px; height: 10px; border-radius: 2px; }
+.legend b { font-weight: 600; }
+.sect-label { margin: 28px 0 0; font: 500 11px/1.3 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+.verdict { margin-top: 22px; padding: 16px 18px; background: var(--surface); border: 1px solid var(--ink); border-radius: 10px; }
+.verdict p { margin: 0; font: 600 1.1rem/1.35 var(--font-display); text-wrap: balance; }
+.verdict small { display: block; margin-top: 6px; color: var(--muted); font-size: .85rem; }
+
+footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
+footer p { max-width: 70ch; margin: 0 0 6px; }
+
+@media (max-width: 700px) {
+  .pos { grid-template-columns: 1fr; margin-top: 28px; padding-top: 28px; }
+  .num { font-size: 2.4rem; }
+  .brand span { display: none; }
+  .brow { grid-template-columns: 4.6rem minmax(0, 1fr); }
+}
+@media (max-width: 620px) {
+  .stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .stack, .stack tbody, .stack tr { display: block; }
+  .stack tr { padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .stack td { display: grid; grid-template-columns: 6.2rem minmax(0, 1fr); gap: 8px; padding: 3px 0; border: 0; }
+  .stack td::before {
+    content: attr(data-label);
+    font: 500 10.5px/1.7 var(--font-mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+}
+</style>
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("pentaduc-theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+})();
+</script>
+
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="#top" aria-label="Pentaduc, back to top">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 L24.23 27.33 L2.69 11.67 L29.32 11.67 L7.77 27.33 Z"/></svg>
+      <div><b>Pentaduc</b><span>Pork song</span></div>
+    </a>
+    <div class="tools">
+      <button class="btn" id="theme-btn" type="button" aria-label="Switch theme">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
+      </button>
+      <button class="btn" id="waffle-btn" type="button" aria-label="Sections" aria-haspopup="true" aria-expanded="false" aria-controls="waffle-menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><g fill="currentColor"><circle cx="5" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></g></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="menu" id="waffle-menu" aria-label="Sections" hidden>
+    <a class="tile" href="#i-body"><strong>I</strong><small>Body</small></a>
+    <a class="tile" href="#ii-kin"><strong>II</strong><small>Kin</small></a>
+    <a class="tile" href="#iii-constructal" data-center><strong>III</strong><small>Cue</small></a>
+    <a class="tile" href="#iv-social"><strong>IV</strong><small>Song</small></a>
+    <a class="tile" href="#v-weights"><strong>V</strong><small>Diagnosis</small></a>
+  </nav>
+</header>
+
+<main id="top">
+  <p class="eyebrow">Nairobi · Saturday 7 November 2026</p>
+  <h1>Pork Song Pentaduc</h1>
+  <p class="lede">A day of accompanying golf at Windsor, a household with Caribbean ties, and a 1990 parang-soca song that came back after 36 years. Read through five positions.</p>
+  <ul class="ops" aria-label="Operators">
+    <li><b>I</b> Generate</li>
+    <li><b>II</b> Represent</li>
+    <li class="mid"><b>III</b> Reconfigure</li>
+    <li><b>IV</b> Govern</li>
+    <li><b>V</b> Select</li>
+  </ul>
+
+  <section class="pos" id="i-body">
+    <div class="num" aria-hidden="true">I</div>
+    <div class="content">
+      <h2>Interiority</h2>
+      <p class="sub"><span class="op">Generate</span><span>What the body spent</span></p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Term</th><th>Basis</th><th>Estimate</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Term">Scorecard walk alone</td><td data-label="Basis">4.14 mi at 20 min/mi, 1 h 23 min</td><td data-label="Estimate">~500 kcal</td></tr>
+            <tr><td data-label="Term">Whole day accompanying</td><td data-label="Basis">12:45 to 5:30 pm less a 30 min sit, 4 h 15 min</td><td data-label="Estimate">~1,450 to 1,500 kcal</td></tr>
+            <tr><td data-label="Term">Walking share</td><td data-label="Basis">57% of the day's energy</td><td data-label="Estimate">~850 kcal</td></tr>
+            <tr><td data-label="Term">Standing share</td><td data-label="Basis">43% of the day's energy</td><td data-label="Estimate">~650 kcal</td></tr>
+            <tr><td data-label="Term">Why it felt harder</td><td data-label="Basis">Long intermittent standing: postural load, little recovery</td><td data-label="Estimate">Not an energy number</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bars" role="img" aria-label="Walk-only about 500 kilocalories against a whole day of about 1,500, split 850 walking and 650 standing">
+        <div class="brow"><span>Walk only</span><div class="track"><i class="walk" style="width:33.3%">~500</i></div></div>
+        <div class="brow"><span>Whole day</span><div class="track"><i class="walk" style="width:56.7%">walk ~850</i><i class="stand" style="width:43.3%">stand ~650</i></div></div>
+      </div>
+      <p class="note">Bars are drawn to scale, full width = 1,500 kcal. Setup: 230 lb, Windsor Golf Club, caddies carried everything, accompanied friends and did not play. These are estimates from an earlier Grok session, not measurements.</p>
+    </div>
+  </section>
+
+  <section class="pos" id="ii-kin">
+    <div class="num" aria-hidden="true">II</div>
+    <div class="content">
+      <h2>Kin-Network</h2>
+      <p class="sub"><span class="op">Represent</span><span>Who the flow can reach</span></p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Node</th><th>Tie</th><th>Detail</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Node">Father</td><td data-label="Tie">Port of Spain Christmases</td><td data-label="Detail">1990 to 1992, visiting professor from Uganda at UWI St Augustine</td></tr>
+            <tr><td data-label="Node">Classmate and host</td><td data-label="Tie">Boarding school, 1994</td><td data-label="Detail">Played golf Friday, hosting in Nairobi</td></tr>
+            <tr><td data-label="Node">His wife</td><td data-label="Tie">From the Bahamas</td><td data-label="Detail">Met in Bermuda, married in Miami in 2011</td></tr>
+            <tr><td data-label="Node">You</td><td data-label="Tie">Best man</td><td data-label="Detail">At that wedding</td></tr>
+            <tr><td data-label="Node">Two boys</td><td data-label="Tie">Godfather</td><td data-label="Detail">Taken to basketball this morning</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">The household carries a Caribbean tie that was absent from the 1990 frame. It is one candidate cue for the song.</p>
+    </div>
+  </section>
+
+  <section class="pos center" id="iii-constructal">
+    <div class="num" aria-hidden="true">III</div>
+    <div class="content">
+      <h2>Constructal-Network</h2>
+      <p class="sub"><span class="op">Reconfigure</span><span>Where the song found a route</span></p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Cue</th><th>Specificity</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Cue">Pork eaten Friday</td><td data-label="Specificity">Low, pork is everyday food in East Africa</td><td data-label="Status"><span class="st low">Demoted</span></td></tr>
+            <tr><td data-label="Cue">Christmas about 7 weeks away</td><td data-label="Specificity">Moderate, seasonal music starts to surface</td><td data-label="Status"><span class="st ok">Plausible</span></td></tr>
+            <tr><td data-label="Cue">Caribbean-linked household</td><td data-label="Specificity">Moderate to high</td><td data-label="Status"><span class="st ok">Plausible</span></td></tr>
+            <tr><td data-label="Cue">Morning fatigue, low arousal</td><td data-label="Specificity">Moderate, earworms favor half-awake states</td><td data-label="Status"><span class="st ok">Plausible</span></td></tr>
+            <tr><td data-label="Cue">Accompanying without playing</td><td data-label="Specificity">Unknown, a "piece of" the action</td><td data-label="Status"><span class="st mid">Open</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Friday's pork came first and the song second. That order is retrieval. It does not test the claim that a song creates appetite. With n = 1 and overlapping cues, the cause is underdetermined. A log of each surfacing (season, who is present, what was eaten, how alert you are) would separate them.</p>
+    </div>
+  </section>
+
+  <section class="pos" id="iv-social">
+    <div class="num" aria-hidden="true">IV</div>
+    <div class="content">
+      <h2>Social-Network</h2>
+      <p class="sub"><span class="op">Govern</span><span>A song that became a ritual</span></p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Layer</th><th>Reading</th><th>Basis</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Layer">Letter</td><td data-label="Reading">A demand for pork at Christmas that turns down opossum and callaloo</td><td data-label="Basis">Scrunter (Irwin Reyes), parang-soca, 1990</td></tr>
+            <tr><td data-label="Layer">Occasion</td><td data-label="Reading">Pork reported scarce that year, pigs slaughtered nonstop. A failed coup in July 1990 is a second possible cause.</td><td data-label="Basis">One columnist's recollection. Coup date from general knowledge.</td></tr>
+            <tr><td data-label="Layer">Ritual</td><td data-label="Reading">An annual pre-Christmas Pork Fete where greased pigs are released for guests to catch</td><td data-label="Basis">Same article</td></tr>
+            <tr><td data-label="Layer">Canon</td><td data-label="Reading">Still an iconic yearly parang-soca song</td><td data-label="Basis">Same article, 2023</td></tr>
+            <tr><td data-label="Layer">Inheritance</td><td data-label="Reading">Ulysses at ten, on Calypso's island: piano training, a parang guitar in the house, the song returning 36 years later</td><td data-label="Basis">Your account</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Whether the song caused the scarcity or followed it is not settled by this source. The article reads the song as shaping demand.</p>
+    </div>
+  </section>
+
+  <section class="pos" id="v-weights">
+    <div class="num" aria-hidden="true">V</div>
+    <div class="content">
+      <h2>Weights → I′</h2>
+      <p class="sub"><span class="op">Select</span><span>What survives into the next cycle</span></p>
+
+      <figure class="fig">
+        <svg viewBox="0 0 440 360" role="img" aria-labelledby="fig-t">
+          <title id="fig-t">Pentadic figure: positions I to V on a ring, joined by diagonals. III is joined to both I and V.</title>
+          <polygon class="ring" points="220,67 332.23,148.54 289.36,280.46 150.64,280.46 107.77,148.54"/>
+          <polygon class="star" points="220,67 289.36,280.46 107.77,148.54 332.23,148.54 150.64,280.46"/>
+          <circle class="node" cx="220" cy="67" r="17"/><text class="nn" x="220" y="67">I</text>
+          <circle class="node" cx="332.23" cy="148.54" r="17"/><text class="nn" x="332.23" y="148.54">II</text>
+          <circle class="node mid" cx="289.36" cy="280.46" r="19"/><text class="nn mid" x="289.36" y="280.46">III</text>
+          <circle class="node" cx="150.64" cy="280.46" r="17"/><text class="nn" x="150.64" y="280.46">IV</text>
+          <circle class="node" cx="107.77" cy="148.54" r="17"/><text class="nn" x="107.77" y="148.54">V</text>
+          <text class="nl" x="220" y="38" text-anchor="middle">Interiority</text>
+          <text class="nl" x="357" y="153">Kin-Network</text>
+          <text class="nl" x="289.36" y="318" text-anchor="middle">Constructal</text>
+          <text class="nl sm" x="289.36" y="334" text-anchor="middle">center</text>
+          <text class="nl" x="150.64" y="318" text-anchor="middle">Social</text>
+          <text class="nl" x="83" y="153" text-anchor="end">Weights → I′</text>
+        </svg>
+        <figcaption>Dashed ring: the sequence I to V, closing back to I′. Solid diagonals: III is the one position joined directly to both I (source) and V (settlement).</figcaption>
+      </figure>
+
+      <p class="sect-label">Years lived by place, to scale (46.0)</p>
+      <div class="life" role="img" aria-label="Kampala 26 years, Baltimore 19, Virginia 0.5, Staten Island 0.3, Nairobi 0.2">
+        <i style="flex:26;background:var(--accent-2)"></i>
+        <i style="flex:19;background:var(--blue)"></i>
+        <i style="flex:0.5;background:var(--accent)"></i>
+        <i style="flex:0.3;background:var(--gold)"></i>
+        <i style="flex:0.2;background:var(--plum)"></i>
+      </div>
+      <ul class="legend">
+        <li><s style="background:var(--accent-2)"></s>I Kampala <b>26</b></li>
+        <li><s style="background:var(--blue)"></s>II Baltimore <b>19</b></li>
+        <li><s style="background:var(--accent)"></s>III Virginia <b>0.5</b></li>
+        <li><s style="background:var(--gold)"></s>IV Staten Island <b>0.3</b></li>
+        <li><s style="background:var(--plum)"></s>V Nairobi → I′ <b>0.2</b></li>
+      </ul>
+
+      <h3>Diagnosis</h3>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Position</th><th>Salient finding</th><th>Confidence</th><th>Next test</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Position">I Body</td><td data-label="Finding">The day cost about 1,475 kcal, with standing driving the fatigue</td><td data-label="Confidence"><span class="st mid">Medium, estimated</span></td><td data-label="Next test">Step or heart-rate data next time</td></tr>
+            <tr><td data-label="Position">II Kin</td><td data-label="Finding">Chosen kin built a household with a Caribbean tie</td><td data-label="Confidence"><span class="st ok">High, stated</span></td><td data-label="Next test">None needed</td></tr>
+            <tr><td data-label="Position">III Cue</td><td data-label="Finding">The song surfaced and the cause is underdetermined</td><td data-label="Confidence"><span class="st low">Low</span></td><td data-label="Next test">Keep a surfacing log</td></tr>
+            <tr><td data-label="Position">IV Song</td><td data-label="Finding">The song is canon, and the order of scarcity and song is unproven</td><td data-label="Confidence"><span class="st mid">Medium</span></td><td data-label="Next test">Compare Christmas 1989 and 1990 pork prices</td></tr>
+            <tr><td data-label="Position">V → I′</td><td data-label="Finding">The route runs from Kampala to Nairobi, back near its start</td><td data-label="Confidence"><span class="st low">Descriptive</span></td><td data-label="Next test">Does the song come before the craving this December?</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="verdict">
+        <p>Salient: the song and pork are tied in memory. Which one leads is untested.</p>
+        <small>One test splits it: note whether the song or the craving arrives first.</small>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Song history: Johnny Coomansingh, <a href="https://caribbeannewsglobal.com/ah-want-ah-piece-ah-pork/" target="_blank" rel="noopener">Ah want ah piece ah pork</a>, Caribbean News Global, 24 December 2023.</p>
+    <p>Energy figures are estimates. Place years, family ties and Port of Spain Christmases are as you described them.</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  /* Favicon: five-point star, each vertex joined to the one two steps away, no enclosing shape */
+  var icon = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M16 2 L24.23 27.33 L2.69 11.67 L29.32 11.67 L7.77 27.33 Z' fill='none' stroke='#C8321F' stroke-width='2.4' stroke-linejoin='round'/></svg>";
+  var old = document.querySelectorAll("link[rel~='icon']");
+  for (var i = 0; i < old.length; i++) old[i].parentNode.removeChild(old[i]);
+  var fav = document.createElement("link");
+  fav.rel = "icon";
+  fav.type = "image/svg+xml";
+  fav.href = "data:image/svg+xml," + encodeURIComponent(icon);
+  document.head.appendChild(fav);
+
+  /* Theme toggle */
+  var tbtn = document.getElementById("theme-btn");
+  var mq = window.matchMedia("(prefers-color-scheme: dark)");
+  function current() { return root.getAttribute("data-theme") || (mq.matches ? "dark" : "light"); }
+  function label() {
+    var dark = current() === "dark";
+    tbtn.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+    tbtn.setAttribute("aria-pressed", dark ? "true" : "false");
+    tbtn.title = dark ? "Light theme" : "Dark theme";
+  }
+  tbtn.addEventListener("click", function () {
+    var next = current() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("pentaduc-theme", next); } catch (e) {}
+    label();
+  });
+  if (mq.addEventListener) mq.addEventListener("change", label);
+  label();
+
+  /* Waffle menu */
+  var wb = document.getElementById("waffle-btn");
+  var menu = document.getElementById("waffle-menu");
+  function setOpen(open) {
+    menu.hidden = !open;
+    wb.setAttribute("aria-expanded", String(open));
+  }
+  wb.addEventListener("click", function (e) { e.stopPropagation(); setOpen(menu.hidden); });
+  document.addEventListener("click", function (e) {
+    if (!menu.hidden && !menu.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !menu.hidden) { setOpen(false); wb.focus(); }
+  });
+  menu.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
+
+  /* Mark the section in view */
+  var tiles = menu.querySelectorAll("a.tile");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        for (var j = 0; j < tiles.length; j++) {
+          tiles[j].setAttribute("aria-current", tiles[j].getAttribute("href") === "#" + en.target.id ? "true" : "false");
+        }
+      });
+    }, { rootMargin: "-35% 0px -55% 0px" });
+    document.querySelectorAll(".pos").forEach(function (s) { io.observe(s); });
+  }
+})();
+</script>
+
+</body></html>
