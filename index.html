@@ -1596,6 +1596,34 @@ When a prompt relies heavily on hyper-specific regional cultural touchstones, li
         </table>
       </div>
       <p class="note">Linked sentence: Gemini&rsquo;s line in block C points to <a href="https://ukubona-llc.github.io/perception-ai/" target="_blank" rel="noopener">Perception AI &middot; Ukubona Evidence Layer</a>, the page on the sensory layer of the WHO India evidence pipeline. That page sets World AI against Perception AI and hands off to Agentic AI. Generative and Embodied AI are not on it, so rows IV and V come from the artefact as you described it. Weights are not a separate thing from V. They are what past consequences settled into: training sets parameters from outcomes, and those parameters become the next model&rsquo;s prior, which is V &rarr; I&prime; in ML form. The same word names the same mechanism. Where few consequences were ever registered, as with a niche Trinidadian song, the weights are sparse, which is why that territory behaves like a thin kin-network. One caution remains: &ldquo;bland because of size&rdquo; and &ldquo;sparse weights trigger search&rdquo; are hypotheses, not measured behavior.</p>
+      <h3>How sparse weights manifest: flat softmax</h3>
+      <p class="sect-label">Softmax turns logits into probabilities</p>
+      <p class="note" style="margin-top:6px"><code>p(i) = exp(z<sub>i</sub>) / &Sigma;<sub>j</sub> exp(z<sub>j</sub>)</code> &nbsp;where z are the raw scores for each candidate next token. One dominant logit gives a sharp peak. Many close logits give a flat spread: high entropy.</p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Point</th><th>Why it matters here</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Point">Softmax must sum to 1</td><td data-label="Why">There is no &ldquo;none of the above&rdquo; slot. Where nothing is known, the probability mass still lands somewhere, which produces fluent, plausible filler.</td></tr>
+            <tr><td data-label="Point">Temperature rescales logits before softmax</td><td data-label="Why">Above 1 flattens, below 1 sharpens. Measure flatness at temperature 1, or the setting is measured, not the model.</td></tr>
+            <tr><td data-label="Point">Peaked does not mean right</td><td data-label="Why">A confidently wrong answer also has a sharp peak. Flatness is a good trigger for search; its absence is not proof of knowledge.</td></tr>
+            <tr><td data-label="Point">Softmax output is the weights, normalised</td><td data-label="Why">A flat distribution says no strong consequence was ever settled there (V &rarr; I&prime;).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sect-label">Five signals of sparse weights</p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Signal</th><th>What it looks like</th><th>In this probe</th><th>How to measure</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Signal">Flat distribution</td><td data-label="Looks like">Probability spread over many candidates, no clear winner</td><td data-label="Probe">Several endings fit the meter</td><td data-label="Measure">Entropy of the answer token, where probabilities are exposed</td></tr>
+            <tr><td data-label="Signal">Unstable answers</td><td data-label="Looks like">A different completion on each resample</td><td data-label="Probe">The &ldquo;Take 5&rdquo; endings differed each pass</td><td data-label="Measure">Sample about 10 times, score agreement</td></tr>
+            <tr><td data-label="Signal">Fluent filler</td><td data-label="Looks like">An on-genre guess where &ldquo;unknown&rdquo; belongs</td><td data-label="Probe">Endings fitted to the meter, not recalled</td><td data-label="Measure">Check against ground truth</td></tr>
+            <tr><td data-label="Signal">Phrasing sensitivity</td><td data-label="Looks like">Spelling or transliteration changes the result</td><td data-label="Probe">Grok&rsquo;s exact-spelling miss (self-report)</td><td data-label="Measure">Run the probe with variants</td></tr>
+            <tr><td data-label="Signal">Miscalibration</td><td data-label="Looks like">Confidence does not track accuracy</td><td data-label="Probe">Claude labelled its guesses as guesses, a good sign</td><td data-label="Measure">Confidence against accuracy, niche versus common items</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Practical trigger: flat softmax, or disagreement across resamples, routes the query to live search. &ldquo;Bland&rdquo; is a separate effect, a pull toward the common answer that post-training may add to; test the two hypotheses separately.</p>
     </div>
   </section>
 
@@ -1661,6 +1689,35 @@ When a prompt relies heavily on hyper-specific regional cultural touchstones, li
         <figcaption>Dashed ring: reading order. Solid diagonals: the routing step is the one position joined directly to the probe (I) and to the tests (V).</figcaption>
       </figure>
 
+      <h3>Lineage: the WHO India chain and the recent pentad</h3>
+      <p class="sect-label">Older chain, used in the WHO India artefact</p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Position</th><th>Term, as written</th><th>Reading on the pentad</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Position">I</td><td data-label="Term"><code>&theta;<sup>t</sup></code></td><td data-label="Reading">Interiority: the current parameters</td></tr>
+            <tr><td data-label="Position">II</td><td data-label="Term"><code>L<sub>0</sub> + &Sigma; w<sub>i</sub>&middot;L<sub>i</sub></code></td><td data-label="Reading">Kin-Network: a base corpus plus weighted sources, the form the Perception AI page uses</td></tr>
+            <tr><td data-label="Position">III</td><td data-label="Term"><code>f(&sigma;&sup2;, &lambda;, &epsilon;)</code></td><td data-label="Reading">Constructal-Network: a function that reconfigures the inputs</td></tr>
+            <tr><td data-label="Position">IV</td><td data-label="Term"><code>&gamma;|&epsilon;<sub>FGT</sub>|&sup2;</code></td><td data-label="Reading">Social-Network: a penalty on the error term</td></tr>
+            <tr><td data-label="Position">V &rarr; I&prime;</td><td data-label="Term"><code>L(&theta;<sup>t+1</sup>)</code></td><td data-label="Reading">Weights &rarr; I&prime;: the updated state after consequences</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sect-label">Recent pentad</p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Position</th><th>Term</th><th>Where it sits on this page</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Position">I</td><td data-label="Term">Engine</td><td data-label="Page">The model and its weights: the logits behind the softmax</td></tr>
+            <tr><td data-label="Position">II</td><td data-label="Term">Sample</td><td data-label="Page">The draw from the softmax distribution; resample agreement is its signal</td></tr>
+            <tr><td data-label="Position">III</td><td data-label="Term">Label</td><td data-label="Page">Rule 1: identify an artefact, or complete a verse</td></tr>
+            <tr><td data-label="Position">IV</td><td data-label="Term">Routing</td><td data-label="Page">Recall or live search; flat softmax is the trigger</td></tr>
+            <tr><td data-label="Position">V &rarr; I&prime;</td><td data-label="Term"><span class="st low">? Open</span></td><td data-label="Page">Not named yet</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">The chain&rsquo;s symbols are as you wrote them. The position-by-position readings and the &ldquo;where it sits&rdquo; column are Claude&rsquo;s, and &sigma;&sup2;, &lambda;, &epsilon; and FGT are not defined on this page. Position V of the recent pentad is shown as open because it was left as a question mark.</p>
+
       <h3>Diagnosis</h3>
       <div class="tw">
         <table class="stack">
@@ -1670,7 +1727,7 @@ When a prompt relies heavily on hyper-specific regional cultural touchstones, li
             <tr><td data-label="Finding">Search access is not sufficient: Grok had it and missed</td><td data-label="Confidence"><span class="st mid">Medium</span></td><td data-label="Next test">Search on, exact spelling against variants</td></tr>
             <tr><td data-label="Finding">The models&rsquo; self-explanations conflict: weights (Grok) against search (Gemini)</td><td data-label="Confidence"><span class="st ok">High that they conflict, cause open</span></td><td data-label="Next test">Read the tool log, do not ask the model</td></tr>
             <tr><td data-label="Finding">Gemini&rsquo;s explanation fits the pentad vocabulary neatly. Fit is not evidence of mechanism.</td><td data-label="Confidence"><span class="st low">Low</span></td><td data-label="Next test">Check the explanation against the log</td></tr>
-            <tr><td data-label="Finding">Sparse weights flag a niche item and trigger a live search</td><td data-label="Confidence"><span class="st low">Low, hypothesis</span></td><td data-label="Next test">Compare answer confidence on niche against common items, with the search call logged</td></tr>
+            <tr><td data-label="Finding">Sparse weights flag a niche item and trigger a live search</td><td data-label="Confidence"><span class="st low">Low, hypothesis</span></td><td data-label="Next test">Entropy of the answer token, or resample agreement, on niche against common items, with the search call logged</td></tr>
             <tr><td data-label="Finding">Claude&rsquo;s meter analysis steered it away from identification</td><td data-label="Confidence"><span class="st mid">Medium</span></td><td data-label="Next test">Same probe with meter stated against withheld</td></tr>
             <tr><td data-label="Finding">One probe, one song, four models</td><td data-label="Confidence"><span class="st low">Low generalisation</span></td><td data-label="Next test">About 20 niche items across regions and languages</td></tr>
           </tbody>
