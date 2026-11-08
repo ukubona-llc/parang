@@ -1712,11 +1712,26 @@ When a prompt relies heavily on hyper-specific regional cultural touchstones, li
             <tr><td data-label="Position">II</td><td data-label="Term">Sample</td><td data-label="Page">The draw from the softmax distribution; resample agreement is its signal</td></tr>
             <tr><td data-label="Position">III</td><td data-label="Term">Label</td><td data-label="Page">Rule 1: identify an artefact, or complete a verse</td></tr>
             <tr><td data-label="Position">IV</td><td data-label="Term">Routing</td><td data-label="Page">Recall or live search; flat softmax is the trigger</td></tr>
-            <tr><td data-label="Position">V &rarr; I&prime;</td><td data-label="Term"><span class="st low">? Open</span></td><td data-label="Page">Not named yet</td></tr>
+            <tr><td data-label="Position">V &rarr; I&prime;</td><td data-label="Term">Verify <span class="st mid">candidate</span></td><td data-label="Page">Check the retrieved answer against the world before it counts as a new consequence</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="note">The chain&rsquo;s symbols are as you wrote them. The position-by-position readings and the &ldquo;where it sits&rdquo; column are Claude&rsquo;s, and &sigma;&sup2;, &lambda;, &epsilon; and FGT are not defined on this page. Position V of the recent pentad is shown as open because it was left as a question mark.</p>
+      <p class="note">The chain&rsquo;s symbols are as you wrote them. The position-by-position readings and the &ldquo;where it sits&rdquo; column are Claude&rsquo;s, and &sigma;&sup2;, &lambda;, &epsilon; and FGT are not defined on this page. Position V of the recent pentad, Verify, is a Claude candidate; it was left as a question mark.</p>
+
+      <h3>The loop: the model reads its own record</h3>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Position</th><th>What we found</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Position">I Engine</td><td data-label="Found">Weights are a frozen record of past consequences.</td></tr>
+            <tr><td data-label="Position">II Sample</td><td data-label="Found">The softmax shows the shape of that record. A flat spread means it is thin.</td></tr>
+            <tr><td data-label="Position">III Label</td><td data-label="Found">The label decides whether thin territory is guessed at or looked up. A wrong label wastes every step after it.</td></tr>
+            <tr><td data-label="Position">IV Routing</td><td data-label="Found">Live search swaps old consequences for current ones.</td></tr>
+            <tr><td data-label="Position">V &rarr; I&prime; Verify</td><td data-label="Found">The result confirms or fails the answer, and that feeds the next pass.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Humility here means knowing how old or thin your own consequences are, and deferring to the world when they are. The model reads its own V (the flat softmax) to decide how to use II to IV. This rests on one probe, one song and four models, and Gemini&rsquo;s explanation fit the pentad vocabulary almost too neatly, which is itself a fluent-filler signal. Treat it as a model to test, not a finding. The test: about 20 niche items with entropy and search calls logged.</p>
 
       <h3>Diagnosis</h3>
       <div class="tw">
