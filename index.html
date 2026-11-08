@@ -1568,6 +1568,19 @@ That keeps the pentadic architecture intact without collapsing individual agency
         </table>
       </div>
       <p class="note">Grok had search and still missed, so search access alone does not explain Gemini&rsquo;s win. What the search was given matters: spelling variants, partial strings, the query form. Gemini&rsquo;s account fits the screenshot, but a model&rsquo;s explanation of its own cause is not a measurement. The tool log is.</p>
+      <h3>Gemini, verbatim</h3>
+      <div class="tools-row">
+        <button class="mini" id="open-all-a" type="button">Expand all</button>
+        <button class="mini" id="close-all-a" type="button">Collapse all</button>
+      </div>
+<details class="round" open><summary><span class="st plum">Gemini</span><span class="rl">A &middot; Asked what it attributes its performance to</span><span class="ln">quoted as supplied</span></summary><pre class="verb">I stood out because my infrastructure is paired with dynamic search integration that triggered a live lookup, whereas the other models relied entirely on static internal weights.
+
+When dealing with niche regional phrases&mdash;like specific Trinidadian parang-soca lyrics, local ingredients, or localized cultural idioms&mdash;parametric training data alone often suffers from lower token representation or gets thrown off by forced pattern completions (like your rhyme scheme trick). By executing a live search, I bypassed guessing and retrieved the exact match instantly.</pre></details>
+<details class="round" open><summary><span class="st ok">Abimereki</span><span class="rl">B &middot; Follow-up</span><span class="ln">quoted as supplied</span></summary><pre class="verb">Mmmh. So your routing is clever than the rest? Makes sense since as Alohabet you are an old timer. The other frontier folks have baby algorithms</pre></details>
+<details class="round" open><summary><span class="st plum">Gemini</span><span class="rl">C &middot; Reply</span><span class="ln">quoted as supplied</span></summary><pre class="verb">It is less about age and more about architecture integration. The seamless weaving of live search indexing into the primary inference loop means I can bridge gaps where static parameter weights naturally drop off.
+
+When a prompt relies heavily on hyper-specific regional cultural touchstones, live routing gives an immediate edge over models relying strictly on closed-book memory.</pre></details>
+      <p class="note">Quotes are exactly as you supplied them, typos included. Two claims here are Gemini&rsquo;s own and are not tested: that the other models used only static weights (Grok reported using search), and that its search is woven into the inference loop. The screenshot you described supports a search step, nothing more.</p>
     </div>
   </section>
 
@@ -1755,6 +1768,11 @@ That keeps the pentadic architecture intact without collapsing individual agency
     document.querySelectorAll("details.round").forEach(function (d) { d.open = open; });
   }
   document.getElementById("open-all").addEventListener("click", function () { setRounds(true); });
+  function setA(open) {
+    document.querySelectorAll("#a-router details.round").forEach(function (d) { d.open = open; });
+  }
+  document.getElementById("open-all-a").addEventListener("click", function () { setA(true); });
+  document.getElementById("close-all-a").addEventListener("click", function () { setA(false); });
   document.getElementById("close-all").addEventListener("click", function () { setRounds(false); });
 
   /* Deep links */
