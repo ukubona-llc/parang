@@ -1744,6 +1744,10 @@ Perhaps the constnructal networks from BBC to Hollywood should be blamed, the fa
       </div>
       <p class="meta">John Mearsheimer, title as given in the pasted replies
         <small>Date and views not retrieved. I have not watched it: his argument reaches this page only through the two replies below. &middot; <a href="https://www.youtube.com/watch?v=rS8qwomoDYs" target="_blank" rel="noopener">Open on YouTube</a></small></p>
+      <figure class="fig photo">
+        <img src="ukhona/relabelled-ally.jpeg" alt="Black-and-white photograph of three men seated in chairs on a veranda: one in a military-style uniform and cap on the left, one in a dark pinstriped suit in the centre, one in a dark uniform with a hat resting on his knee on the right." loading="lazy">
+        <figcaption>The relabelled ally. Read on the pentad as II to III: the relationship changes first, and the label assigned to the partner follows. Photograph as supplied; its source and date are not known to me, and I have not identified the sitters from it. Follows the theme toggle: unchanged in light mode, dimmed in dark. File expected at <code>ukhona/relabelled-ally.jpeg</code>.</figcaption>
+      </figure>
 <details class="round"><summary><span class="st ok">Abimereki</span><span class="rl">21 &middot; Prompt: map Mearsheimer&rsquo;s labels and routing onto the pentad</span><span class="ln">pasted text</span></summary><pre class="verb">lets do something similar: There's a pentad here in index.html wherein III. Label IV. Routing. Then there's  https://www.youtube.com/watch?v=rS8qwomoDYs he says III. Labels (eg Communist, Antisemitic) IV. Routing &amp; persuing strategies eg fighting wars against adversaries.</pre></details>
 <details class="round"><summary><span class="st low">Model, not named</span><span class="rl">22 &middot; Reply: the Mearsheimer pentad and a comparison table</span><span class="ln">pasted text</span></summary><div class="verb prose"><h2>The Mearsheimer Pentad: Labels, Routing, and Strategic Motives</h2>
 <p>Mapping John Mearsheimer's analysis from <em>"Have 'Antisemitic' and 'Communist' Lost Their Meaning?"</em> onto our pentadic framework reveals how elite rhetoric and geopolitical routing interact. Just as <code>index.html</code> structures analysis through five positions, statecraft uses ideological labels at Position III to route public support for strategic goals at Position IV.</p>
@@ -2694,6 +2698,13 @@ When a prompt relies heavily on hyper-specific regional cultural touchstones, li
 .fig.map { max-width: none; margin: 0; }
 .fig.map img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
 .fig.tall { max-width: 440px; }
+.fig.photo { max-width: 760px; margin: 14px 0 0; }
+.fig.photo img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; background: #fff; transition: filter .2s; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .fig.photo img { filter: brightness(.72) contrast(1.12); }
+}
+:root[data-theme="dark"] .fig.photo img { filter: brightness(.72) contrast(1.12); }
+@media (prefers-reduced-motion: reduce) { .fig.photo img { transition: none; } }
 .fig.map img { transition: filter .2s; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .fig.map img { filter: invert(.92) hue-rotate(180deg) brightness(.92) contrast(.95); }
