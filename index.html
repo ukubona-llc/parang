@@ -345,6 +345,8 @@ pre.verb {
     <button class="tile" id="tab-pork" type="button" role="tab" aria-selected="true" aria-controls="top"><strong>P</strong><small>Pork song</small></button>
     <button class="tile" id="tab-case" type="button" role="tab" aria-selected="false" aria-controls="case-top"><strong>B</strong><small>Case study</small></button>
     <button class="tile" id="tab-algo" type="button" role="tab" aria-selected="false" aria-controls="algo-top"><strong>A</strong><small>Algorithm</small></button>
+    <button class="tile" id="tab-tal" type="button" role="tab" aria-selected="false" aria-controls="tal-top"><strong>T</strong><small>Talarico</small></button>
+    <button class="tile" id="tab-ref" type="button" role="tab" aria-selected="false" aria-controls="ref-top"><strong>R</strong><small>References</small></button>
     <p class="glabel">Sections</p>
     <div class="secs" id="sec-pork">
       <a class="tile" href="#i-body"><strong>I</strong><small>Body</small></a>
@@ -366,6 +368,20 @@ pre.verb {
       <a class="tile" href="#a-router" data-center><strong>III</strong><small>Routes</small></a>
       <a class="tile" href="#a-rules"><strong>IV</strong><small>Rules</small></a>
       <a class="tile" href="#a-test"><strong>V</strong><small>Tests</small></a>
+    </div>
+    <div class="secs" id="sec-tal" hidden>
+      <a class="tile" href="#t-source"><strong>I</strong><small>Source</small></a>
+      <a class="tile" href="#t-voices"><strong>II</strong><small>Voices</small></a>
+      <a class="tile" href="#t-routes" data-center><strong>III</strong><small>Routes</small></a>
+      <a class="tile" href="#t-tracked"><strong>IV</strong><small>Tracked</small></a>
+      <a class="tile" href="#t-critique"><strong>V</strong><small>Critique</small></a>
+    </div>
+    <div class="secs" id="sec-ref" hidden>
+      <a class="tile" href="#r-links"><strong>I</strong><small>Pages</small></a>
+      <a class="tile" href="#r-vocab"><strong>II</strong><small>Vocab</small></a>
+      <a class="tile" href="#r-routes" data-center><strong>III</strong><small>Routes</small></a>
+      <a class="tile" href="#r-status"><strong>IV</strong><small>Status</small></a>
+      <a class="tile" href="#r-diag"><strong>V</strong><small>Diagnosis</small></a>
     </div>
   </nav>
 </header>
@@ -1761,6 +1777,796 @@ When a prompt relies heavily on hyper-specific regional cultural touchstones, li
   </footer>
 </main>
 
+<style>
+.fig.map { max-width: none; margin: 0; }
+.fig.map img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+.fig.tall { max-width: 440px; }
+.fig.map img { transition: filter .2s; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .fig.map img { filter: invert(.92) hue-rotate(180deg) brightness(.92) contrast(.95); }
+}
+:root[data-theme="dark"] .fig.map img { filter: invert(.92) hue-rotate(180deg) brightness(.92) contrast(.95); }
+@media (prefers-reduced-motion: reduce) { .fig.map img { transition: none; } }
+.arr { fill: none; stroke: var(--muted); stroke-width: 1.6; marker-end: url(#tal-ah); }
+.arr.mid { stroke: var(--accent); stroke-dasharray: 5 5; }
+.ahead { fill: var(--muted); }
+</style>
+<main id="tal-top" hidden>
+  <p class="eyebrow">Talarico &middot; Sunday 8 November 2026</p>
+  <h1>Christianity, Routed</h1>
+  <p class="lede">A sermon on Christian Nationalism, a map of Roman roads, and two earlier replies kept word for word. The claim they test: that Constantine was the first Christian nationalist. Read through five positions.</p>
+  <ul class="ops" aria-label="Operators">
+    <li><b>I</b> Generate</li>
+    <li><b>II</b> Represent</li>
+    <li class="mid"><b>III</b> Reconfigure</li>
+    <li><b>IV</b> Govern</li>
+    <li><b>V</b> Select</li>
+  </ul>
+
+  <section class="pos" id="t-source">
+    <div class="num" aria-hidden="true">I</div>
+    <div class="content">
+      <h2>Interiority</h2>
+      <p class="sub"><span class="op">Generate</span><span>The source: what was put on the table</span></p>
+      <div class="vid">
+        <iframe src="https://www.youtube.com/embed/Blph_2RSBno?rel=0" title="James Talarico at his home church on Christian Nationalism, 22 October 2023" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="meta">James Talarico at his home church, 22 October 2023
+        <small>2,351,983 views &middot; Mar 27, 2024 &middot; <a href="https://www.youtube.com/watch?v=Blph_2RSBno" target="_blank" rel="noopener">Open on YouTube</a></small></p>
+      <details class="desc">
+        <summary>Description, as supplied</summary>
+        <p>On October 22nd, 2023, James Talarico spoke at his home church about the dangers of Christian Nationalism.</p>
+      </details>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Term</th><th>Detail</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Term">Occasion</td><td data-label="Detail">A talk at a home church on the dangers of Christian Nationalism</td><td data-label="Note">Embedded above. I have not watched it.</td></tr>
+            <tr><td data-label="Term">Claim put</td><td data-label="Detail">&ldquo;Someone called Constantine the first Christian nationalist&rdquo;</td><td data-label="Note">Relayed; the speaker is not named</td></tr>
+            <tr><td data-label="Term">Operators</td><td data-label="Detail">I Interiority, II Kin-Network, III Constructal-Network, IV Social-Network, V Weights &rarr; I&prime;</td><td data-label="Note">The standing five of this page</td></tr>
+            <tr><td data-label="Term">Object</td><td data-label="Detail">Christianity as a living system, from the Jesus movement to imperial government</td><td data-label="Note">From the second reply</td></tr>
+            <tr><td data-label="Term">Image</td><td data-label="Detail">Roman roads and imperial limits around the eastern Mediterranean</td><td data-label="Note">Placed in III, where routing lives</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">This page does not summarise the talk. The two replies below never engage what was said in it, and neither does my round in V.</p>
+    </div>
+  </section>
+
+  <section class="pos" id="t-voices">
+    <div class="num" aria-hidden="true">II</div>
+    <div class="content">
+      <h2>Kin-Network</h2>
+      <p class="sub"><span class="op">Represent</span><span>Who sits at the table</span></p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Seat</th><th>Rounds</th><th>Stance</th><th>What it added</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Seat"><span class="st ok">Abimereki</span></td><td data-label="Rounds">1 prompt</td><td data-label="Stance">Relays the claim, supplies the five operators, asks for the transformation tracked</td><td data-label="Added">The framework, and the correction that III is the architectural center</td></tr>
+            <tr><td data-label="Seat"><span class="st blue">ChatGPT</span></td><td data-label="Rounds">2 replies</td><td data-label="Stance">Reply 1 qualifies the claim; reply 2 builds the full pentad</td><td data-label="Added">Imperialism against nationalism; two feedback loops; I&prime; as a different situated interiority</td></tr>
+            <tr><td data-label="Seat"><span class="st mid">Claude</span></td><td data-label="Rounds">1, in V below</td><td data-label="Stance">Reproduces first, then checks the model</td><td data-label="Added">Where the pentad overlaps itself, and what would make it fail</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">The attribution of the two replies to ChatGPT is my inference from the image stubs and the utm_source=chatgpt.com links in the pasted text. It is not stated in what you supplied.</p>
+    </div>
+  </section>
+
+  <section class="pos center" id="t-routes">
+    <div class="num" aria-hidden="true">III</div>
+    <div class="content">
+      <h2>Constructal-Network</h2>
+      <p class="sub"><span class="op">Reconfigure</span><span>The routes, and the earlier rounds verbatim</span></p>
+
+      <figure class="fig map">
+        <img src="ukhona/christianity-routing.jpeg" alt="Map of the eastern Mediterranean showing Roman roads in red, the limits of the Roman Empire as a dashed line, and cities from Rome and Carthage to Antioch, Jerusalem and Alexandria. Via Egnatia, Via Appia and Via Sebaste are labelled." loading="lazy">
+        <figcaption>Roman roads (red) and the limits of the empire (dashed). Read as routing: the flow does not cross the sea or the mountains by will, it follows the trunk lines. Antioch, Alexandria, Ancyra, Memphis, Tripolis and Berytus are marked as major nodes; Nicaea and Byzantium sit where the roads of Bithynia converge on the Bosphorus. Map as supplied; its source and date are not known to me. File expected at <code>ukhona/christianity-routing.jpeg</code>.</figcaption>
+      </figure>
+
+      <h3>Reading the map on the pentad</h3>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Place on the map</th><th>Position</th><th>Why it sits there</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Place">Jerusalem</td><td data-label="Position">I Interiority</td><td data-label="Why">Where the Jesus movement begins, inside the Syria-Palestine road mesh</td></tr>
+            <tr><td data-label="Place">Antioch</td><td data-label="Position">II Kin-Network</td><td data-label="Why">A major node where, in Acts 11:26, the disciples are first called Christians</td></tr>
+            <tr><td data-label="Place">Philippi, Thessalonica, Corinth, Ephesus</td><td data-label="Position">III Constructal</td><td data-label="Why">Pauline-era cities on or near the trunk lines, Via Egnatia among them</td></tr>
+            <tr><td data-label="Place">Alexandria</td><td data-label="Position">III Constructal</td><td data-label="Why">Where the Arian dispute that Nicaea addressed began</td></tr>
+            <tr><td data-label="Place">Rome</td><td data-label="Position">IV Social</td><td data-label="Why">The capital and its elite society, where the western roads converge</td></tr>
+            <tr><td data-label="Place">Nicaea</td><td data-label="Position">V Weights</td><td data-label="Why">The council of 325, called by the emperor, held where the Bithynian roads meet</td></tr>
+            <tr><td data-label="Place">Byzantium</td><td data-label="Position">I&prime; Transformed</td><td data-label="Why">Refounded as Constantinople in 330, the new center of the imperial arrangement</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">The map shows roads, not Christians. Every row above is my reading of the labels plus standard history, not something the map itself records.</p>
+
+      <h3>The rounds, verbatim</h3>
+      <div class="tools-row">
+        <button class="mini" id="open-all-t" type="button">Expand all</button>
+        <button class="mini" id="close-all-t" type="button">Collapse all</button>
+      </div>
+<details class="round"><summary><span class="st ok">Abimereki</span><span class="rl">01 &middot; Prompt as supplied: the claim, the pentad, the ask</span><span class="ln">pasted text</span></summary><pre class="verb">someone called Constatine the first christian nationalist.   ()  I. Interiority II. Kin-Network III. Constructal-Network IV. Social-Network V. Weights -&gt; I'. Lets track this transformation of chrristianity using these operators. ()</pre></details>
+<details class="round"><summary><span class="st blue">ChatGPT</span><span class="rl">02 &middot; Reply 1: Constantine, imperialism and nationalism</span><span class="ln">pasted text</span></summary><pre class="verb">That's an interesting characterization, but I'd distinguish between Christian nationalism and Christian imperialism. Constantine the Great (272–337 CE) is a much stronger candidate for the latter.
+
+There is a substantial historical argument behind the claim.
+
+### What Constantine actually did
+
+Constantine the Great
+
+Roman emperor, 306–337 CE. Following his conversion to Christianity (traditionally associated with 312), he transformed the relationship between imperial authority and Christianity.
+
+Three developments matter:
+
+1\. 313 – Edict of Milan. Christianity received legal protection, alongside other religious traditions. Confiscated Christian property was to be restored. This was toleration, not yet establishment of Christianity as the state religion.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://openstax.org\&amp;sz=32)
+
+OpenStax+1
+
+
+
+2\. 325 – Council of Nicaea. Constantine convened the bishops to resolve Christian doctrinal disputes. The emperor was now intervening in the definition and institutional unity of the faith.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.cambridge.org\&amp;sz=32)
+
+Cambridge University Press+1
+
+
+
+3\. Imperial patronage. Christianity acquired money, property, prestige, legal recognition and an increasingly consequential relationship with the machinery of imperial government.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.cambridge.org\&amp;sz=32)
+
+cambridge.org+1
+
+
+
+One important correction: it was Theodosius I in 380, not Constantine, who established Nicene Christianity as the officially prescribed religion of the Roman Empire.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.cambridge.org\&amp;sz=32)
+
+Cambridge University Press+1
+
+
+
+### But was Constantine the first Christian nationalist?
+
+There are two problems with that description.
+
+First, nationalism is anachronistic.
+
+The modern political concept of nationalism emerged much later, particularly in the seventeenth and eighteenth centuries. Rome was a universal empire, not a nation-state.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.cambridge.org\&amp;sz=32)
+
+Cambridge University Press+1
+
+
+
+Second, Constantine wasn't even the first Christian sovereign associated with making Christianity a state religion.
+
+King Tiridates III of Armenia is traditionally credited with adopting Christianity for his kingdom around 301 CE, although the chronology is disputed, with some scholarship favoring 314–315.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.iranicaonline.org\&amp;sz=32)
+
+Encyclopaedia Iranica+1
+
+
+
+### The more interesting proposition
+
+I'd put it this way:
+
+Constantine helped transform Christianity from a persecuted trans-imperial community into an institution of imperial power.
+
+That transformation has enormous historical consequences.
+
+Consider the distinction:
+
+| Before Constantine                   | After Constantine                            |
+| ------------------------------------ | -------------------------------------------- |
+| Church under empire                  | Church patronized by empire                  |
+| Christian community                  | Public institution                           |
+| Religious persecution                | Imperial protection                          |
+| Apostolic authority                  | Increasing imperial involvement in orthodoxy |
+| Faith transcending political borders | Faith intertwined with imperial legitimacy   |
+
+The irony is profound. Christianity began with a crucified man executed by Roman imperial authority. Within a few centuries, imperial authority had become one of Christianity's principal instruments of institutional enforcement.
+
+And that is probably the more consequential historical ancestry of Christian nationalism: the political appropriation of a universal religion as an instrument of collective identity, institutional legitimacy and power.
+
+I'd call Constantine an architect of Christian imperialism, and an important historical precursor to Christian nationalism, rather than literally its first practitioner.</pre></details>
+<details class="round"><summary><span class="st blue">ChatGPT</span><span class="rl">03 &middot; Reply 2: the transformation of Christianity on the five operators</span><span class="ln">pasted text</span></summary><pre class="verb">Now we're getting somewhere. The important thing is that we should not describe this as Christianity simply becoming more powerful. We should track how the source, relationships, routing architecture, social environment, and allocation of resources change together.
+
+I would model the transformation as:
+
+\\[ I \rightarrow II \rightarrow III \rightarrow IV \rightarrow V \rightarrow I' \\]
+
+Our object of study is Christianity as a living system, from the Jesus movement to its incorporation into Roman imperial government.
+
+And I would preserve your correction: III, the Constructal-Network, is the architectural center. It is where the flow encounters obstacles and develops new routes.
+
+# The transformation of Christianity
+
+## I. Interiority — the original source of flow
+
+C. 30–100 CE · THE JESUS MOVEMENT
+
+[Three of the oldest images of Jesus portray him as the “Good Shepherd”](https://images.openai.com/static-rsc-4/Rwuix8jbQeUoLr4J2H8X_nhE3YoRZzeMOUsRGQHSfofbXObAvnFslPKGnO1rBu4Z8mP1WwNJcARC5MiKZ8C3B58Ej2RiBvMAuDk4LiATVgNdWOxAc_G9O_SYLAmz_6Ukk5qm-7ySFRlsL1qGKVQ86heNhjdxKPelHv-4YQEXHqA?purpose=inline)
+
+[aleteia.org](https://aleteia.org/2019/05/12/three-of-the-oldest-images-of-jesus-portrays-him-as-the-good-shepherd/?utm_source=chatgpt.com)
+
+The initial source is not an empire, a state, or even an established church.
+
+It is a religious movement rooted in Jewish theological and social life, organized around the claims concerning Jesus:
+
+- The Kingdom of God.
+- The Messiah.
+- Resurrection.
+- Repentance and redemption.
+- The expectation of divine judgment.
+- A radically reconfigured understanding of belonging and obligation.
+
+There is a crucial distinction here: the original source of flow is not Constantine's political ambition. We should not project his later imperial concerns backward onto the Jesus movement.
+
+The initial Credo: ultimate authority does not reside in Caesar.
+
+Rome executes Jesus. Christianity subsequently develops a universal religious community under the shadow of Roman imperial authority.
+
+## II. Kin-Network — the multiplication of belonging
+
+C. 30–200 CE · HOUSEHOLDS AND CONGREGATIONS
+
+[Christian Art Before the Peace](https://images.openai.com/static-rsc-4/Ic99qfsUkPu16IP0U_7TLIWlJXS-b9AHd55mmAeJaxsmu0W5KOtED_e6nE5PUwtQH3bwqLvrBVSCPLQEi6u4txxB9GUK3b_VvsC_UM4yPBd6DFwBjTkYzgnd26NoOFNPFhxquXRhdmcZjpC7_BRCuJxBmMR9biV61lotNO1k73k?purpose=inline)
+
+[ssmith.people.ysu.edu](https://ssmith.people.ysu.edu/ecbyzwebpage/Christian%20Art%20Before%20the%20Peace.html?utm_source=chatgpt.com)
+
+The movement develops a new form of kinship.
+
+The defining relationship is no longer exclusively biological descent, tribal affiliation, or Roman citizenship.
+
+It includes:
+
+- Brothers and sisters in Christ.
+- Shared ritual and communal meals.
+- Household congregations.
+- Apostolic succession and teacher-disciple relationships.
+- Mutual aid and obligations across households.
+
+This is an important network innovation.
+
+Christianity can reproduce itself without requiring biological reproduction. Its kinship architecture is portable.
+
+The household becomes a node, but the identity extends beyond the household.
+
+Wayne Meeks's account of early Christian social organization emphasizes precisely this movement from the Jewish beginnings to urban house congregations throughout the Roman world.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.cambridge.org\&amp;sz=32)
+
+Cambridge University Press+1
+
+
+
+## III. Constructal-Network — the architectural transformation
+
+The structural hinge
+
+C. 50–325 CE · ROUTING, SCALING AND INSTITUTIONALIZATION
+
+[Roman roads at the time of S. Paul](https://images.openai.com/static-rsc-4/yeHexi-b5iZSGh3tv_uuvNHDMfbZfM9Vpzfc4QaBt64yu4QJlY18tu0-PeVchYVxliFt1QrJxYlTlNR1FZIvLIBn4V977Dbh2VZJD5UClTB-4P4Ar4HlcD7jPSd9V5ZjHuNv5XhwCyfaGfLebYFpDg71gsAOYL2Z2bUK6xzT5cc?purpose=inline)
+
+[mystereetvie.com](https://www.mystereetvie.com/Carte_voies_ext_e.html?utm_source=chatgpt.com)
+
+This is where the story becomes especially interesting.
+
+Christianity exploits pre-existing Roman infrastructure:
+
+- Roads.
+- Ports.
+- Urban centers.
+- Greek as a common language.
+- Diaspora Jewish communities.
+- Correspondence and itinerant teachers.
+
+The Roman Empire unintentionally supplies much of the architecture through which Christianity propagates.
+
+But the network encounters obstacles:
+
+| Obstacle                    | Constructal response                           |
+| --------------------------- | ---------------------------------------------- |
+| Geographic distance         | Roads, ports, correspondence                   |
+| Ethnic boundaries           | Gentile inclusion                              |
+| Household fragmentation     | Congregations and inter-household solidarity   |
+| Doctrinal variation         | Teaching, creeds, episcopal coordination       |
+| Local persecution           | Adaptive meeting and organizational structures |
+| Institutional fragmentation | Synods and eventually ecumenical councils      |
+
+Notice the transition.
+
+Before Constantine, Christianity is increasingly capable of routing itself through the Roman Empire.
+
+Under Constantine, the imperial apparatus itself becomes available as part of the routing architecture.
+
+That is a different system.
+
+The Council of Nicaea in 325 is particularly important: a dispute concerning Christian doctrine now becomes a matter for an emperor who wants a unified church across an empire too large to coordinate through local congregations alone.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.cambridge.org\&amp;sz=32)
+
+Cambridge University Press+1
+
+
+
+This is not simply expansion. It is a change in network topology.
+
+## IV. Social-Network — Christianity enters the wider society
+
+C. 150–380 CE · FROM MINORITY COMMUNITY TO PUBLIC INSTITUTION
+
+[Cosa vedere all'Aventino: itinerario e come arrivare — idealista/news](https://images.openai.com/static-rsc-4/d-ozU9qeUQIhCvETdv5m9pxUe0xreQNwAMIOKGcNPEcR6189vtey5t7H45tUKYCxLNMJvjUPdZny9SsXyHnUC-sqEXzOrJ6lOvcnjwHkDpG0RJHsfzP4cdxrqtY99vlumK_evy_3FC-AeQULfyDgw8NsltvvwmUgWGUR4JwCqE8?purpose=inline)
+
+[idealista.it](https://www.idealista.it/news/vacanze/mete-turistiche/2024/10/08/183605-cosa-vedere-all-aventino-giardini-e-viste-panoramiche-nel-cuore-di-roma?utm_source=chatgpt.com)
+
+Here the network encounters the broader social order.
+
+Christianity is no longer just a network of households communicating with one another. It increasingly intersects with:
+
+- Roman aristocrats and political elites.
+- Merchants and urban tradespeople.
+- Enslaved people and freed people.
+- The military and imperial bureaucracy.
+- Local civic institutions.
+- The emperor himself.
+
+Importantly, Christian leaders begin acquiring forms of public authority previously associated with the civic elite.
+
+By Constantine's death in 337, bishops and other Christian leaders had acquired considerable public prominence, including aspects of the rank, dress and responsibilities of traditional civic elites.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.cambridge.org\&amp;sz=32)
+
+Cambridge University Press+1
+
+
+
+This introduces a new relationship:
+
+Christianity is no longer simply a network within Roman society. It is becoming an actor capable of reorganizing Roman society.
+
+The Social-Network has changed its position relative to the system it inhabits.
+
+## V. Weights — the redistribution of power
+
+313–380 CE · PATRONAGE, LEGITIMACY AND COERCIVE CAPACITY
+
+[The colossal statue of Emperor Constantine the Great in Rome](https://images.openai.com/static-rsc-4/byVDTZYmz5zEZ5nXHZfa4SVbn9ZO_fIqUIi_exY2u1PFDD2efkunxlUC_pUV0DxaGDL91_p0qGBGqxlu9KuUHfipzeGMAyTXllHv--9a2ooAS6Lptixvk4AoUgs7kH-TZWYGOGCLtSM9yRVwaxwuNZqqZl-hhJCnWLtPm4OIQbZKEv5CAdW5QQRgJ7k_3ChC?purpose=inline)
+
+This is where Constantine becomes pivotal.
+
+Let's use your Weights vocabulary.
+
+| Weight          | Before Constantine                            | Under Constantine                                         |
+| --------------- | --------------------------------------------- | --------------------------------------------------------- |
+| Budget          | Household resources, donations                | Imperial land, money, building patronage                  |
+| Expected payoff | Salvation, belonging, mutual aid              | These plus public status and institutional access         |
+| Survival        | Episodic persecution and social vulnerability | Imperial protection and patronage                         |
+| Graveyard       | Martyrdom, failed communities, suppression    | Exile, doctrinal factionalism, institutional displacement |
+| Unknowns        | Growth, persecution, theological disputes     | Imperial succession, orthodoxy, competing Christianities  |
+
+Three dates anchor the reweighting:
+
+313 — Legal protection. Constantine and Licinius establish religious toleration and restoration of confiscated Christian property.
+
+325 — Nicaea. Constantine convenes a council to address divisions threatening ecclesiastical unity.
+
+380 — Theodosius I. The Edict of Thessalonica prescribes Nicene Christianity as the imperial religious norm. This is a development beyond Constantine's own reign.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.cambridge.org\&amp;sz=32)
+
+Cambridge University Press+2
+
+
+
+The distinction is that Constantine changes the weights substantially, but his successors continue changing them.
+
+Under the later Christian emperors, religious classification increasingly affects institutional legitimacy and access to imperial protection.
+
+There is a profound change in the payoff structure:
+
+A Christian community now has reasons to seek not merely the survival of its own congregation, but also recognition by the institution that allocates public resources.
+
+This does not mean everyone converts opportunistically. It means the incentive landscape changes.
+
+# I′ — the transformed interiority
+
+This is the most important stage. And it is where I would resist a simplistic story of corruption.
+
+[Why Many People Struggle with What Jesus Probably Really Looked Like | by Genrivera | Feb, 2026 | Medium](https://images.openai.com/static-rsc-4/1SNLISEtChBd-y-igttuvKMz2QntnS2WO5GrXcULr52D9TfKXGrC33VkRlaLQsZjRuHUSFja1vmMK-wotrJlInjbJAa7wNTgaKdnKH-4sY5CZEBwF0_MVoYWLOf6MAP4qbIjbEw9q1nLg1dJ27baAPujifpxk-zq0v3rgYjxPIs?purpose=inline)
+
+[medium.com](https://medium.com/%40genrivera980/why-many-people-struggle-with-what-jesus-probably-really-looked-like-ebf0291111a0?utm_source=chatgpt.com)
+
+We return to Interiority, but I′ is not I.
+
+The original Christian interiority was formed in a context where the movement existed without imperial sponsorship, and sometimes in opposition to imperial authority.
+
+The emerging imperial Christianity inherits that religious substrate but now encounters a transformed environment.
+
+Consider the changes:
+
+| Original I                             | Transformed I′                                                   |
+| -------------------------------------- | ---------------------------------------------------------------- |
+| Belonging to a movement                | Belonging to a recognized public institution                     |
+| Christ versus Caesar                   | Christ and the Christian emperor                                 |
+| Community under imperial power         | Community with imperial patronage                                |
+| Apostolic teaching and local authority | Increasingly coordinated doctrinal authority                     |
+| Religious identity transcending empire | Religious identity increasingly entangled with imperial identity |
+
+The Christian becomes something potentially different from the original Christian.
+
+Not necessarily less sincere. But differently situated.
+
+The emperor can be understood as God's instrument. The unity of the Church can become a political imperative. Orthodoxy can become a matter of both theological conviction and imperial administration.
+
+And this creates a new interiority from which another cycle begins.
+
+# The complete system
+
+## Christianity: movement → empire
+
+1. I. Interiority
+
+   Jesus movement: Kingdom of God, Messiah, resurrection, redemption.
+2. II. Kin-Network
+
+   Household churches, spiritual kinship, mutual aid, apostolic relationships.
+3. III. Constructal-Network
+
+   Roman roads, ports, language, correspondence, episcopal coordination and councils.
+4. IV. Social-Network
+
+   Penetration of urban society, elites, civic institutions and eventually imperial government.
+5. V. Weights
+
+   Imperial money, patronage, protection, legitimacy, orthodoxy and coercive capacity.
+6. I′. Transformed Interiority
+
+   Christianity now inhabits a world in which religious identity, institutional authority and imperial legitimacy are intertwined.
+
+## Two feedback loops emerge
+
+This is where I think the model becomes particularly powerful.
+
+1\. The reinforcement loop
+
+\\[ \text{Patronage} \rightarrow \text{Infrastructure} \rightarrow \text{Visibility} \rightarrow \text{Conversion} \rightarrow \text{Legitimacy} \rightarrow \text{Patronage} \\]
+
+2\. The discipline loop
+
+\\[ \text{Doctrinal\ divergence} \rightarrow \text{Institutional\ conflict} \rightarrow \text{Imperial\ intervention} \rightarrow \text{Enforced\ orthodoxy} \rightarrow \text{New\ divergence} \\]
+
+Neither loop guarantees a uniform outcome. Fourth-century Christianity remained internally divided, and emperors sometimes supported competing theological factions. Constantine's patronage did not produce an uncontested settlement.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.cambridge.org\&amp;sz=32)
+
+Cambridge University Press+2
+
+
+
+## My central hypothesis
+
+The transformation was not simply:
+
+Christianity conquered Rome.
+
+It was more complicated:
+
+Rome supplied Christianity with a Constructal-Network; Christianity progressively occupied that network; imperial patronage changed the Weights; and the resulting institutional environment transformed Christian Interiority.
+
+The original movement had learned to survive within an empire.
+
+The transformed institution acquired the capacity to participate in governing one.
+
+And there is one further question worth keeping open: what happens to a religious movement's original Credo when the institutional machinery that protects it also begins determining which expressions of that Credo are permissible?
+
+That is the tension between I and I′.</pre></details>
+      <p class="note">Each block is the raw text as supplied, unedited, including markdown marks, image stubs and the typos in your prompt. The prompt for reply 1 and the prompt for reply 2 arrived as one message with () marking where each reply was pasted, so it is kept as one block.</p>
+    </div>
+  </section>
+
+  <section class="pos" id="t-tracked">
+    <div class="num" aria-hidden="true">IV</div>
+    <div class="content">
+      <h2>Social-Network</h2>
+      <p class="sub"><span class="op">Govern</span><span>The transformation, tracked on the five operators</span></p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Position</th><th>Period</th><th>The system at this position</th><th>Constantine&rsquo;s place</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Position">I Interiority</td><td data-label="Period">c. 30&ndash;100</td><td data-label="System">The Jesus movement: Kingdom of God, Messiah, resurrection, redemption. Credo: ultimate authority does not reside in Caesar.</td><td data-label="Constantine">None. His ambition is not projected backward.</td></tr>
+            <tr><td data-label="Position">II Kin-Network</td><td data-label="Period">c. 30&ndash;200</td><td data-label="System">Household churches, spiritual kinship, mutual aid. Portable: it reproduces without biological descent.</td><td data-label="Constantine">None.</td></tr>
+            <tr><td data-label="Position">III Constructal</td><td data-label="Period">c. 50&ndash;325</td><td data-label="System">Roman roads, ports, Greek, letters, councils. Each obstacle gets a route.</td><td data-label="Constantine">A change in topology: the imperial apparatus joins the routing, Nicaea 325.</td></tr>
+            <tr><td data-label="Position">IV Social</td><td data-label="Period">c. 150&ndash;380</td><td data-label="System">Elites, merchants, enslaved and freed people, army, bureaucracy, the emperor.</td><td data-label="Constantine">By his death in 337, bishops hold civic-elite rank and role.</td></tr>
+            <tr><td data-label="Position">V Weights</td><td data-label="Period">313&ndash;380</td><td data-label="System">313 toleration, 325 council, 380 Nicene Christianity prescribed under Theodosius I. Payoffs now include public status.</td><td data-label="Constantine">Pivotal: changes the weights substantially; successors continue.</td></tr>
+            <tr><td data-label="Position">I&prime; Transformed</td><td data-label="Period">after 380</td><td data-label="System">Religious identity, institutional authority and imperial legitimacy intertwined. Not less sincere, differently situated.</td><td data-label="Constantine">Reply 1: an architect of Christian imperialism, a precursor of nationalism, not its first practitioner.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Diagram: the flow and its return</h3>
+      <figure class="fig tall">
+        <svg viewBox="0 0 440 510" role="img" aria-labelledby="fig-d">
+          <title id="fig-d">Pentadic diagram: I Interiority, II Kin-Network, III Constructal-Network, IV Social-Network, V Weights, then I prime, as a downward flow with a curved return from I prime to I.</title>
+          <defs><marker id="tal-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ahead" d="M0 0 L10 5 L0 10 z"/></marker></defs>
+          <line class="arr" x1="90" y1="61" x2="90" y2="105"/>
+          <line class="arr" x1="90" y1="147" x2="90" y2="191"/>
+          <line class="arr" x1="90" y1="233" x2="90" y2="277"/>
+          <line class="arr" x1="90" y1="319" x2="90" y2="363"/>
+          <line class="arr" x1="90" y1="405" x2="90" y2="449"/>
+          <path class="arr mid" d="M 71 470 C 10 470, 10 40, 71 40"/>
+          <circle class="node" cx="90" cy="40" r="17"/><text class="nn" x="90" y="40">I</text>
+          <circle class="node" cx="90" cy="126" r="17"/><text class="nn" x="90" y="126">II</text>
+          <circle class="node mid" cx="90" cy="212" r="19"/><text class="nn mid" x="90" y="212">III</text>
+          <circle class="node" cx="90" cy="298" r="17"/><text class="nn" x="90" y="298">IV</text>
+          <circle class="node" cx="90" cy="384" r="17"/><text class="nn" x="90" y="384">V</text>
+          <circle class="node" cx="90" cy="470" r="17"/><text class="nn" x="90" y="470">I&prime;</text>
+          <text class="nl" x="130" y="36">Interiority</text><text class="nl sm" x="130" y="54">c. 30&ndash;100 &middot; Jesus movement</text>
+          <text class="nl" x="130" y="122">Kin-Network</text><text class="nl sm" x="130" y="140">c. 30&ndash;200 &middot; households, congregations</text>
+          <text class="nl" x="130" y="208">Constructal-Network</text><text class="nl sm" x="130" y="226">c. 50&ndash;325 &middot; roads, letters, councils</text>
+          <text class="nl" x="130" y="294">Social-Network</text><text class="nl sm" x="130" y="312">c. 150&ndash;380 &middot; elites, bureaucracy, emperor</text>
+          <text class="nl" x="130" y="380">Weights</text><text class="nl sm" x="130" y="398">313&ndash;380 &middot; patronage, legitimacy, coercion</text>
+          <text class="nl" x="130" y="466">Transformed interiority</text><text class="nl sm" x="130" y="484">after 380 &middot; faith tied to the state</text>
+        </svg>
+        <figcaption>Read top to bottom. The dashed curve returns I&prime; as the next cycle&rsquo;s I. III, in red, is the position the reply calls the architectural center.</figcaption>
+      </figure>
+
+      <h3>Two feedback loops, five steps each</h3>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Step</th><th>Reinforcement loop</th><th>Discipline loop</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Step">1</td><td data-label="Reinforcement">Patronage</td><td data-label="Discipline">Doctrinal divergence</td></tr>
+            <tr><td data-label="Step">2</td><td data-label="Reinforcement">Infrastructure</td><td data-label="Discipline">Institutional conflict</td></tr>
+            <tr><td data-label="Step">3</td><td data-label="Reinforcement">Visibility</td><td data-label="Discipline">Imperial intervention</td></tr>
+            <tr><td data-label="Step">4</td><td data-label="Reinforcement">Conversion</td><td data-label="Discipline">Enforced orthodoxy</td></tr>
+            <tr><td data-label="Step">5</td><td data-label="Reinforcement">Legitimacy, back to patronage</td><td data-label="Discipline">New divergence</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Both loops are as the reply wrote them; I only set them side by side. The reply adds that neither loop guarantees a uniform outcome, since fourth-century Christianity stayed internally divided.</p>
+    </div>
+  </section>
+
+  <section class="pos" id="t-critique">
+    <div class="num" aria-hidden="true">V</div>
+    <div class="content">
+      <h2>Weights &rarr; I&prime;</h2>
+      <p class="sub"><span class="op">Select</span><span>Claude&rsquo;s round, after the reproduction</span></p>
+
+      <figure class="fig wide">
+        <svg viewBox="0 0 440 360" role="img" aria-labelledby="fig-t4">
+          <title id="fig-t4">Pentadic figure of this page: Source, Voices, Routes, Tracked, Critique. Routes is joined to both Source and Critique.</title>
+          <polygon class="ring" points="220,67 332.23,148.54 289.36,280.46 150.64,280.46 107.77,148.54"/>
+          <polygon class="star" points="220,67 289.36,280.46 107.77,148.54 332.23,148.54 150.64,280.46"/>
+          <circle class="node" cx="220" cy="67" r="17"/><text class="nn" x="220" y="67">I</text>
+          <circle class="node" cx="332.23" cy="148.54" r="17"/><text class="nn" x="332.23" y="148.54">II</text>
+          <circle class="node mid" cx="289.36" cy="280.46" r="19"/><text class="nn mid" x="289.36" y="280.46">III</text>
+          <circle class="node" cx="150.64" cy="280.46" r="17"/><text class="nn" x="150.64" y="280.46">IV</text>
+          <circle class="node" cx="107.77" cy="148.54" r="17"/><text class="nn" x="107.77" y="148.54">V</text>
+          <text class="nl" x="220" y="38" text-anchor="middle">Source</text>
+          <text class="nl" x="357" y="153">Voices</text>
+          <text class="nl" x="289.36" y="318" text-anchor="middle">Routes</text>
+          <text class="nl sm" x="289.36" y="334" text-anchor="middle">center</text>
+          <text class="nl" x="150.64" y="318" text-anchor="middle">Tracked</text>
+          <text class="nl" x="83" y="153" text-anchor="end">Critique &rarr; I&prime;</text>
+        </svg>
+        <figcaption>Dashed ring: reading order. Solid diagonals: the routes are the one text joined directly to the source (I) and to the verdict on it (V).</figcaption>
+      </figure>
+
+      <h3>Claude across the five positions</h3>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Position</th><th>Claim in the replies</th><th>Claude&rsquo;s contribution</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Position">I Interiority</td><td data-label="Claim">One clean source: the Jesus movement, whose Credo is that authority does not reside in Caesar</td><td data-label="Contribution">A single source is a modelling choice. The movement grew out of a Jewish world already networked by synagogues and diaspora. &ldquo;Not Caesar&rdquo; is one reading; other early texts, Romans 13 among them, counsel deference, so the Credo is not unambiguous.</td><td data-label="Status"><span class="st mid">Contested reading</span></td></tr>
+            <tr><td data-label="Position">II Kin</td><td data-label="Claim">Household kinship made the movement portable</td><td data-label="Contribution">Plausible and in line with the scholarship named, which I have not checked. Note that these households were Roman households, so kin-network and imperial structure overlap from the start.</td><td data-label="Status"><span class="st ok">Agree</span></td></tr>
+            <tr><td data-label="Position">III Constructal</td><td data-label="Claim">Rome supplied the routes; Constantine changed the topology</td><td data-label="Contribution">The same change is placed at III (topology, 325) and at V (weights, 313 to 380), so III and V overlap in time. Routing also ran outside Roman roads: Armenia, Aksum in the fourth century, Christian communities under Persia. A road network that explains every spread predicts none.</td><td data-label="Status"><span class="st low">Fitted after the fact</span></td></tr>
+            <tr><td data-label="Position">IV Social</td><td data-label="Claim">Bishops acquire civic rank; Christianity becomes an actor in Roman society</td><td data-label="Contribution">Plausible for 337, though estimates of the Christian share of the empire around 300 vary widely, and traditional religion persisted well into the fourth century. The rise was gradual and uneven by region.</td><td data-label="Status"><span class="st mid">Agree in part</span></td></tr>
+            <tr><td data-label="Position">V Weights</td><td data-label="Claim">313, 325 and 380 reweight the payoffs; the weights table</td><td data-label="Contribution">The three dates are standard, and reply 1 rightly separates toleration in 313 from establishment in 380. The weights table is asserted row by row, not sourced; &ldquo;Graveyard&rdquo; and &ldquo;Unknowns&rdquo; carry no evidence. Constantine&rsquo;s own baptism came shortly before his death in 337, which complicates &ldquo;Christian&rdquo; as his category.</td><td data-label="Status"><span class="st mid">Agree in part</span></td></tr>
+            <tr><td data-label="Position">I&prime; Transformed</td><td data-label="Claim">Faith and imperial legitimacy become intertwined; not less sincere, differently situated</td><td data-label="Contribution">I&prime; is described, not tested. Christianity outlived the western empire and persisted under Persian rule, so imperial weights were not a one-way ratchet. Reply 1 also calls &ldquo;nationalism&rdquo; anachronistic but then uses &ldquo;imperialism,&rdquo; itself a modern term; the objection cuts both ways.</td><td data-label="Status"><span class="st mid">Untested</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Claude against each voice</h3>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Voice</th><th>Agree</th><th>Dissent</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Voice"><span class="st ok">Abimereki</span></td><td data-label="Agree">The five operators give a useful way to track a long-run institution</td><td data-label="Dissent">The question asked was whether &ldquo;first Christian nationalist&rdquo; fits. The pentad answers a different question, how routing changed weights, and does not settle the label</td></tr>
+            <tr><td data-label="Voice"><span class="st blue">ChatGPT, reply 1</span></td><td data-label="Agree">Toleration in 313 is not establishment; Theodosius in 380; nationalism is anachronistic</td><td data-label="Dissent">&ldquo;Imperialism&rdquo; carries the same anachronism; &ldquo;architect&rdquo; is stronger than the evidence shown</td></tr>
+            <tr><td data-label="Voice"><span class="st blue">ChatGPT, reply 2</span></td><td data-label="Agree">III as center; the two loops; resisting a story of simple corruption</td><td data-label="Dissent">The positions overlap in date; citations and tables are unchecked; the image stubs carry no evidence</td></tr>
+            <tr><td data-label="Voice"><span class="st plum">Talarico, video</span></td><td data-label="Agree">Not assessed</td><td data-label="Dissent">Not assessed. I have not watched it, and no round engages it</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Next tests</h3>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Question</th><th>Would count against the model if&hellip;</th><th>Data</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Question">Does road proximity predict early Christian presence?</td><td data-label="Against">No relation once city size is held fixed</td><td data-label="Data">Lists of early communities laid over this map and population estimates</td></tr>
+            <tr><td data-label="Question">Did Christianity spread without Roman roads?</td><td data-label="Against">Cases outside the empire follow the same pattern as cases inside</td><td data-label="Data">Armenia, Aksum, Persia: dates and routes</td></tr>
+            <tr><td data-label="Question">Did patronage change conversion?</td><td data-label="Against">Conversion pace is flat across 313</td><td data-label="Data">Inscriptions, church building and naming data before and after</td></tr>
+            <tr><td data-label="Question">Does I&prime; persist without imperial weights?</td><td data-label="Against">Enforced orthodoxy fades once the state withdraws</td><td data-label="Data">The western empire after 476; the Church under Persian rule</td></tr>
+            <tr><td data-label="Question">Is &ldquo;Christian nationalism&rdquo; the right category?</td><td data-label="Against">A fixed definition, applied to fourth-century evidence, fits Constantine</td><td data-label="Data">Define the criteria first, then score each act against them</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="verdict">
+        <p>Salient: Rome supplied the routes and the emperor changed the weights. Whether that is &ldquo;nationalism&rdquo; is a question of definition, not of routing.</p>
+        <small>The map shows roads, not Christians. Laying the communities over it is the test.</small>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Replies 1 and 2 are pasted text, reproduced unedited in III. Dates are standard accounts; the ChatGPT attribution, the map reading in III and everything in V are Claude&rsquo;s own.</p>
+    <p>Video: <a href="https://www.youtube.com/watch?v=Blph_2RSBno" target="_blank" rel="noopener">youtube.com/watch?v=Blph_2RSBno</a>, as supplied.</p>
+  </footer>
+</main>
+
+<main id="ref-top" hidden>
+  <p class="eyebrow">References &middot; Sunday 8 November 2026</p>
+  <h1>References</h1>
+  <p class="lede">Six Ukubona pages this site draws on, what each holds as far as I could read it, how their pentad vocabularies line up, and what is still unread. Read through five positions.</p>
+  <ul class="ops" aria-label="Operators">
+    <li><b>I</b> Generate</li>
+    <li><b>II</b> Represent</li>
+    <li class="mid"><b>III</b> Reconfigure</li>
+    <li><b>IV</b> Govern</li>
+    <li><b>V</b> Select</li>
+  </ul>
+
+  <section class="pos" id="r-links">
+    <div class="num" aria-hidden="true">I</div>
+    <div class="content">
+      <h2>Interiority</h2>
+      <p class="sub"><span class="op">Generate</span><span>The six pages</span></p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Page</th><th>Title</th><th>What it holds</th><th>Pentad on the page</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Page"><a href="https://ukubona-llc.github.io/falsifiable/" target="_blank" rel="noopener">falsifiable</a></td><td data-label="Title">Ledger of Falsifiables &middot; Ukubona</td><td data-label="Holds">Not retrieved. The title suggests a ledger of falsifiable claims; that is an inference.</td><td data-label="Pentad">Unknown</td></tr>
+            <tr><td data-label="Page"><a href="https://ukubona-llc.github.io/gtpci-seminar/" target="_blank" rel="noopener">gtpci-seminar</a></td><td data-label="Title">Perioperative and Long-term Outcomes Following Living Kidney Donation</td><td data-label="Holds">A doctoral seminar deck: short- and long-term risks of living kidney donation, and calculators that give donors personal risk estimates for informed consent. Three aims.</td><td data-label="Pentad">None; it uses groups of three</td></tr>
+            <tr><td data-label="Page"><a href="https://ukubona-llc.github.io/dwarkesh/" target="_blank" rel="noopener">dwarkesh</a></td><td data-label="Title">dwarkesh</td><td data-label="Holds">A chat-format Q&amp;A about a podcast host&rsquo;s speaking style and the author&rsquo;s reaction to it.</td><td data-label="Pentad">None</td></tr>
+            <tr><td data-label="Page"><a href="https://ukubona-llc.github.io/sam-altman/" target="_blank" rel="noopener">sam-altman</a></td><td data-label="Title">Altman, Pentads, Margin Call</td><td data-label="Holds">A session of 27 October 2026 comparing AI and human analyses of Sam Altman with several pentads, a finance pentad as canonical. Ten sections, including a contradiction ledger and executive decisions.</td><td data-label="Pentad">Finance pentad; others marked unreconciled or rejected</td></tr>
+            <tr><td data-label="Page"><a href="https://ukubona-llc.github.io/stress/" target="_blank" rel="noopener">stress</a></td><td data-label="Title">Pentadic Critique</td><td data-label="Holds">A Gemini session and ChatGPT comments on the author&rsquo;s schemas, then a critique, a cortisol pentad, an enterprise case, and lenses from Schopenhauer, Girard and Thiel.</td><td data-label="Pentad">Several: author&rsquo;s, neural, cortisol, enterprise</td></tr>
+            <tr><td data-label="Page"><a href="https://ukubona-llc.github.io/hermeneutics/" target="_blank" rel="noopener">hermeneutics</a></td><td data-label="Title">Art is SoftMax, Life is ArgMax</td><td data-label="Holds">Eighteen exchanges presented as one five-stage framework, with a figure, a multi-lens table and diagrams.</td><td data-label="Pentad">Engine to Life, with a return to the next Engine</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Titles and summaries are from fetching each page, not from a full reading. Links open in a new tab.</p>
+    </div>
+  </section>
+
+  <section class="pos" id="r-vocab">
+    <div class="num" aria-hidden="true">II</div>
+    <div class="content">
+      <h2>Kin-Network</h2>
+      <p class="sub"><span class="op">Represent</span><span>Five positions, five vocabularies</span></p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Position</th><th>This site</th><th>Hermeneutics</th><th>Stress: author&rsquo;s schema</th><th>Stress: cortisol</th><th>Sam Altman: finance</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Position">I</td><td data-label="This site">Interiority</td><td data-label="Hermeneutics">Engine</td><td data-label="Stress schema">Principal</td><td data-label="Cortisol">Engine</td><td data-label="Finance">Kapital</td></tr>
+            <tr><td data-label="Position">II</td><td data-label="This site">Kin-Network</td><td data-label="Hermeneutics">Sample / Attention</td><td data-label="Stress schema">Representation</td><td data-label="Cortisol">Sample</td><td data-label="Finance">Representation</td></tr>
+            <tr><td data-label="Position">III</td><td data-label="This site">Constructal-Network</td><td data-label="Hermeneutics">Recombination</td><td data-label="Stress schema">Agent and Gamete</td><td data-label="Cortisol">Recombination</td><td data-label="Finance">Agents</td></tr>
+            <tr><td data-label="Position">IV</td><td data-label="This site">Social-Network</td><td data-label="Hermeneutics">Distribution</td><td data-label="Stress schema">Payoff-Rank</td><td data-label="Cortisol">SoftMax</td><td data-label="Finance">Milieu</td></tr>
+            <tr><td data-label="Position">V</td><td data-label="This site">Weights</td><td data-label="Hermeneutics">Life</td><td data-label="Stress schema">Graveyard, Survivors, Budget</td><td data-label="Cortisol">ArgMax</td><td data-label="Finance">Cash</td></tr>
+            <tr><td data-label="Position">I&prime;</td><td data-label="This site">Next I</td><td data-label="Hermeneutics">Next-generation Engine</td><td data-label="Stress schema">I&prime;</td><td data-label="Cortisol">Updated Engine</td><td data-label="Finance">Feeds the next round</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Aligned by position number, not by proven identity. The stress page itself proposes remapping several labels, and the Sam Altman page marks some of its pentads unreconciled. Read the columns as parallel, not equal.</p>
+    </div>
+  </section>
+
+  <section class="pos center" id="r-routes">
+    <div class="num" aria-hidden="true">III</div>
+    <div class="content">
+      <h2>Constructal-Network</h2>
+      <p class="sub"><span class="op">Reconfigure</span><span>Where each reference meets the other tabs</span></p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Reference</th><th>Meets</th><th>Route</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Reference">falsifiable</td><td data-label="Meets">Algorithm, Rule 1</td><td data-label="Route">Rule 1 points to its labels anchor as the home of the label-as-falsifiable-claim idea</td><td data-label="Status"><span class="st low">Unread page</span></td></tr>
+            <tr><td data-label="Reference">hermeneutics</td><td data-label="Meets">Algorithm, recent pentad</td><td data-label="Route">Engine and Sample open both; SoftMax and ArgMax recur in the Algorithm tab&rsquo;s softmax section</td><td data-label="Status"><span class="st mid">Plausible</span></td></tr>
+            <tr><td data-label="Reference">stress</td><td data-label="Meets">Algorithm, recent pentad</td><td data-label="Route">The cortisol pentad (Engine, Sample, Recombination, SoftMax, ArgMax) overlaps the same vocabulary</td><td data-label="Status"><span class="st mid">Plausible</span></td></tr>
+            <tr><td data-label="Reference">sam-altman</td><td data-label="Meets">Vocabulary table above</td><td data-label="Route">Supplies the finance pentad; its V, Cash, is a gate with three outcomes</td><td data-label="Status"><span class="st ok">As read</span></td></tr>
+            <tr><td data-label="Reference">gtpci-seminar</td><td data-label="Meets">None</td><td data-label="Route">No pentad on the page; kept as the clinical-investigation reference</td><td data-label="Status"><span class="st low">Standalone</span></td></tr>
+            <tr><td data-label="Reference">dwarkesh</td><td data-label="Meets">None</td><td data-label="Route">No pentad on the page</td><td data-label="Status"><span class="st low">Standalone</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">The hermeneutics and stress routes are my reading of two page summaries against the Algorithm tab, not links the pages state.</p>
+    </div>
+  </section>
+
+  <section class="pos" id="r-status">
+    <div class="num" aria-hidden="true">IV</div>
+    <div class="content">
+      <h2>Social-Network</h2>
+      <p class="sub"><span class="op">Govern</span><span>How much of each page I read</span></p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Reference</th><th>Read</th><th>Caveat</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Reference">falsifiable</td><td data-label="Read">Title only</td><td data-label="Caveat">The fetched page had no body text, possibly because it builds itself in the browser. The labels section is unread.</td><td data-label="Status"><span class="st hot">Unread</span></td></tr>
+            <tr><td data-label="Reference">gtpci-seminar</td><td data-label="Read">Whole page</td><td data-label="Caveat">A slide deck; the fetch gave titles and a thesis table, not every slide</td><td data-label="Status"><span class="st ok">Read</span></td></tr>
+            <tr><td data-label="Reference">dwarkesh</td><td data-label="Read">Whole page</td><td data-label="Caveat">The page states claims about the speaker without sources; treat it as the author&rsquo;s reaction, not a finding</td><td data-label="Status"><span class="st ok">Read</span></td></tr>
+            <tr><td data-label="Reference">sam-altman</td><td data-label="Read">Whole page</td><td data-label="Caveat">Summary by headings and pentads; the contradiction ledger was not itemised</td><td data-label="Status"><span class="st ok">Read</span></td></tr>
+            <tr><td data-label="Reference">stress</td><td data-label="Read">First 100,000 of about 148,600 characters</td><td data-label="Caveat">Roughly the last third is unread, which may include later sections</td><td data-label="Status"><span class="st mid">Partly read</span></td></tr>
+            <tr><td data-label="Reference">hermeneutics</td><td data-label="Read">Whole page</td><td data-label="Caveat">The eighteen exchanges were not itemised</td><td data-label="Status"><span class="st ok">Read</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="pos" id="r-diag">
+    <div class="num" aria-hidden="true">V</div>
+    <div class="content">
+      <h2>Weights &rarr; I&prime;</h2>
+      <p class="sub"><span class="op">Select</span><span>What the references add up to</span></p>
+
+      <figure class="fig wide">
+        <svg viewBox="0 0 440 360" role="img" aria-labelledby="fig-t5">
+          <title id="fig-t5">Pentadic figure of this page: Pages, Vocabulary, Routes, Status, Diagnosis. Routes is joined to both Pages and Diagnosis.</title>
+          <polygon class="ring" points="220,67 332.23,148.54 289.36,280.46 150.64,280.46 107.77,148.54"/>
+          <polygon class="star" points="220,67 289.36,280.46 107.77,148.54 332.23,148.54 150.64,280.46"/>
+          <circle class="node" cx="220" cy="67" r="17"/><text class="nn" x="220" y="67">I</text>
+          <circle class="node" cx="332.23" cy="148.54" r="17"/><text class="nn" x="332.23" y="148.54">II</text>
+          <circle class="node mid" cx="289.36" cy="280.46" r="19"/><text class="nn mid" x="289.36" y="280.46">III</text>
+          <circle class="node" cx="150.64" cy="280.46" r="17"/><text class="nn" x="150.64" y="280.46">IV</text>
+          <circle class="node" cx="107.77" cy="148.54" r="17"/><text class="nn" x="107.77" y="148.54">V</text>
+          <text class="nl" x="220" y="38" text-anchor="middle">Pages</text>
+          <text class="nl" x="357" y="153">Vocabulary</text>
+          <text class="nl" x="289.36" y="318" text-anchor="middle">Routes</text>
+          <text class="nl sm" x="289.36" y="334" text-anchor="middle">center</text>
+          <text class="nl" x="150.64" y="318" text-anchor="middle">Status</text>
+          <text class="nl" x="83" y="153" text-anchor="end">Diagnosis &rarr; I&prime;</text>
+        </svg>
+        <figcaption>Dashed ring: reading order. Solid diagonals: the cross-links are the one position joined directly to the pages (I) and to the diagnosis (V).</figcaption>
+      </figure>
+
+      <h3>Diagnosis</h3>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Finding</th><th>Confidence</th><th>Next test</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Finding">Three of the six pages use five-position schemes: hermeneutics, stress and Sam Altman</td><td data-label="Confidence"><span class="st ok">High, as read</span></td><td data-label="Next test">Open falsifiable to see whether it adds a fourth</td></tr>
+            <tr><td data-label="Finding">Positions I and II agree across pages (Engine, Sample, Representation); III and IV drift</td><td data-label="Confidence"><span class="st mid">Medium, from summaries</span></td><td data-label="Next test">Set the page definitions of III and IV side by side</td></tr>
+            <tr><td data-label="Finding">This site&rsquo;s III, Constructal-Network, has no named twin on the other pages</td><td data-label="Confidence"><span class="st mid">Medium</span></td><td data-label="Next test">Check whether Recombination or Agents does the same job</td></tr>
+            <tr><td data-label="Finding">Falsifiable is unread and the stress page is two-thirds read</td><td data-label="Confidence"><span class="st hot">Gap</span></td><td data-label="Next test">Paste the falsifiable text; read stress from character 100,000</td></tr>
+            <tr><td data-label="Finding">The seminar and dwarkesh pages sit outside the pentad cluster</td><td data-label="Confidence"><span class="st ok">High, as read</span></td><td data-label="Next test">None needed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="verdict">
+        <p>Salient: the early positions agree across the references; the middle ones drift.</p>
+        <small>Falsifiable and the last third of the stress page are unread.</small>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Pages: <a href="https://ukubona-llc.github.io/falsifiable/" target="_blank" rel="noopener">falsifiable</a>, <a href="https://ukubona-llc.github.io/gtpci-seminar/" target="_blank" rel="noopener">gtpci-seminar</a>, <a href="https://ukubona-llc.github.io/dwarkesh/" target="_blank" rel="noopener">dwarkesh</a>, <a href="https://ukubona-llc.github.io/sam-altman/" target="_blank" rel="noopener">sam-altman</a>, <a href="https://ukubona-llc.github.io/stress/" target="_blank" rel="noopener">stress</a>, <a href="https://ukubona-llc.github.io/hermeneutics/" target="_blank" rel="noopener">hermeneutics</a>.</p>
+    <p>Summaries come from fetching each page on 8 November 2026. The routes in III and the diagnosis in V are Claude&rsquo;s own reading.</p>
+  </footer>
+</main>
+
 <script>
 (function () {
   var root = document.documentElement;
@@ -1795,10 +2601,10 @@ When a prompt relies heavily on hyper-specific regional cultural touchstones, li
   label();
 
   /* Pages and sections share one waffle menu */
-  var names = ["pork", "case", "algo"];
-  var ids = { pork: "top", "case": "case-top", algo: "algo-top" };
-  var titles = { pork: "Pork Song Pentaduc", "case": "Brand Case Study \u00b7 Pentaduc", algo: "Algorithm \u00b7 Pentaduc" };
-  var subs = { pork: "Pork song", "case": "Case study", algo: "Algorithm" };
+  var names = ["pork", "case", "algo", "tal", "ref"];
+  var ids = { pork: "top", "case": "case-top", algo: "algo-top", tal: "tal-top", ref: "ref-top" };
+  var titles = { pork: "Pork Song Pentaduc", "case": "Brand Case Study \u00b7 Pentaduc", algo: "Algorithm \u00b7 Pentaduc", tal: "Talarico \u00b7 Pentaduc", ref: "References \u00b7 Pentaduc" };
+  var subs = { pork: "Pork song", "case": "Case study", algo: "Algorithm", tal: "Talarico", ref: "References" };
   var tabBtns = {}, panels = {}, secs = {};
   names.forEach(function (k) {
     tabBtns[k] = document.getElementById("tab-" + k);
@@ -1868,7 +2674,7 @@ When a prompt relies heavily on hyper-specific regional cultural touchstones, li
 
   /* Expand or collapse the verbatim rounds */
   function setRounds(open) {
-    document.querySelectorAll("details.round").forEach(function (d) { d.open = open; });
+    document.querySelectorAll("#c-rounds details.round").forEach(function (d) { d.open = open; });
   }
   document.getElementById("open-all").addEventListener("click", function () { setRounds(true); });
   function setA(open) {
@@ -1877,10 +2683,15 @@ When a prompt relies heavily on hyper-specific regional cultural touchstones, li
   document.getElementById("open-all-a").addEventListener("click", function () { setA(true); });
   document.getElementById("close-all-a").addEventListener("click", function () { setA(false); });
   document.getElementById("close-all").addEventListener("click", function () { setRounds(false); });
+  function setT(open) {
+    document.querySelectorAll("#t-routes details.round").forEach(function (d) { d.open = open; });
+  }
+  document.getElementById("open-all-t").addEventListener("click", function () { setT(true); });
+  document.getElementById("close-all-t").addEventListener("click", function () { setT(false); });
 
   /* Deep links */
   var h = location.hash;
-  var which = /^#(case|c-)/.test(h) ? "case" : /^#(algo|a-)/.test(h) ? "algo" : null;
+  var which = /^#(case|c-)/.test(h) ? "case" : /^#(algo|a-)/.test(h) ? "algo" : /^#(tal|t-)/.test(h) ? "tal" : /^#(ref|r-)/.test(h) ? "ref" : null;
   if (which) {
     showTab(which);
     var tgt = document.getElementById(h.slice(1));
