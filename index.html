@@ -3369,6 +3369,20 @@ When a prompt relies heavily on hyper-specific regional cultural touchstones, li
         </table>
       </div>
       <p class="note">Practical trigger: flat softmax, or disagreement across resamples, routes the query to live search. &ldquo;Bland&rdquo; is a separate effect, a pull toward the common answer that post-training may add to; test the two hypotheses separately.</p>
+      <h3>Note: route by sparsity, and the market is already tiering</h3>
+      <p>Most tasks are mundane. The well-cached material is dense in the weights, the softmax is peaked, and a small model should do. Only the sparse tail (niche, regional, thinly archived) needs a larger model or live retrieval. Label each query dense or sparse, then route. The open question is who makes that call.</p>
+      <div class="tw">
+        <table class="stack">
+          <thead><tr><th>Source</th><th>What it supplies</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Source"><a href="https://ukubona-llc.github.io/tree" target="_blank" rel="noopener">Ukubona tree, I. Soil (I&prime;)</a></td><td data-label="Supplies">My a priori ledger, held as a mnemonic and not tested here: Energy / data centers +24%, Matter / GPUs and silicon +42%, Network / cloud and AI +11%, Kapital / tokens &minus;3%, Society / institutions &minus;59%. Its Network row mentions Google Cloud&rsquo;s Model Garden and its Kapital row a hosted Muse lineage.</td><td data-label="Status"><span class="st mid">A priori</span></td></tr>
+            <tr><td data-label="Source"><a href="https://timesofindia.indiatimes.com/technology/tech-news/sundar-pichai-sends-welcome-note-to-mark-zuckerberg-says-excited-to-serve-our-googles-/articleshow/135699570.cms" target="_blank" rel="noopener">Times of India, 10 Nov 2026</a></td><td data-label="Supplies">Reported: Meta&rsquo;s Muse Ember, Muse Spark 1.3 and Muse Wonder are offered through Google Cloud&rsquo;s Model Garden, alongside Gemini. Wonder is the frontier tier, Spark the workhorse for long agentic workflows, Ember the smallest and cheapest, for repeated everyday work and sub-agent execution. The article says to &ldquo;match task complexity to model capability&rdquo;, and puts Ember near Haiku-class quality at about a third of the per-task cost (Meta&rsquo;s claim, as reported; not checked).</td><td data-label="Status"><span class="st mid">Reported</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">I could not fetch the article; its details here come from screenshots of it. The percentages are my ledger, not measured data.</p>
+      <p><strong>Reading.</strong> A tiered catalogue with a stated rule to match task to model is the vendor-side form of this routing idea. It routes by task complexity, not by sparsity, which is a related but different axis. Many cheap agents are fine where weights are dense. The vendor does not say who detects the sparse case.</p>
+      <p><strong>Would count against this if</strong> small-tier models, on a set of mundane queries, show flat softmax or unstable resamples about as often as on niche queries, or a router built on entropy sends confidently wrong answers down the cheap path. A peaked softmax is not proof of a right answer, so entropy alone is a weak router.</p>
     </div>
   </section>
 
@@ -3386,10 +3400,11 @@ When a prompt relies heavily on hyper-specific regional cultural touchstones, li
             <tr><td data-label="Rule">3. Search with variants: spellings, transliterations, partial strings</td><td data-label="Why">Grok&rsquo;s exact-spelling query reportedly missed the common spelling</td><td data-label="Status"><span class="st mid">Test</span></td></tr>
             <tr><td data-label="Rule">4. Label provenance: recalled, retrieved or guessed</td><td data-label="Why">Lets the user weigh the answer. Claude labelled its guesses correctly here.</td><td data-label="Status"><span class="st ok">Adopt</span></td></tr>
             <tr><td data-label="Rule">5. Return title, artist and a source link, not the protected text</td><td data-label="Why">Identification does not need the lyric</td><td data-label="Status"><span class="st ok">Adopt</span></td></tr>
+            <tr><td data-label="Rule">6. Decide who flags sparse weights: the model&rsquo;s own entropy, a separate router, or the human</td><td data-label="Why">Dense tasks can go to small models, so the cost is in the sparse cases, and someone has to detect them. Self-report is weak, and a confident wrong answer also peaks.</td><td data-label="Status"><span class="st hot">Open</span></td></tr>
           </tbody>
         </table>
       </div>
-      <p class="note">Rules 1, 2, 4 and 5 follow from what is visible in the session. Rule 3 rests on one self-report.</p>
+      <p class="note">Rules 1, 2, 4 and 5 follow from what is visible in the session. Rule 3 rests on one self-report. Rule 6 is unresolved.</p>
       <h3>Rule 1 in detail: labelling as a pentad</h3>
       <div class="tw">
         <table class="stack">
