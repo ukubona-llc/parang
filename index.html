@@ -334,6 +334,49 @@ pre.verb {
 .verb.prose > :first-child { margin-top: 0; }
 .verb.prose > :last-child { margin-bottom: 0; }
 
+
+/* Engine tab */
+.eng-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 14px}
+.eng-lab{font:500 11px/1.3 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.chip{min-height:40px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer;font:500 12px/1 var(--font-mono)}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--panel)}
+.eng-wrap{display:flex;flex-direction:column;gap:16px}
+.eng-fig{margin:0;overflow-x:auto}
+.eng-fig.zoom svg{width:1180px;max-width:none}
+#e-fig{grid-template-columns:minmax(0,1fr);}
+#e-fig>.num{display:none}
+.eng-fig svg{display:block;width:100%;height:auto}
+.eng-fig figcaption{margin-top:8px;color:var(--muted);font-size:.88rem;max-width:70ch}
+.eng-detail{order:-1;min-height:9.5rem;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:12px;font-size:.93rem;line-height:1.55}
+.eng-detail h4{margin:0 0 4px;font:700 1.1rem/1.2 var(--font-display)}
+.eng-detail .k{font:500 11px/1.3 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:12px 0 2px}
+.eng-detail p{margin:0 0 8px}
+blockquote.q{margin:0 0 14px;padding:4px 16px;border-left:3px solid var(--accent-2);max-width:68ch}
+blockquote.q p{margin:8px 0}
+blockquote.q cite{display:block;margin:4px 0 8px;font:500 11px/1.3 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-style:normal}
+sup.fn a{text-decoration:none;font:500 .72rem/1 var(--font-mono);padding:0 1px}
+#eng-svg .e-spoke{stroke:var(--line);stroke-width:1;stroke-dasharray:3 5;fill:none;transition:stroke .15s}
+#eng-svg .e-spoke.e-on{stroke:var(--ink);stroke-dasharray:none}
+#eng-svg .e-turn{fill:none;stroke-width:2.2;stroke-linecap:round}
+#eng-svg .c0{--c:var(--accent)}#eng-svg .c1{--c:var(--gold)}#eng-svg .c2{--c:var(--accent-2)}#eng-svg .c3{--c:var(--blue)}#eng-svg .c4{--c:var(--plum)}
+#eng-svg .e-turn{stroke:var(--c)}
+#eng-svg .e-pill{fill:var(--surface);stroke:var(--c);stroke-width:1.4}
+#eng-svg .e-lbl{fill:var(--ink);font-size:12px;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+#eng-svg .e-col{fill:var(--c);font:500 11px var(--font-mono);letter-spacing:.12em;text-anchor:middle;text-transform:uppercase}
+#eng-svg .e-row{fill:var(--muted);font:500 12px var(--font-mono);letter-spacing:.08em}
+#eng-svg .e-fix{fill:none;stroke:var(--c);stroke-width:1.2}
+#eng-svg .e-core{fill:var(--panel);stroke:var(--line);stroke-width:1.2}
+#eng-svg .e-ctext{fill:var(--ink);font-size:11px;text-anchor:middle}
+#eng-svg .e-note{fill:var(--ink);font:400 12px var(--font-mono)}
+#eng-svg .e-head{fill:var(--muted);font:500 10.5px var(--font-mono);letter-spacing:.12em;text-transform:uppercase}
+#eng-svg .e-next .e-pill{stroke:var(--accent);stroke-dasharray:4 3}
+#eng-svg .e-node{cursor:pointer;transition:opacity .15s}
+#eng-svg .e-node:focus-visible{outline:none}
+#eng-svg .e-node:focus-visible .e-pill{stroke-width:3.2}
+#eng-svg.sel .e-node:not(.e-on):not(.e-against):not(.e-cur){opacity:.3}
+#eng-svg .e-on .e-pill,#eng-svg .e-cur .e-pill{fill:var(--panel);stroke-width:3}
+#eng-svg .e-against .e-pill{stroke-dasharray:4 3;stroke-width:3;stroke:var(--accent)}
 </style>
 <script>
 (function () {
@@ -370,6 +413,7 @@ pre.verb {
 <button class="tile" id="tab-do" type="button" role="tab" aria-selected="false" aria-controls="do-top"><strong>D</strong><small>Do That!</small></button>
 <button class="tile" id="tab-sov" type="button" role="tab" aria-selected="false" aria-controls="sov-top"><strong>S</strong><small>Sovereignty</small></button>
 <button class="tile" id="tab-stomp" type="button" role="tab" aria-selected="false" aria-controls="stomp-top"><strong>St</strong><small>Stomp</small></button>
+<button class="tile" id="tab-eng" type="button" role="tab" aria-selected="false" aria-controls="eng-top"><strong>E</strong><small>Engine</small></button>
     <p class="glabel">Sections</p>
     <div class="secs" id="sec-pork">
       <a class="tile" href="#i-body"><strong>I</strong><small>Body</small></a>
@@ -433,6 +477,13 @@ pre.verb {
       <a class="tile" href="#st-rounds" data-center><strong>III</strong><small>Rounds</small></a>
       <a class="tile" href="#st-record"><strong>IV</strong><small>Record</small></a>
       <a class="tile" href="#st-claude"><strong>V</strong><small>Claude</small></a>
+    </div>
+    <div class="secs" id="sec-eng" hidden>
+      <a class="tile" href="#e-source"><strong>I</strong><small>Engines</small></a>
+      <a class="tile" href="#e-grid"><strong>II</strong><small>Grid</small></a>
+      <a class="tile" href="#e-fig" data-center><strong>III</strong><small>Spiral</small></a>
+      <a class="tile" href="#e-taxonomy"><strong>IV</strong><small>History</small></a>
+      <a class="tile" href="#e-ledger"><strong>V</strong><small>Ledger</small></a>
     </div>
   </nav>
 </header>
@@ -6731,6 +6782,296 @@ The commitment locks in after Stomp. Before: solidly inside the Gospel kin-netwo
 </div></section>
 <footer><p>The voices in III are kept as given. The notes in I, the record in IV and everything in V are Claude&rsquo;s own. I have not watched the episode or seen the album credits.</p></footer>
 </main>
+<main id="eng-top" hidden>
+<p class="eyebrow">Engine &middot; Wednesday 11 November 2026</p>
+<h1>The Engine</h1>
+<p class="lede">Physics engines and metaphysics engines, and the 5×5 fractal that compresses them: five lenses, each running the same five operators, drawn as one spiral with the notation kept. Built from boa.md; what is not boa.md is marked.</p>
+<ul class="ops" aria-label="Operators"><li><b>I</b> Generate</li><li><b>II</b> Represent</li><li class="mid"><b>III</b> Reconfigure</li><li><b>IV</b> Govern</li><li><b>V</b> Select</li></ul>
+<section class="pos" id="e-source"><div class="num" aria-hidden="true">I</div><div class="content"><h2>Interiority</h2><p class="sub"><span class="op">Generate</span><span>The two engines, as boa.md has them</span></p>
+<p>boa.md splits every principal by what it is rooted in: physics or metaphysics. The tab asks one thing of that split: whether it sorts most of human history into a tidy taxonomy.<sup class="fn"><a href="#fn-e1" aria-label="Footnote 1">1</a></sup> The five-by-five grid is the instrument. First, the engine itself.</p>
+<h3>The notation, kept as written</h3>
+<details class="round"><summary><span class="st ok">boa.md</span><span class="rl">Legend and the second stack (lines 36–53)</span><span class="ln">verbatim, one typo fixed</span></summary><pre class="verb">P = Principals (rooted in physics vs metaphysics) 
+A = Agent / Satyr 
+i = Principalities (eg 1, grounded / earth / physics; 2, fantastical / Dante’s La Comedia)
+G = Graveyard, Martyrdom , Sainthood 
+
+I. P_ti / Ontological time / Engine
+II. R_tij / Epistemic time / Sample
+III. A_tijk, Γ_tijk / Constructal time / Label
+IV. Collisions(Milieu_t, P_ti, R_tij, A_tijk, Γ_tijk) / Relativistic time / Routing
+V. Allocation(Budget_t, Payoff_{t+T}, Survival_{t+T}, Graveyard_t, Unknown_t) -&gt; I’ / Newtonian time / 
+
+I. Principalities: Thy Kingdom Come
+II. Discipleship: Here on Earth
+III. Orchestra / Swam: Rhythm, Transmission 
+IV. Impact: Principalities / Heavens / Ideal-Constraint, Earth /Team / Flow
+V. Building / Authorization: Ledger, Generational -&gt; I’</pre></details>
+<p class="note"><span class="st mid">fixed</span> Γ<sub>tujk</sub> in IV is corrected to Γ<sub>tijk</sub>, as asked in boa.md.<sup class="fn"><a href="#fn-e5" aria-label="Footnote 5">5</a></sup></p>
+<h3>Where boa.md puts the engine</h3>
+<blockquote class="q"><p><b>Core Axiom:</b> *Time is not a background clock against which events unfold; it is the emergent velocity of state resolution across stratified layers of constraint, compression, and routing.*</p><cite>boa.md</cite></blockquote>
+<ul class="fns" style="list-style:disc;max-width:68ch">
+<li><b>The Root:</b> Anchored in the tension between hard physical invariants (thermodynamics, conservation laws, topological limits) and metaphysical projections (teleology, archetypes, semantic intent).</li><li><b>The Engine:</b> P<sub>ti</sub> functions as the generative engine where principalities (i) are instantiated. Level 1 grounds the system in friction, mass, and energy; Level 2 projects it into hyper-stitched mythologies, narrative architectures, and recursive abstractions (akin to Dante’s *Commedia*).</li><li><b>Resolution:</b> The engine forces a choice between raw physical reality and structured symbolic frameworks, establishing the fundamental boundary conditions for existence.</li></ul>
+<p class="note"><span class="st ok">boa.md</span> Lines 56–61: the axiom and section I of the Architectural Genesis.</p>
+<h3>Principalities are not agents</h3>
+<blockquote class="q"><p>Principalities are not necessarily agents. They are the structured environments of possibility within which agents operate.</p><ul><li>i=1: Grounded principalities — physics, material constraints, thermodynamics, mortality.</li><li>i=2: Fantastical principalities — metaphysics, Dante’s Commedia, heaven, hell, sainthood, martyrdom.</li></ul><p>The second is not necessarily unreal. Its consequences can become quite material through human belief, coordination, and institutional authorization.</p><cite>boa.md</cite></blockquote><sup class="fn"><a href="#fn-e6" aria-label="Footnote 6">6</a></sup>
+<h3>Two engines at a glance</h3>
+<div class="tw"><table class="stack"><thead><tr><th>Engine</th><th>Grounds in</th><th>Reaches people through</th><th>Its graveyard holds</th></tr></thead><tbody>
+<tr><td data-label="Engine">i=1 physics</td><td data-label="Grounds in">Friction, mass, energy (boa.md); thermodynamics, conservation laws, topological limits</td><td data-label="Reaches people through">Measurement and consequence: what fails, breaks or runs out</td><td data-label="Its graveyard holds">Falsified models and failed designs</td></tr>
+<tr><td data-label="Engine">i=2 metaphysics</td><td data-label="Grounds in">Teleology, archetypes, semantic intent; hyper-stitched mythologies and recursive abstractions (boa.md)</td><td data-label="Reaches people through">Belief, coordination and institutional authorization</td><td data-label="Its graveyard holds">Martyrs, saints and the condemned</td></tr>
+</tbody></table></div>
+<p class="note"><span class="st mid">Claude</span> First two columns lean on the boa.md lines above; the last two are my gloss and can be attacked.</p>
+</div></section>
+<section class="pos" id="e-grid"><div class="num" aria-hidden="true">II</div><div class="content"><h2>Kin-Network</h2><p class="sub"><span class="op">Represent</span><span>The 25 cells: five lenses, five operators</span></p>
+<blockquote class="q"><p>Mmmh. This is sort of fractal. Theological is a sort of R<sub>tij</sub> for the P<sub>ti</sub> formal , with the aesthetic fitting so well</p><cite>Abimereki, in boa.md</cite></blockquote>
+<h3>The grid</h3>
+<div class="tw"><table class="stack"><thead><tr><th>#</th><th>Formal</th><th>Theological</th><th>Aesthetic</th><th>Social</th><th>Time</th></tr></thead><tbody>
+<tr><td data-label="#">I</td><td data-label="Formal">P<sub>ti</sub>: engine</td><td data-label="Theological">Principalities: Thy Kingdom Come</td><td data-label="Aesthetic">Patron</td><td data-label="Social">Interiority</td><td data-label="Time">Ontological</td></tr>
+<tr><td data-label="#">II</td><td data-label="Formal">R<sub>tij</sub>: sample</td><td data-label="Theological">Discipleship: here on Earth</td><td data-label="Aesthetic">Commission</td><td data-label="Social">Kin-network</td><td data-label="Time">Epistemic</td></tr>
+<tr><td data-label="#">III</td><td data-label="Formal">A, Γ<sub>tijk</sub>: label</td><td data-label="Theological">Orchestra, swarm, rhythm = score</td><td data-label="Aesthetic">Orchestra, score</td><td data-label="Social">Constructal network</td><td data-label="Time">Constructal</td></tr>
+<tr><td data-label="#">IV</td><td data-label="Formal">Collisions: routing</td><td data-label="Theological">Impact: heaven as constraint, earth as flow</td><td data-label="Aesthetic">Reception</td><td data-label="Social">Social network</td><td data-label="Time">Relativistic</td></tr>
+<tr><td data-label="#">V</td><td data-label="Formal">Allocation → I&prime;: authorization</td><td data-label="Theological">Building, ledger, generational</td><td data-label="Aesthetic">Ledger / archive</td><td data-label="Social">Weights → I&prime;</td><td data-label="Time">Newtonian</td></tr>
+</tbody></table></div>
+<p class="note"><span class="st ok">boa.md</span> Verdict line beside it: accepted as a column, rejected as five independent clocks.<sup class="fn"><a href="#fn-e12" aria-label="Footnote 12">12</a></sup></p>
+<h3>Why the columns are an order</h3>
+<div class="tw"><table class="stack"><thead><tr><th>Column</th><th>Role at the meta-level</th><th>Your reason</th><th>What it does</th></tr></thead><tbody>
+<tr><td data-label="Column">Formal</td><td data-label="Role at the meta-level">I: P<sub>ti</sub>, the engine</td><td data-label="Your reason">The rules everything else answers to</td><td data-label="What it does">Grounds</td></tr>
+<tr><td data-label="Column">Theological</td><td data-label="Role at the meta-level">II: R<sub>tij</sub>, the sample</td><td data-label="Your reason">The finite, human-scale rendering of the formal (discipleship, "here on Earth")</td><td data-label="What it does">Renders</td></tr>
+<tr><td data-label="Column">Aesthetic</td><td data-label="Role at the meta-level">III: Γ<sub>tijk</sub>, transmission</td><td data-label="Your reason">Form that fits so well because it carries the render to others</td><td data-label="What it does">Transmits</td></tr>
+<tr><td data-label="Column">Social</td><td data-label="Role at the meta-level">IV: collisions</td><td data-label="Your reason">Transmission only matters where agents coincide in place and time</td><td data-label="What it does">Collides</td></tr>
+<tr><td data-label="Column">Time</td><td data-label="Role at the meta-level">V: allocation</td><td data-label="Your reason">The one clock that authorizes what survives into I&prime;</td><td data-label="What it does">Authorizes</td></tr>
+</tbody></table></div>
+<div class="tw"><table class="stack"><thead><tr><th>#</th><th>Consequence</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td data-label="#">1</td><td data-label="Consequence">The grid is 5×5</td><td data-label="Why it matters">Each cell is one operator seen through one lens (for example, IV through the aesthetic lens is reception)</td></tr>
+<tr><td data-label="#">2</td><td data-label="Consequence">The columns now have an order</td><td data-label="Why it matters">Reading them out of order should fail predictably, and that is a test</td></tr>
+<tr><td data-label="#">3</td><td data-label="Consequence">The Time column is V at the meta-level, so the clock is itself stratified</td><td data-label="Why it matters">That is why its five entries are five regimes (ontological to Newtonian) and not one, which matches your point that one clock for all only exists at V</td></tr>
+</tbody></table></div>
+<h3>Why the first column is called Formal</h3>
+<p>Because it is the pentad's operator I at the meta level: the engine, 'the rules everything else answers to'. The name does three jobs.<sup class="fn"><a href="#fn-e3" aria-label="Footnote 3">3</a></sup> It says what the column <i>holds</i>: rules, written as formulae. It says what the column <i>is</i>: the only lens whose cells are notation (P<sub>ti</sub>, R<sub>tij</sub>, A<sub>tijk</sub> and Γ<sub>tijk</sub>, Collisions, Allocation). And it places the physics/metaphysics choice: the i index lives in Formal × I, which is why the figure keeps the subscripts. The other four lenses render, carry, collide and clock the same rules; only Formal states them.</p>
+<h3>The diagonal</h3>
+<p>Formal × I, Theological × II, Aesthetic × III, Social × IV, Time × V: each lens playing the operator it plays at the meta-level. On the spiral they sit on spokes I to V in order and are drawn with a double ring.<sup class="fn"><a href="#fn-e4" aria-label="Footnote 4">4</a></sup></p>
+</div></section>
+<section class="pos center" id="e-fig"><div class="num" aria-hidden="true">III</div><div class="content"><h2>Constructal-Network</h2><p class="sub"><span class="op">Reconfigure</span><span>The spiral: one engine, five turns</span></p>
+<p>Each turn of the spiral is a lens, each spoke an operator. Read along a spoke and you see one operator through five lenses; read along a turn and you see one lens run the five operators; the end of V steps out onto spoke I as I′.<sup class="fn"><a href="#fn-e13" aria-label="Footnote 13">13</a></sup><sup class="fn"><a href="#fn-e14" aria-label="Footnote 14">14</a></sup></p>
+<div class="eng-tools" role="group" aria-label="Find a figure on the spiral">
+<span class="eng-lab">Where does it fit?</span>
+<button class="chip" type="button" data-k="dante" aria-pressed="false">Dante</button>
+<button class="chip" type="button" data-k="nietzsche" aria-pressed="false">Nietzsche</button>
+<button class="chip" type="button" data-k="bach" aria-pressed="false">Bach</button>
+<button class="chip" type="button" data-k="newton" aria-pressed="false">Newton</button>
+<button class="chip" type="button" data-k="agent" aria-pressed="false">Digital agents</button>
+<button class="chip" type="button" id="eng-clear">Clear</button>
+<button class="chip" type="button" id="eng-zoom" aria-pressed="false">Zoom</button>
+<button class="chip" type="button" id="eng-theme" aria-label="Toggle light and dark">Light / dark</button>
+</div>
+<div class="eng-wrap">
+<figure class="eng-fig"><svg id="eng-svg" viewBox="0 0 1220 1190" role="img" aria-labelledby="eng-t eng-d" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, system-ui, sans-serif">
+<title id="eng-t">The Engine: a 5×5 fractal drawn as a spiral</title>
+<desc id="eng-d">Five turns of one outward spiral, one per lens: Formal, Theological, Aesthetic, Social, Time. Each turn passes the five operators I to V, so the same operator lies on the same spoke in every turn. The spiral ends at I prime, one step out on the spoke of I. The centre is split into i=1 physics and i=2 metaphysics.</desc>
+<line class="e-spoke" data-row="0" x1="610.0" y1="504.0" x2="610.0" y2="52.0"/>
+<line class="e-spoke" data-row="1" x1="663.3" y1="542.7" x2="1093.1" y2="403.0"/>
+<line class="e-spoke" data-row="2" x1="642.9" y1="605.3" x2="908.6" y2="971.0"/>
+<line class="e-spoke" data-row="3" x1="577.1" y1="605.3" x2="311.4" y2="971.0"/>
+<line class="e-spoke" data-row="4" x1="556.7" y1="542.7" x2="126.9" y2="403.0"/>
+<g><circle class="e-core" cx="610" cy="560" r="56"/><line x1="610" y1="504" x2="610" y2="616" stroke="var(--line)"/><text class="e-ctext" x="579" y="556">i=1</text><text class="e-ctext" x="579" y="571" font-size="9">physics</text><text class="e-ctext" x="641" y="556">i=2</text><text class="e-ctext" x="641" y="571" font-size="9">meta-</text><text class="e-ctext" x="641" y="582" font-size="9">physics</text></g>
+<path class="e-turn c0" data-col="0" d="M610.0 464.0 L615.1 463.5 L620.2 463.2 L625.3 463.2 L630.5 463.5 L635.7 464.1 L640.9 464.9 L646.1 466.0 L651.2 467.4 L656.3 469.1 L661.3 471.1 L666.3 473.3 L671.1 475.9 L675.9 478.7 L680.5 481.7 L685.0 485.0 L689.3 488.6 L693.4 492.5 L697.4 496.5 L701.1 500.8 L704.7 505.3 L708.0 510.1 L711.1 515.0 L713.9 520.1 L716.5 525.4 L718.8 530.8 L720.9 536.4 L722.6 542.2 L724.0 548.0 L725.2 554.0 L726.0 560.0 L726.5 566.1 L726.7 572.3 L726.5 578.5 L726.1 584.7 L725.3 590.9 L724.1 597.1 L722.7 603.2 L720.8 609.4 L718.7 615.4 L716.2 621.3 L713.4 627.2 L710.3 632.9 L706.9 638.5 L703.1 643.9 L699.1 649.1 L694.8 654.1 L690.1 659.0 L685.2 663.6 L680.1 667.9 L674.7 672.0 L669.0 675.8 L663.1 679.4 L657.1 682.6 L650.8 685.5 L644.3 688.1 L637.7 690.4 L631.0 692.4 L624.1 693.9 L617.1 695.1 L610.0 696.0 L602.8 696.5 L595.6 696.6 L588.4 696.3 L581.2 695.6 L573.9 694.6 L566.7 693.1 L559.6 691.3 L552.5 689.1 L545.5 686.5 L538.7 683.6 L531.9 680.2 L525.4 676.5 L519.0 672.4 L512.8 668.0 L506.8 663.2 L501.0 658.1 L495.5 652.7 L490.3 647.0 L485.3 641.0 L480.7 634.7 L476.3 628.1 L472.4 621.3 L468.7 614.2 L465.4 607.0 L462.5 599.5 L460.0 591.9 L457.9 584.1 L456.2 576.2 L454.9 568.1 L454.0 560.0 L453.5 551.8 L453.5 543.6 L453.9 535.3 L454.8 527.0 L456.1 518.8 L457.8 510.6 L460.0 502.4 L462.6 494.4 L465.7 486.5 L469.1 478.7 L473.0 471.0 L477.3 463.6 L482.0 456.4 L487.1 449.4 L492.6 442.6 L498.5 436.1 L504.7 430.0 L511.3 424.1 L518.1 418.5 L525.3 413.4 L532.8 408.5 L540.6 404.1 L548.6 400.0 L556.8 396.4 L565.3 393.2 L574.0 390.5 L582.8 388.1 L591.7 386.3 L600.8 384.9 L610.0 384.0"/>
+<path class="e-turn c1" data-col="1" d="M610.0 384.0 L619.2 383.6 L628.5 383.6 L637.8 384.2 L647.1 385.2 L656.4 386.8 L665.6 388.8 L674.7 391.3 L683.8 394.3 L692.6 397.8 L701.3 401.8 L709.9 406.2 L718.2 411.1 L726.2 416.5 L734.0 422.3 L741.5 428.5 L748.7 435.1 L755.6 442.1 L762.1 449.5 L768.2 457.2 L774.0 465.3 L779.3 473.7 L784.2 482.4 L788.6 491.4 L792.6 500.7 L796.1 510.1 L799.1 519.8 L801.6 529.7 L803.6 539.7 L805.1 549.8 L806.0 560.0 L806.4 570.3 L806.3 580.6 L805.6 591.0 L804.3 601.3 L802.5 611.6 L800.2 621.8 L797.3 631.9 L793.9 641.9 L790.0 651.7 L785.5 661.3 L780.5 670.7 L775.0 679.9 L769.1 688.8 L762.6 697.4 L755.7 705.7 L748.3 713.6 L740.5 721.1 L732.3 728.3 L723.6 735.0 L714.7 741.3 L705.3 747.1 L695.7 752.5 L685.7 757.3 L675.5 761.6 L665.0 765.4 L654.4 768.7 L643.5 771.4 L632.4 773.5 L621.3 775.0 L610.0 776.0 L598.7 776.4 L587.3 776.1 L575.9 775.3 L564.5 773.9 L553.2 771.9 L542.0 769.2 L530.9 766.0 L520.0 762.2 L509.2 757.8 L498.7 752.8 L488.4 747.3 L478.3 741.2 L468.6 734.6 L459.2 727.5 L450.2 719.8 L441.6 711.7 L433.3 703.1 L425.5 694.0 L418.2 684.5 L411.4 674.7 L405.1 664.4 L399.3 653.8 L394.0 642.9 L389.4 631.7 L385.3 620.2 L381.8 608.5 L378.9 596.6 L376.6 584.5 L375.0 572.3 L374.0 560.0 L373.7 547.6 L374.0 535.2 L374.9 522.8 L376.5 510.4 L378.8 498.1 L381.7 485.8 L385.3 473.8 L389.5 461.8 L394.4 450.1 L399.8 438.7 L405.9 427.5 L412.6 416.6 L419.9 406.0 L427.7 395.8 L436.1 386.1 L444.9 376.7 L454.3 367.8 L464.2 359.4 L474.6 351.5 L485.3 344.1 L496.5 337.2 L508.0 331.0 L519.9 325.4 L532.1 320.3 L544.6 315.9 L557.3 312.2 L570.3 309.1 L583.4 306.7 L596.6 305.0 L610.0 304.0"/>
+<path class="e-turn c2" data-col="2" d="M610.0 304.0 L623.4 303.7 L636.9 304.1 L650.4 305.2 L663.8 307.0 L677.1 309.5 L690.3 312.7 L703.4 316.6 L716.3 321.3 L728.9 326.6 L741.3 332.5 L753.4 339.2 L765.2 346.4 L776.6 354.3 L787.5 362.8 L798.1 371.9 L808.2 381.6 L817.8 391.8 L826.8 402.5 L835.3 413.7 L843.2 425.3 L850.6 437.4 L857.3 449.9 L863.3 462.8 L868.7 475.9 L873.4 489.4 L877.4 503.2 L880.6 517.1 L883.2 531.3 L885.0 545.6 L886.0 560.0 L886.3 574.5 L885.8 589.0 L884.6 603.5 L882.6 617.9 L879.8 632.3 L876.3 646.5 L872.0 660.6 L867.0 674.4 L861.3 688.0 L854.8 701.3 L847.6 714.3 L839.8 726.9 L831.2 739.1 L822.0 750.9 L812.2 762.2 L801.8 773.0 L790.8 783.3 L779.3 793.0 L767.2 802.1 L754.7 810.6 L741.7 818.4 L728.2 825.5 L714.4 832.0 L700.2 837.7 L685.7 842.7 L671.0 846.9 L656.0 850.4 L640.8 853.1 L625.5 854.9 L610.0 856.0 L594.5 856.3 L578.9 855.7 L563.4 854.3 L547.9 852.1 L532.5 849.1 L517.3 845.3 L502.3 840.7 L487.4 835.3 L472.9 829.1 L458.7 822.1 L444.8 814.4 L431.3 805.9 L418.3 796.8 L405.7 786.9 L393.6 776.4 L382.1 765.2 L371.2 753.4 L360.8 741.0 L351.1 728.1 L342.1 714.7 L333.8 700.7 L326.2 686.4 L319.3 671.6 L313.3 656.4 L308.0 640.9 L303.5 625.1 L299.9 609.1 L297.1 592.9 L295.1 576.5 L294.0 560.0 L293.8 543.4 L294.4 526.8 L295.9 510.3 L298.3 493.7 L301.5 477.4 L305.7 461.1 L310.6 445.1 L316.4 429.3 L323.1 413.8 L330.6 398.7 L338.8 383.9 L347.9 369.6 L357.7 355.7 L368.2 342.3 L379.5 329.5 L391.4 317.2 L404.0 305.6 L417.2 294.6 L431.0 284.4 L445.3 274.8 L460.2 266.0 L475.5 257.9 L491.3 250.7 L507.4 244.2 L523.9 238.7 L540.7 234.0 L557.8 230.1 L575.0 227.2 L592.5 225.1 L610.0 224.0"/>
+<path class="e-turn c3" data-col="3" d="M610.0 224.0 L627.6 223.8 L645.3 224.5 L662.9 226.2 L680.4 228.7 L697.8 232.2 L715.1 236.6 L732.1 242.0 L748.8 248.2 L765.3 255.3 L781.3 263.2 L797.0 272.1 L812.2 281.7 L826.9 292.1 L841.1 303.4 L854.7 315.3 L867.6 328.0 L879.9 341.4 L891.5 355.5 L902.4 370.1 L912.5 385.3 L921.9 401.1 L930.3 417.4 L938.0 434.1 L944.8 451.2 L950.6 468.7 L955.6 486.5 L959.6 504.6 L962.7 522.9 L964.8 541.4 L966.0 560.0 L966.2 578.7 L965.4 597.4 L963.6 616.0 L960.8 634.6 L957.1 653.0 L952.4 671.2 L946.7 689.3 L940.1 707.0 L932.5 724.3 L924.1 741.3 L914.7 757.9 L904.5 774.0 L893.4 789.5 L881.5 804.5 L868.8 818.8 L855.3 832.5 L841.2 845.5 L826.3 857.7 L810.8 869.2 L794.7 879.9 L778.0 889.7 L760.8 898.6 L743.1 906.7 L725.0 913.8 L706.5 920.0 L687.6 925.2 L668.5 929.4 L649.2 932.6 L629.6 934.8 L610.0 936.0 L590.3 936.2 L570.6 935.3 L550.9 933.3 L531.3 930.4 L511.8 926.4 L492.6 921.4 L473.6 915.4 L454.9 908.4 L436.6 900.4 L418.7 891.4 L401.2 881.5 L384.3 870.7 L367.9 858.9 L352.2 846.4 L337.1 832.9 L322.7 818.7 L309.0 803.8 L296.1 788.1 L284.0 771.7 L272.8 754.7 L262.5 737.1 L253.1 718.9 L244.7 700.2 L237.2 681.1 L230.7 661.6 L225.3 641.8 L220.9 621.6 L217.5 601.3 L215.2 580.7 L214.0 560.0 L213.9 539.2 L214.8 518.5 L216.9 497.7 L220.0 477.1 L224.3 456.6 L229.6 436.4 L235.9 416.4 L243.4 396.8 L251.8 377.5 L261.3 358.7 L271.7 340.3 L283.2 322.5 L295.5 305.3 L308.8 288.8 L322.9 272.9 L337.9 257.8 L353.7 243.4 L370.2 229.9 L387.4 217.3 L405.3 205.5 L423.9 194.7 L443.0 184.8 L462.6 176.0 L482.7 168.2 L503.2 161.4 L524.1 155.7 L545.2 151.1 L566.7 147.6 L588.3 145.2 L610.0 144.0"/>
+<path class="e-turn c4" data-col="4" d="M610.0 144.0 L631.8 143.9 L653.6 145.0 L675.4 147.1 L697.0 150.5 L718.5 155.0 L739.8 160.6 L760.8 167.3 L781.4 175.1 L801.6 184.0 L821.3 194.0 L840.6 205.0 L859.2 217.0 L877.3 230.0 L894.6 243.9 L911.2 258.8 L927.1 274.5 L942.1 291.1 L956.3 308.4 L969.5 326.5 L981.8 345.3 L993.1 364.8 L1003.4 384.8 L1012.7 405.4 L1020.9 426.5 L1027.9 448.0 L1033.9 469.9 L1038.7 492.1 L1042.3 514.6 L1044.7 537.2 L1046.0 560.0 L1046.1 582.9 L1044.9 605.7 L1042.6 628.5 L1039.1 651.2 L1034.4 673.7 L1028.5 696.0 L1021.4 717.9 L1013.2 739.5 L1003.8 760.7 L993.4 781.3 L981.8 801.5 L969.2 821.0 L955.6 839.8 L940.9 858.0 L925.4 875.4 L908.9 891.9 L891.5 907.6 L873.3 922.4 L854.4 936.3 L834.7 949.1 L814.3 961.0 L793.3 971.7 L771.7 981.4 L749.7 989.9 L727.2 997.2 L704.3 1003.4 L681.0 1008.4 L657.5 1012.2 L633.8 1014.7 L610.0 1016.0 L586.1 1016.0 L562.2 1014.8 L538.4 1012.4 L514.6 1008.6 L491.1 1003.7 L467.9 997.5 L444.9 990.1 L422.4 981.4 L400.3 971.6 L378.7 960.7 L357.7 948.6 L337.3 935.4 L317.6 921.1 L298.6 905.8 L280.5 889.5 L263.2 872.3 L246.8 854.1 L231.4 835.1 L216.9 815.3 L203.5 794.7 L191.2 773.4 L180.0 751.4 L170.0 728.9 L161.1 705.9 L153.4 682.3 L147.0 658.4 L141.8 634.1 L137.9 609.6 L135.3 584.9 L134.0 560.0 L134.0 535.1 L135.3 510.1 L137.9 485.2 L141.8 460.5 L147.0 435.9 L153.5 411.7 L161.3 387.7 L170.3 364.2 L180.5 341.2 L192.0 318.7 L204.6 296.8 L218.4 275.5 L233.3 255.0 L249.3 235.2 L266.3 216.3 L284.4 198.3 L303.3 181.3 L323.2 165.2 L343.9 150.2 L365.3 136.2 L387.5 123.4 L410.4 111.8 L433.9 101.3 L458.0 92.1 L482.5 84.1 L507.4 77.4 L532.7 72.1 L558.3 68.0 L584.1 65.3 L610.0 64.0"/>
+<g class="e-node c0 e-fixed" id="n-0-0" data-c="0" data-r="0" tabindex="0" role="button" aria-label="Formal, operator I · Engine: Pti">
+<rect class="e-fix" x="588.0" y="450.0" width="44.0" height="28" rx="14"/>
+<rect class="e-pill" x="592.0" y="454.0" width="36.0" height="20" rx="10"/>
+<text class="e-lbl" x="610.0" y="464.5">P<tspan baseline-shift="sub" font-size="70%">ti</tspan></text></g>
+<g class="e-node c0" id="n-0-1" data-c="0" data-r="1" tabindex="0" role="button" aria-label="Formal, operator II · Sample: Rtij">
+<rect class="e-pill" x="695.7" y="515.4" width="41.6" height="20" rx="10"/>
+<text class="e-lbl" x="716.5" y="525.9">R<tspan baseline-shift="sub" font-size="70%">tij</tspan></text></g>
+<g class="e-node c0" id="n-0-2" data-c="0" data-r="2" tabindex="0" role="button" aria-label="Formal, operator III · Label: A, Γtijk">
+<rect class="e-pill" x="650.6" y="653.6" width="69.2" height="20" rx="10"/>
+<text class="e-lbl" x="685.2" y="664.1">A, Γ<tspan baseline-shift="sub" font-size="70%">tijk</tspan></text></g>
+<g class="e-node c0" id="n-0-3" data-c="0" data-r="3" tabindex="0" role="button" aria-label="Formal, operator IV · Routing: Collisions">
+<rect class="e-pill" x="483.9" y="666.5" width="83.0" height="20" rx="10"/>
+<text class="e-lbl" x="525.4" y="677.0">Collisions</text></g>
+<g class="e-node c0" id="n-0-4" data-c="0" data-r="4" tabindex="0" role="button" aria-label="Formal, operator V · Authorize: Alloc → I′">
+<rect class="e-pill" x="416.3" y="500.6" width="83.0" height="20" rx="10"/>
+<text class="e-lbl" x="457.8" y="511.1">Alloc → I′</text></g>
+<g class="e-node c1" id="n-1-0" data-c="1" data-r="0" tabindex="0" role="button" aria-label="Theological, operator I · Engine: Kingdom">
+<rect class="e-pill" x="578.9" y="374.0" width="62.3" height="20" rx="10"/>
+<text class="e-lbl" x="610.0" y="384.5">Kingdom</text></g>
+<g class="e-node c1 e-fixed" id="n-1-1" data-c="1" data-r="1" tabindex="0" role="button" aria-label="Theological, operator II · Sample: Disciple">
+<rect class="e-fix" x="754.0" y="486.7" width="77.2" height="28" rx="14"/>
+<rect class="e-pill" x="758.0" y="490.7" width="69.2" height="20" rx="10"/>
+<text class="e-lbl" x="792.6" y="501.2">Disciple</text></g>
+<g class="e-node c1" id="n-1-2" data-c="1" data-r="2" tabindex="0" role="button" aria-label="Theological, operator III · Label: Swarm">
+<rect class="e-pill" x="708.0" y="718.3" width="48.5" height="20" rx="10"/>
+<text class="e-lbl" x="732.3" y="728.8">Swarm</text></g>
+<g class="e-node c1" id="n-1-3" data-c="1" data-r="3" tabindex="0" role="button" aria-label="Theological, operator IV · Routing: Impact">
+<rect class="e-pill" x="450.6" y="731.2" width="55.4" height="20" rx="10"/>
+<text class="e-lbl" x="478.3" y="741.7">Impact</text></g>
+<g class="e-node c1" id="n-1-4" data-c="1" data-r="4" tabindex="0" role="button" aria-label="Theological, operator V · Authorize: Ledger">
+<rect class="e-pill" x="354.0" y="475.8" width="55.4" height="20" rx="10"/>
+<text class="e-lbl" x="381.7" y="486.3">Ledger</text></g>
+<g class="e-node c2" id="n-2-0" data-c="2" data-r="0" tabindex="0" role="button" aria-label="Aesthetic, operator I · Engine: Patron">
+<rect class="e-pill" x="582.3" y="294.0" width="55.4" height="20" rx="10"/>
+<text class="e-lbl" x="610.0" y="304.5">Patron</text></g>
+<g class="e-node c2" id="n-2-1" data-c="2" data-r="1" tabindex="0" role="button" aria-label="Aesthetic, operator II · Sample: Commission">
+<rect class="e-pill" x="827.2" y="465.9" width="83.0" height="20" rx="10"/>
+<text class="e-lbl" x="868.7" y="476.4">Commission</text></g>
+<g class="e-node c2 e-fixed" id="n-2-2" data-c="2" data-r="2" tabindex="0" role="button" aria-label="Aesthetic, operator III · Label: Score">
+<rect class="e-fix" x="751.0" y="779.0" width="56.5" height="28" rx="14"/>
+<rect class="e-pill" x="755.0" y="783.0" width="48.5" height="20" rx="10"/>
+<text class="e-lbl" x="779.3" y="793.5">Score</text></g>
+<g class="e-node c2" id="n-2-3" data-c="2" data-r="3" tabindex="0" role="button" aria-label="Aesthetic, operator IV · Routing: Reception">
+<rect class="e-pill" x="393.3" y="795.9" width="76.1" height="20" rx="10"/>
+<text class="e-lbl" x="431.3" y="806.4">Reception</text></g>
+<g class="e-node c2" id="n-2-4" data-c="2" data-r="4" tabindex="0" role="button" aria-label="Aesthetic, operator V · Authorize: Archive">
+<rect class="e-pill" x="274.5" y="451.1" width="62.3" height="20" rx="10"/>
+<text class="e-lbl" x="305.7" y="461.6">Archive</text></g>
+<g class="e-node c3" id="n-3-0" data-c="3" data-r="0" tabindex="0" role="button" aria-label="Social, operator I · Engine: Interiority">
+<rect class="e-pill" x="565.1" y="214.0" width="89.9" height="20" rx="10"/>
+<text class="e-lbl" x="610.0" y="224.5">Interiority</text></g>
+<g class="e-node c3" id="n-3-1" data-c="3" data-r="1" tabindex="0" role="button" aria-label="Social, operator II · Sample: Kin">
+<rect class="e-pill" x="926.8" y="441.2" width="36.0" height="20" rx="10"/>
+<text class="e-lbl" x="944.8" y="451.7">Kin</text></g>
+<g class="e-node c3" id="n-3-2" data-c="3" data-r="2" tabindex="0" role="button" aria-label="Social, operator III · Label: Constructal">
+<rect class="e-pill" x="781.4" y="847.7" width="89.9" height="20" rx="10"/>
+<text class="e-lbl" x="826.3" y="858.2">Constructal</text></g>
+<g class="e-node c3 e-fixed" id="n-3-3" data-c="3" data-r="3" tabindex="0" role="button" aria-label="Social, operator IV · Routing: Social">
+<rect class="e-fix" x="352.6" y="856.7" width="63.4" height="28" rx="14"/>
+<rect class="e-pill" x="356.6" y="860.7" width="55.4" height="20" rx="10"/>
+<text class="e-lbl" x="384.3" y="871.2">Social</text></g>
+<g class="e-node c3" id="n-3-4" data-c="3" data-r="4" tabindex="0" role="button" aria-label="Social, operator V · Authorize: Weights">
+<rect class="e-pill" x="198.4" y="426.4" width="62.3" height="20" rx="10"/>
+<text class="e-lbl" x="229.6" y="436.9">Weights</text></g>
+<g class="e-node c4" id="n-4-0" data-c="4" data-r="0" tabindex="0" role="button" aria-label="Time, operator I · Engine: Ontological">
+<rect class="e-pill" x="565.1" y="134.0" width="89.9" height="20" rx="10"/>
+<text class="e-lbl" x="610.0" y="144.5">Ontological</text></g>
+<g class="e-node c4" id="n-4-1" data-c="4" data-r="1" tabindex="0" role="button" aria-label="Time, operator II · Sample: Epistemic">
+<rect class="e-pill" x="982.8" y="416.5" width="76.1" height="20" rx="10"/>
+<text class="e-lbl" x="1020.9" y="427.0">Epistemic</text></g>
+<g class="e-node c4" id="n-4-2" data-c="4" data-r="2" tabindex="0" role="button" aria-label="Time, operator III · Label: Constructal">
+<rect class="e-pill" x="828.4" y="912.4" width="89.9" height="20" rx="10"/>
+<text class="e-lbl" x="873.3" y="922.9">Constructal</text></g>
+<g class="e-node c4" id="n-4-3" data-c="4" data-r="3" tabindex="0" role="button" aria-label="Time, operator IV · Routing: Relativistic">
+<rect class="e-pill" x="288.9" y="925.4" width="96.8" height="20" rx="10"/>
+<text class="e-lbl" x="337.3" y="935.9">Relativistic</text></g>
+<g class="e-node c4 e-fixed" id="n-4-4" data-c="4" data-r="4" tabindex="0" role="button" aria-label="Time, operator V · Authorize: Newtonian">
+<rect class="e-fix" x="111.4" y="397.7" width="84.1" height="28" rx="14"/>
+<rect class="e-pill" x="115.4" y="401.7" width="76.1" height="20" rx="10"/>
+<text class="e-lbl" x="153.5" y="412.2">Newtonian</text></g>
+<text class="e-col c0" x="610.0" y="446.0">Formal</text>
+<text class="e-col c1" x="610.0" y="366.0">Theological</text>
+<text class="e-col c2" x="610.0" y="286.0">Aesthetic</text>
+<text class="e-col c3" x="610.0" y="206.0">Social</text>
+<text class="e-col c4" x="610.0" y="126.0">Time</text>
+<g class="e-next c0"><rect class="e-pill" x="589.0" y="54.0" width="42" height="20" rx="10"/><text class="e-lbl" x="610.0" y="64.5">I′</text></g>
+<text class="e-row" x="640.0" y="68.0">next cycle: one step out on spoke I</text>
+<text class="e-row" x="610.0" y="34.0" text-anchor="middle">I · Engine</text>
+<text class="e-row" x="1108.4" y="398.1" text-anchor="start">II · Sample</text>
+<text class="e-row" x="918.0" y="983.9" text-anchor="start">III · Label</text>
+<text class="e-row" x="302.0" y="983.9" text-anchor="end">IV · Routing</text>
+<text class="e-row" x="111.6" y="398.1" text-anchor="end">V · Authorize</text>
+<text class="e-head" x="70" y="1050">Notation, from boa.md</text>
+<text class="e-note" x="70" y="1074">P<tspan baseline-shift="sub" font-size="70%">ti</tspan>  ·  R<tspan baseline-shift="sub" font-size="70%">tij</tspan>  ·  A<tspan baseline-shift="sub" font-size="70%">tijk</tspan>, Γ<tspan baseline-shift="sub" font-size="70%">tijk</tspan></text>
+<text class="e-note" x="70" y="1095">Collisions(Milieu<tspan baseline-shift="sub" font-size="70%">t</tspan>, P<tspan baseline-shift="sub" font-size="70%">ti</tspan>, R<tspan baseline-shift="sub" font-size="70%">tij</tspan>, A<tspan baseline-shift="sub" font-size="70%">tijk</tspan>, Γ<tspan baseline-shift="sub" font-size="70%">tijk</tspan>)</text>
+<text class="e-note" x="70" y="1116">Allocation(Budget<tspan baseline-shift="sub" font-size="70%">t</tspan>, Payoff<tspan baseline-shift="sub" font-size="70%">t+T</tspan>, Survival<tspan baseline-shift="sub" font-size="70%">t+T</tspan>, G<tspan baseline-shift="sub" font-size="70%">t</tspan>, Unknown<tspan baseline-shift="sub" font-size="70%">t</tspan>) → I′</text>
+<text class="e-note" x="70" y="1137">P Principals · A Agent / Satyr · Γ transmission · G Graveyard, Martyrdom, Sainthood</text>
+<text class="e-note" x="70" y="1158">i=1 grounded (earth, physics) · i=2 fantastical (Dante’s Commedia)</text>
+</svg><figcaption>The 5×5 fractal as one outward spiral. Turns (centre out): Formal, Theological, Aesthetic, Social, Time. Spokes: I Engine, II Sample, III Label, IV Routing, V Authorize. Double ring: the diagonal. Dashed pill: I′. A standalone copy is engine.svg.</figcaption></figure>
+<aside class="eng-detail" id="eng-detail" aria-live="polite">Select a node on the spiral, or one of the names above. Each node shows its cell from boa.md, then a reading. Double rings mark the diagonal.</aside>
+</div>
+<h3>Skip tests: where the fractal predicts failure</h3>
+<div class="tw"><table class="stack"><thead><tr><th>Skip</th><th>Predicted failure</th><th>Case</th></tr></thead><tbody>
+<tr><td data-label="Skip">Formal → aesthetic, no theological render</td><td data-label="Predicted failure">Structure that transmits but means nothing to a human</td><td data-label="Case">Pure formalism, elegant and ignored</td></tr>
+<tr><td data-label="Skip">Theological without aesthetic</td><td data-label="Predicted failure">Doctrine that cannot spread</td><td data-label="Case">Creed with no liturgy, music or ritual</td></tr>
+<tr><td data-label="Skip">Aesthetic without social</td><td data-label="Predicted failure">Transmission with no coincident audience</td><td data-label="Case">Bach's long silence</td></tr>
+<tr><td data-label="Skip">Social without time</td><td data-label="Predicted failure">Collisions with no gate</td><td data-label="Case">Mobs and markets with no authorization</td></tr>
+</tbody></table></div>
+<p class="note"><b>Caution:</b> self-similarity is the point where a framework becomes unfalsifiable, because anything can be fitted into a fractal. The skip tests are what keep it honest. If a real case fails in the wrong place, the fractal is in trouble.<sup class="fn"><a href="#fn-e15" aria-label="Footnote 15">15</a></sup></p>
+</div></section>
+<section class="pos" id="e-taxonomy"><div class="num" aria-hidden="true">IV</div><div class="content"><h2>Social-Network</h2><p class="sub"><span class="op">Govern</span><span>Where history lands</span></p>
+<h3>A figure in three questions</h3>
+<p>Which engine (i=1 or i=2)? Which lens does the work live in? Which operator is the work doing? The answers give the cells.</p>
+<div class="tw"><table class="stack"><thead><tr><th>Figure</th><th>Engine</th><th>Home lens</th><th>Operator at work</th><th>Cells</th></tr></thead><tbody>
+<tr><td data-label="Figure">Dante</td><td data-label="Engine">i=2</td><td data-label="Home lens">Theological</td><td data-label="Operator at work">V, with I (principality and ledger in one object)</td><td data-label="Cells">Theological × I and V; Formal × I; Aesthetic × III; Social × IV</td></tr>
+<tr><td data-label="Figure">Nietzsche</td><td data-label="Engine">i=1</td><td data-label="Home lens">Aesthetic</td><td data-label="Operator at work">III (the Satyr), with V as villain</td><td data-label="Cells">Formal × I; Aesthetic × III; Formal × V. Rejects Theological × I and V</td></tr>
+<tr><td data-label="Figure">Bach</td><td data-label="Engine">coupled</td><td data-label="Home lens">Aesthetic</td><td data-label="Operator at work">All five, in boa.md's Goldberg test</td><td data-label="Cells">Aesthetic × I to V</td></tr>
+<tr><td data-label="Figure">Newton</td><td data-label="Engine">i=1 public, i=2 private</td><td data-label="Home lens">Time</td><td data-label="Operator at work">V, the clock</td><td data-label="Cells">Formal × I; Time × V; Theological × I (private)</td></tr>
+<tr><td data-label="Figure">Digital agents</td><td data-label="Engine">i=1 (budget), i=2 (alignment)</td><td data-label="Home lens">Time</td><td data-label="Operator at work">V, as five gates</td><td data-label="Cells">Formal × V; Time × III and V</td></tr>
+</tbody></table></div>
+<p class="note"><span class="st mid">Claude</span> My placements. Press a name on the spiral to see them drawn.<sup class="fn"><a href="#fn-e11" aria-label="Footnote 11">11</a></sup><sup class="fn"><a href="#fn-e16" aria-label="Footnote 16">16</a></sup></p>
+<h3>Dante, found in a few seconds</h3>
+<p>Dante's engine is i=2, the example boa.md itself reaches for. His lens is the theological one, and the poem occupies both ends of that turn at once: Thy Kingdom Come (I) and the ledger (V). Read V through G and the Commedia is a ruling table: Inferno is the graveyard, Purgatorio the queue, Paradiso the sainthood list.<sup class="fn"><a href="#fn-e7" aria-label="Footnote 7">7</a></sup> The vernacular and terza rima are the channel, Γ, chosen for reach;<sup class="fn"><a href="#fn-e21" aria-label="Footnote 21">21</a></sup> Florence's factions and the exile are the collisions.</p>
+<h3>Why Nietzsche would not care for him</h3>
+<p>In this grid Nietzsche's engine is i=1: flux, will, the earth. boa.md has Birth of Tragedy running as Dionysian flux, Apollonian image, satyr chorus, tragedy proper and Socratic optimism, and its reading of the book is that the villain is V over-authorizing. Dante's ledger is V at its maximum, on an engine Nietzsche does not accept as ground. Same cell, Theological × V, opposite verdicts: for Dante it is the point; for Nietzsche it is the gate with the flux drained out.<sup class="fn"><a href="#fn-e8" aria-label="Footnote 8">8</a></sup><sup class="fn"><a href="#fn-e19" aria-label="Footnote 19">19</a></sup></p>
+<div class="tw"><table class="stack"><thead><tr><th>#</th><th>Operator</th><th>Birth of Tragedy</th><th>Tech-stack role</th></tr></thead><tbody>
+<tr><td data-label="#">I</td><td data-label="Operator">Engine</td><td data-label="Birth of Tragedy">Dionysian flux: music, will, undifferentiated</td><td data-label="Tech-stack role">Raw event stream</td></tr>
+<tr><td data-label="#">II</td><td data-label="Operator">Sample</td><td data-label="Birth of Tragedy">Apollonian image: dream, form, individuation</td><td data-label="Tech-stack role">Schema, observation</td></tr>
+<tr><td data-label="#">III</td><td data-label="Operator">Label / Γ</td><td data-label="Birth of Tragedy">The satyr chorus, where tragedy begins</td><td data-label="Tech-stack role">Agents and transmission (your A is literally the Satyr)</td></tr>
+<tr><td data-label="#">IV</td><td data-label="Operator">Routing</td><td data-label="Birth of Tragedy">Tragedy proper: Apollo speaks in Dionysus's voice</td><td data-label="Tech-stack role">Collisions, feedback, telemetry</td></tr>
+<tr><td data-label="#">V</td><td data-label="Operator">Authorization</td><td data-label="Birth of Tragedy">Socratic optimism, which kills tragedy</td><td data-label="Tech-stack role">Ledger and gates → I&prime;</td></tr>
+</tbody></table></div>
+<p class="note">The useful part is the last row. Nietzsche's villain is V over-authorizing: Euripides and Socrates demand that everything be intelligible and justified, and the engine starves. That gives you the second failure mode for the gates in V. Loose gates let agents blow the budget or drift from alignment, while gates too tight, with everything required to justify itself, strangle I&prime;, so the next cycle has no flux to sample.</p>
+<h3>Why you still can</h3>
+<p>boa.md supplies the argument. An i=2 principality is not necessarily unreal, and its consequences become material through belief, coordination and institutional authorization. If so, it can be judged as an engine, by what it routes and what it authorizes, whatever one thinks of its metaphysics. That is the move boa.md makes on Nietzsche himself.<sup class="fn"><a href="#fn-e9" aria-label="Footnote 9">9</a></sup><sup class="fn"><a href="#fn-e20" aria-label="Footnote 20">20</a></sup></p>
+<blockquote class="q"><p>One caution: Nietzsche's 1886 preface repudiates the Schopenhauer/Wagner metaphysics behind "music as the thing-in-itself." Keep the structure (flux, form, chorus, collision, rationalizing ledger) and leave the metaphysics out. That also fits your stance that the pentad is a compression token and not a claimed isomorphism.</p><cite>boa.md</cite></blockquote>
+<h3>Bach, the saint case</h3>
+<div class="tw"><table class="stack"><thead><tr><th>#</th><th>Role</th><th>Operator</th><th>Goldberg test</th></tr></thead><tbody>
+<tr><td data-label="#">I</td><td data-label="Role">Patron</td><td data-label="Operator">P<sub>ti</sub>, engine</td><td data-label="Goldberg test">Count Keyserlingk, per the legend: a grounded constraint (money, insomnia)</td></tr>
+<tr><td data-label="#">II</td><td data-label="Role">Commission</td><td data-label="Operator">R<sub>tij</sub>, sample</td><td data-label="Goldberg test">One finite brief (an aria and variations) cut from infinite possibility</td></tr>
+<tr><td data-label="#">III</td><td data-label="Role">Score</td><td data-label="Operator">A, Γ<sub>tijk</sub>, label/transmission</td><td data-label="Goldberg test">Bach is the agent, and notation is the channel to a performer</td></tr>
+<tr><td data-label="#">IV</td><td data-label="Role">Reception</td><td data-label="Operator">Collisions, routing</td><td data-label="Goldberg test">Obscure for generations, then Landowska, then Gould's 1955 recording</td></tr>
+<tr><td data-label="#">V</td><td data-label="Role">Ledger / Archive</td><td data-label="Operator">Allocation → I&prime;</td><td data-label="Goldberg test">Editions, the BWV catalogue, and recordings that fund the next patron</td></tr>
+</tbody></table></div>
+<p class="note"><span class="st ok">boa.md</span> Cell I carries the caution that the patron story may be legend.<sup class="fn"><a href="#fn-e10" aria-label="Footnote 10">10</a></sup></p>
+<h3>A rough labelling of history</h3>
+<div class="tw"><table class="stack"><thead><tr><th>Period</th><th>Dominant engine</th><th>What V counted</th><th>Caveat</th></tr></thead><tbody>
+<tr><td data-label="Period">Ionian physics, atomism</td><td data-label="Dominant engine">i=1</td><td data-label="What V counted">Explanation that survives test</td><td data-label="Caveat">Platonism ran i=2 beside it from the start</td></tr>
+<tr><td data-label="Period">Platonic to medieval Christian</td><td data-label="Dominant engine">i=2</td><td data-label="What V counted">Souls, sainthood, orthodoxy</td><td data-label="Caveat">Dante is the summit, not the average</td></tr>
+<tr><td data-label="Period">Early modern natural philosophy</td><td data-label="Dominant engine">i=1 re-grounded</td><td data-label="What V counted">Prediction, instruments</td><td data-label="Caveat">Newton and Kepler carried both</td></tr>
+<tr><td data-label="Period">Post-Christian modernity</td><td data-label="Dominant engine">i=1 as will; secular i=2 (nation, class)</td><td data-label="What V counted">Contested</td><td data-label="Caveat">Nietzsche diagnoses this; he is not neutral on it</td></tr>
+<tr><td data-label="Period">Digital agents</td><td data-label="Dominant engine">Coupled by design</td><td data-label="What V counted">Budget gates (i=1), alignment gates (i=2)</td><td data-label="Caveat">The first period where both are written down</td></tr>
+</tbody></table></div>
+<p class="note"><span class="st mid">Claude</span> A coarse first pass, to be attacked.<sup class="fn"><a href="#fn-e17" aria-label="Footnote 17">17</a></sup></p>
+</div></section>
+<section class="pos" id="e-ledger"><div class="num" aria-hidden="true">V</div><div class="content"><h2>Weights &rarr; I&prime;</h2><p class="sub"><span class="op">Select</span><span>The ledger, the gates, and what could break it</span></p>
+<h3>G, defined before Γ</h3>
+<div class="tw"><table class="stack"><thead><tr><th>Outcome</th><th>Test</th><th>V's ruling</th></tr></thead><tbody>
+<tr><td data-label="Outcome">Failed</td><td data-label="Test">Trajectory ended, no residue</td><td data-label="V&#x27;s ruling">Record, don't repeat</td></tr>
+<tr><td data-label="Outcome">Abandoned</td><td data-label="Test">Possible but never routed</td><td data-label="V&#x27;s ruling">Candidate for reopening</td></tr>
+<tr><td data-label="Outcome">Martyrdom</td><td data-label="Test">Death or cost for a principal</td><td data-label="V&#x27;s ruling">Raises legitimacy, charge to the ledger</td></tr>
+<tr><td data-label="Outcome">Sainthood</td><td data-label="Test">Posthumous authorization as a durable symbol</td><td data-label="V&#x27;s ruling">Promote into <code>I&prime;</code></td></tr>
+<tr><td data-label="Outcome">Unknown (outside G)</td><td data-label="Test">Never observed</td><td data-label="V&#x27;s ruling">Not graveyard, escalate</td></tr>
+</tbody></table></div>
+<p class="note"><span class="st ok">boa.md</span> G is defined first so that Γ has an objective.<sup class="fn"><a href="#fn-e18" aria-label="Footnote 18">18</a></sup> The Social turn has no G row of its own.<sup class="fn"><a href="#fn-e22" aria-label="Footnote 22">22</a></sup></p>
+<h3>V as five gates</h3>
+<div class="tw"><table class="stack"><thead><tr><th>Gate</th><th>Allocation argument</th><th>Question it asks</th><th>Failure it blocks</th></tr></thead><tbody>
+<tr><td data-label="Gate">1</td><td data-label="Allocation argument"><code>Budget<sub>t</sub></code></td><td data-label="Question it asks">Is there spend headroom?</td><td data-label="Failure it blocks">Runaway cost</td></tr>
+<tr><td data-label="Gate">2</td><td data-label="Allocation argument"><code>Payoff<sub>t+T</sub></code></td><td data-label="Question it asks">Does the expected return justify it?</td><td data-label="Failure it blocks">Busywork</td></tr>
+<tr><td data-label="Gate">3</td><td data-label="Allocation argument"><code>Survival<sub>t+T</sub></code></td><td data-label="Question it asks">Does the system outlive this action?</td><td data-label="Failure it blocks">Self-harm of the system</td></tr>
+<tr><td data-label="Gate">4</td><td data-label="Allocation argument"><code>G<sub>t</sub></code></td><td data-label="Question it asks">Has this trajectory failed before?</td><td data-label="Failure it blocks">Repeating the dead</td></tr>
+<tr><td data-label="Gate">5</td><td data-label="Allocation argument"><code>Unknown<sub>t</sub></code></td><td data-label="Question it asks">Is it outside the mapped space?</td><td data-label="Failure it blocks">Unaligned agents acting blind (escalate to a human)</td></tr>
+</tbody></table></div>
+<h3>When the clocks drift apart</h3>
+<div class="tw"><table class="stack"><thead><tr><th>#</th><th>If this runs far faster or slower than the rest</th><th>Drama</th></tr></thead><tbody>
+<tr><td data-label="#">I</td><td data-label="If this runs far faster or slower than the rest">Engine outruns sampling</td><td data-label="Drama">Samples are stale on arrival, so you model a world that has already moved</td></tr>
+<tr><td data-label="#">II</td><td data-label="If this runs far faster or slower than the rest">Sampling outruns meaning</td><td data-label="Drama">Noise is mistaken for signal, so you get overfitting and chasing misses</td></tr>
+<tr><td data-label="#">III</td><td data-label="If this runs far faster or slower than the rest">Agents transmit at machine speed, gates at human speed</td><td data-label="Drama">Budget is blown and alignment drifts before V ever fires</td></tr>
+<tr><td data-label="#">IV</td><td data-label="If this runs far faster or slower than the rest">Reception takes decades</td><td data-label="Drama">Payoff horizon exceeds the creator's survival, so martyrs and saints (Bach's 80-year wait)</td></tr>
+<tr><td data-label="#">V</td><td data-label="If this runs far faster or slower than the rest">Gate too slow or too tight</td><td data-label="Drama">Too slow means authorization after the fact. Too tight means Socratic strangling, with nothing left to sample</td></tr>
+</tbody></table></div>
+<p class="note"><b>Design rule:</b> V's clock must be set by the fastest operator it governs. For digital agents that means rate limits, spend caps and circuit breakers at III&prime;s speed, with human review reserved for the slow, high-stakes crossings into I&prime;.</p>
+<h3>What could break it</h3>
+<ol class="fns" style="list-style:decimal;color:var(--ink);font-size:.95rem;max-width:68ch">
+<li><b>A figure with no engine.</b> If pure mathematics, ritual propriety or dependent origination cannot be placed without force, the i split is not a taxonomy.</li>
+<li><b>A skip that does not fail.</b> If a creed with no liturgy spreads anyway, or a mob with no gate lasts, the order of the columns is not an order.</li>
+<li><b>A diagonal with nothing special on it.</b> Then the fixed-point reading goes.</li>
+<li><b>An era whose ledger does not follow its engine.</b> Then the labelling is decoration.</li></ol>
+<h3>Footnotes</h3>
+<ol class="fns" style="list-style:decimal;color:var(--ink);font-size:.95rem;max-width:68ch"><li id="fn-e1"><span class="st ok">boa.md</span> The two-engine split is in boa.md: 'P = Principals (rooted in physics vs metaphysics)' and i = Principalities, with i=1 grounded and i=2 fantastical. That most of human history can be labelled by which engine was running is the claim of this tab's request; boa.md does not make it. Section IV tests it and says where it could fail.</li><li id="fn-e2"><span class="st mid">Claude</span> Why 'engine' and not 'law' or 'doctrine': an engine turns input into ordered output without being asked why. That keeps both a physical law and a metaphysical order eligible for the same slot, which is what the i index needs.</li><li id="fn-e3"><span class="st mid">Claude, gloss</span> Three readings of 'formal', and they stack. (a) boa.md's own reason for the column: 'The rules everything else answers to'. (b) It is the one column whose cells are written as formulae, so the column <i>is</i> the notation: P<sub>ti</sub>, R<sub>tij</sub>, A<sub>tijk</sub> and Γ<sub>tijk</sub>, Collisions(…), Allocation(…) → I′. (c) The scholastic sense of form against matter, the formal cause as what makes a thing the kind of thing it is (as I recall, from Aristotle; unchecked). 'Formal' does not mean formalist: boa.md's first skip test names 'pure formalism, elegant and ignored' as the failure of Formal without Theological.</li><li id="fn-e4"><span class="st mid">Claude</span> The diagonal is my observation, not boa.md's. Take the cell where each lens meets the operator it plays at the meta-level: Formal × I, Theological × II, Aesthetic × III, Social × IV, Time × V. On the spiral they land on spokes I, II, III, IV, V in turn, so the diagonal is the pentad read once around. It is a prediction that can fail: if a figure sits on the diagonal and nothing special follows, drop it.</li><li id="fn-e5"><span class="st ok">boa.md</span> Two notation repairs, both applied on this page. The paste has Γ<sub>tujk</sub> in operator IV, a typo for Γ<sub>tijk</sub>, and boa.md itself records the instruction to fix it. And the sample operator is R<sub>tij</sub> (three indices) throughout boa.md, so the figure keeps R<sub>tij</sub>, not R<sub>tijk</sub>. Other tabs on this site write Γ as G; here it is Γ, since G is the Graveyard.</li><li id="fn-e6"><span class="st ok">boa.md</span> 'Principalities are not necessarily agents. They are the structured environments of possibility within which agents operate.' This is what keeps i separate from A: the principality sets the possibility space, the agent moves in it.</li><li id="fn-e7"><span class="st mid">Claude, from memory</span> Dante's structure, as I recall it: nine circles of Hell, seven terraces of Purgatory plus the earthly paradise, nine heavenly spheres plus the Empyrean, in terza rima; exiled from Florence in 1302 after the Guelph split. Dates and counts unchecked; none of the argument rests on the exact numbers.</li><li id="fn-e8"><span class="st mid">Claude, from memory</span> Unchecked: as I recall, Twilight of the Idols, in the 'Skirmishes of an Untimely Man' section, calls Dante 'the hyena who poetizes in tombs'. If right, it is the Graveyard G in one image. Verify the wording before quoting it.</li><li id="fn-e9"><span class="st ok">boa.md</span> 'Keep the structure (flux, form, chorus, collision, rationalizing ledger) and leave the metaphysics out.' boa.md says this about Nietzsche's Birth of Tragedy, and adds that his 1886 preface repudiates the Schopenhauer/Wagner metaphysics. The same move is what lets an i=2 engine be judged as an engine.</li><li id="fn-e10"><span class="st ok">boa.md</span> The Goldberg test carries its own caution: the Keyserlingk story comes from Forkel decades later and the 1741 print carries no dedication, so the patron in cell I may itself be an authorized myth, 'a G-type object in miniature'.</li><li id="fn-e11"><span class="st mid">Claude, from memory</span> Unchecked: Newton left a large body of theological and alchemical manuscripts, which I recall as comparable to or larger than his physics. The point for the grid is only that one man can carry two engines.</li><li id="fn-e12"><span class="st ok">boa.md</span> 'Five operators, not five clocks.' The Time column holds five regimes (ontological, epistemic, constructal, relativistic, Newtonian) as different resolution latencies on one shared state. boa.md's verdict: Time is accepted as a column and rejected as five independent clocks, and V is the one regime where a shared clock is imposed.</li><li id="fn-e13"><span class="st mid">Claude</span> What changed from boa.svg. The original draws five stacked bands with a left-hand return arrow ('V authorizes the next I′'). The spiral keeps that return as the one radial step from V to I′, and replaces the bands with turns, so the column order is carried by radius instead of by position on a page. The two shapes carry the same table; only the spiral makes 'same operator, five lenses' a straight line (the spoke).</li><li id="fn-e14"><span class="st ok">boa.md</span> 'But I′ is not simply I.' The next generation inherits a transformed possibility space: the physical world, the accumulated observations, the transmission architecture, the victories and defeats, and the saints, martyrs and forgotten dead. That is why the spiral ends one step out, not back at the start.</li><li id="fn-e15"><span class="st mid">Claude</span> The unfalsifiability warning is boa.md's, and the skip tests are its remedy. Three ways to make the grid fail: (a) a real case that breaks at the wrong cell; (b) a figure whose engine is neither i=1 nor i=2, since if everything can be forced into one the split is a tautology (candidates to test: pure mathematics, Confucian ritual propriety, Buddhist dependent origination); (c) a column swap that predicts no failure.</li><li id="fn-e16"><span class="st mid">Claude, from memory</span> Coupled engines. Kepler's Harmonices Mundi (1619) joins orbital physics to a music of the spheres; Bach's manuscripts carry a dedication to God's glory (S.D.G., as I recall), while the Goldberg test in boa.md reads his patron as a grounded constraint. Both are i=1 and i=2 in one object. Unchecked in detail.</li><li id="fn-e17"><span class="st mid">Claude</span> The era table is a coarse first labelling to be attacked, not a finding. Its test is whether the dominant engine predicts what the ledger (V) counts as success and what the graveyard (G) holds. If it does not, the label is decoration.</li><li id="fn-e18"><span class="st ok">boa.md</span> G is defined before Γ: 'G first, then Γ' is a standing rule in boa.md, so that Γ is the topology that makes martyrs, saints and survivors producible. Reading the spiral, III builds Γ and IV runs it, but the purpose of the topology is set at V.</li><li id="fn-e19"><span class="st mid">Claude</span> Why Nietzsche would not care for Dante is a claim about cells, not about taste. They share the cell language (V, the ledger, G) and differ on its verdict: Dante's V is the point of the poem; Nietzsche's V is the gate that starves I′. The 'Socratic' in boa.md's table is the villain, and the ledger of souls is that gate on an i=2 engine.</li><li id="fn-e20"><span class="st ok">boa.md</span> The reason an i=2 engine can be taken seriously without its metaphysics is boa.md's own: it 'is not necessarily unreal', and 'its consequences can become quite material through human belief, coordination, and institutional authorization'. The structural reason is the one given here; it is not a biography.</li><li id="fn-e21"><span class="st mid">Claude, from memory</span> Dante's choice of the Tuscan vernacular over Latin, as I recall defended in De vulgari eloquentia, is a Γ decision: a wider channel to more nodes. Unchecked.</li><li id="fn-e22"><span class="st ok">boa.md</span> boa.md's alignment table notes that the Social stack has no G row, and says to add it or the graveyard stays invisible in that coordinate system. The Social turn of the spiral therefore has no G of its own. G is carried by V of the Time turn and by the Weights cell, where it is what the compression discarded.</li></ol>
+</div></section>
+<footer><p>Quotations and tables marked boa.md are copied from it; the one change is Γ<sub>tujk</sub> corrected to Γ<sub>tijk</sub>. Anything marked Claude is my reading and can be attacked, and items marked from memory are unchecked.</p></footer>
+</main>
+
 
 
 <script>
@@ -6767,10 +7108,10 @@ The commitment locks in after Stomp. Before: solidly inside the Gospel kin-netwo
   label();
 
   /* Pages and sections share one waffle menu */
-  var names = ["pork", "case", "algo", "tal", "ref", "mear", "do", "sov", "stomp"];
-  var ids = { pork: "top", "case": "case-top", algo: "algo-top", tal: "tal-top", ref: "ref-top", mear: "mear-top", "do": "do-top", sov: "sov-top", stomp: "stomp-top" };
-  var titles = { pork: "Pork Song Pentadic", "case": "Brand Case Study \u00b7 Pentadic", algo: "Algorithm \u00b7 Pentadic", tal: "Talarico \u00b7 Pentadic", ref: "References \u00b7 Pentadic", mear: "Mearsheimer \u00b7 Pentadic", sov: "Sovereignty \u00b7 Pentadic", "do": "Do That! \u00b7 Pentadic", stomp: "Stomp Principle \u00b7 Pentadic" };
-  var subs = { pork: "Pork song", "case": "Case study", algo: "Algorithm", tal: "Talarico", ref: "References", mear: "Mearsheimer", "do": "Do That!", sov: "Sovereignty", stomp: "Stomp" };
+  var names = ["pork", "case", "algo", "tal", "ref", "mear", "do", "sov", "stomp", "eng"];
+  var ids = { pork: "top", "case": "case-top", algo: "algo-top", tal: "tal-top", ref: "ref-top", mear: "mear-top", "do": "do-top", sov: "sov-top", stomp: "stomp-top", eng: "eng-top" };
+  var titles = { pork: "Pork Song Pentadic", "case": "Brand Case Study \u00b7 Pentadic", algo: "Algorithm \u00b7 Pentadic", tal: "Talarico \u00b7 Pentadic", ref: "References \u00b7 Pentadic", mear: "Mearsheimer \u00b7 Pentadic", sov: "Sovereignty \u00b7 Pentadic", "do": "Do That! \u00b7 Pentadic", stomp: "Stomp Principle \u00b7 Pentadic", eng: "Engine \u00b7 Pentadic" };
+  var subs = { pork: "Pork song", "case": "Case study", algo: "Algorithm", tal: "Talarico", ref: "References", mear: "Mearsheimer", "do": "Do That!", sov: "Sovereignty", stomp: "Stomp", eng: "Engine" };
   var tabBtns = {}, panels = {}, secs = {};
   names.forEach(function (k) {
     tabBtns[k] = document.getElementById("tab-" + k);
@@ -6910,12 +7251,53 @@ The commitment locks in after Stomp. Before: solidly inside the Gospel kin-netwo
 
   /* Deep links */
   var h = location.hash;
-  var which = /^#(case|c-)/.test(h) ? "case" : /^#(algo|a-)/.test(h) ? "algo" : /^#(tal|t-)/.test(h) ? "tal" : /^#(ref|r-)/.test(h) ? "ref" : /^#(mear|m-)/.test(h) ? "mear" : /^#(do|d-)/.test(h) ? "do" : /^#(sov|s-)/.test(h) ? "sov" : /^#(stomp|st-)/.test(h) ? "stomp" : null;
+  var which = /^#(case|c-)/.test(h) ? "case" : /^#(algo|a-)/.test(h) ? "algo" : /^#(tal|t-)/.test(h) ? "tal" : /^#(ref|r-)/.test(h) ? "ref" : /^#(mear|m-)/.test(h) ? "mear" : /^#(do|d-)/.test(h) ? "do" : /^#(sov|s-)/.test(h) ? "sov" : /^#(stomp|st-)/.test(h) ? "stomp" : /^#(eng|e-)/.test(h) ? "eng" : null;
   if (which) {
     showTab(which);
     var tgt = document.getElementById(h.slice(1));
     if (tgt && h.indexOf("-top") === -1) setTimeout(function () { tgt.scrollIntoView(); }, 0);
   }
+})();
+</script>
+
+<script>window.ENG={"cells": {"0-0": {"h": "Formal × I · Engine", "n": "P<sub>ti<\/sub>", "t": "P<sub>ti<\/sub>: engine", "r": "The rule-set everything else answers to. This is the only cell where the engine is chosen: i=1, grounded in friction, mass and energy, or i=2, projected into narrative and archetype. Everything to the right of it in row I is the same engine seen through another lens."}, "0-1": {"h": "Formal × II · Sample", "n": "R<sub>tij<\/sub>", "t": "R<sub>tij<\/sub>: sample", "r": "A finite sample cut from the continuum of P_ti. The j index is the sampling choice, so two observers with one engine can hold different R."}, "0-2": {"h": "Formal × III · Label", "n": "A<sub>tijk<\/sub>, Γ<sub>tijk<\/sub>", "t": "A, Γ<sub>tijk<\/sub>: label", "r": "The agent (A) and the transmission architecture (Γ) that carry the sample. Γ is built here and run in IV; its edge weights are the cost that V's gates read. The A is literally the Satyr."}, "0-3": {"h": "Formal × IV · Routing", "n": "Collisions(Milieu<sub>t<\/sub>, P<sub>ti<\/sub>, R<sub>tij<\/sub>, A<sub>tijk<\/sub>, Γ<sub>tijk<\/sub>)", "t": "Collisions: routing", "r": "The only operator that takes all the others as arguments, which is why it is routing: nothing arrives anywhere except through collisions."}, "0-4": {"h": "Formal × V · Authorize", "n": "Allocation(Budget<sub>t<\/sub>, Payoff<sub>t+T<\/sub>, Survival<sub>t+T<\/sub>, G<sub>t<\/sub>, Unknown<sub>t<\/sub>) → I′", "t": "Allocation → I′: authorization", "r": "Five arguments, five gates, one output: I′. The only operator whose result is another I."}, "1-0": {"h": "Theological × I · Engine", "n": "P<sub>ti<\/sub>", "t": "Principalities: Thy Kingdom Come", "r": "The engine as an announced order. For i=2 this is where the metaphysical engine states itself; the prayer is a request that an engine take effect. For i=1 the same cell reads as the laws of the world."}, "1-1": {"h": "Theological × II · Sample", "n": "R<sub>tij<\/sub>", "t": "Discipleship: here on Earth", "r": "The finite, human-scale rendering of the formal. A disciple is a sample: one life carrying a bounded piece of the principality."}, "1-2": {"h": "Theological × III · Label", "n": "A<sub>tijk<\/sub>, Γ<sub>tijk<\/sub>", "t": "Orchestra, swarm, rhythm = score", "r": "Many agents on one score. Orchestra and swarm agree: coordination without a centre controlling every part."}, "1-3": {"h": "Theological × IV · Routing", "n": "Collisions(Milieu<sub>t<\/sub>, P<sub>ti<\/sub>, R<sub>tij<\/sub>, A<sub>tijk<\/sub>, Γ<sub>tijk<\/sub>)", "t": "Impact: heaven as constraint, earth as flow", "r": "Heaven as top-down ideal constraint, earth as bottom-up team flow. Collisions are where they interfere."}, "1-4": {"h": "Theological × V · Authorize", "n": "Allocation(Budget<sub>t<\/sub>, Payoff<sub>t+T<\/sub>, Survival<sub>t+T<\/sub>, G<sub>t<\/sub>, Unknown<sub>t<\/sub>) → I′", "t": "Building, ledger, generational", "r": "What gets built and handed on: the institution, the canon, the succession."}, "2-0": {"h": "Aesthetic × I · Engine", "n": "P<sub>ti<\/sub>", "t": "Patron", "r": "The principality made concrete: money and will constrain what can be made. In the Goldberg test it is the Count, with the caution that the patron may itself be an authorized myth."}, "2-1": {"h": "Aesthetic × II · Sample", "n": "R<sub>tij<\/sub>", "t": "Commission", "r": "One finite brief cut from infinite possibility: an aria and variations, not music in general."}, "2-2": {"h": "Aesthetic × III · Label", "n": "A<sub>tijk<\/sub>, Γ<sub>tijk<\/sub>", "t": "Orchestra, score", "r": "Form that fits because it carries the render to others. In the Goldberg case it is degenerate (one keyboard), so Γ is score plus performer."}, "2-3": {"h": "Aesthetic × IV · Routing", "n": "Collisions(Milieu<sub>t<\/sub>, P<sub>ti<\/sub>, R<sub>tij<\/sub>, A<sub>tijk<\/sub>, Γ<sub>tijk<\/sub>)", "t": "Reception", "r": "Where transmission meets an audience in place and time. In boa.md's Goldberg test it takes generations."}, "2-4": {"h": "Aesthetic × V · Authorize", "n": "Allocation(Budget<sub>t<\/sub>, Payoff<sub>t+T<\/sub>, Survival<sub>t+T<\/sub>, G<sub>t<\/sub>, Unknown<sub>t<\/sub>) → I′", "t": "Ledger / archive", "r": "Editions, catalogue, recordings; the record that funds the next patron."}, "3-0": {"h": "Social × I · Engine", "n": "P<sub>ti<\/sub>", "t": "Interiority", "r": "The principal as lived from inside, before any network samples them."}, "3-1": {"h": "Social × II · Sample", "n": "R<sub>tij<\/sub>", "t": "Kin-network", "r": "The small network that samples a principal: family, church, band. Its attention selects what gets sampled."}, "3-2": {"h": "Social × III · Label", "n": "A<sub>tijk<\/sub>, Γ<sub>tijk<\/sub>", "t": "Constructal network", "r": "Flow architecture: the channels that maximize access, constructal law applied to people."}, "3-3": {"h": "Social × IV · Routing", "n": "Collisions(Milieu<sub>t<\/sub>, P<sub>ti<\/sub>, R<sub>tij<\/sub>, A<sub>tijk<\/sub>, Γ<sub>tijk<\/sub>)", "t": "Social network", "r": "The wider milieu, where agents must coincide in place and time: game-time."}, "3-4": {"h": "Social × V · Authorize", "n": "Allocation(Budget<sub>t<\/sub>, Payoff<sub>t+T<\/sub>, Survival<sub>t+T<\/sub>, G<sub>t<\/sub>, Unknown<sub>t<\/sub>) → I′", "t": "Weights → I′", "r": "What the next generation inherits is compressed parameters, not the record. G is what the compression discarded (boa.md's own observation)."}, "4-0": {"h": "Time × I · Engine", "n": "P<sub>ti<\/sub>", "t": "Ontological", "r": "Time as what the engine is: the latency of P_ti itself, the slowest of the five regimes."}, "4-1": {"h": "Time × II · Sample", "n": "R<sub>tij<\/sub>", "t": "Epistemic", "r": "Time of finding out: how long it takes to turn flux into parsed data. If it runs faster than meaning, noise is mistaken for signal."}, "4-2": {"h": "Time × III · Label", "n": "A<sub>tijk<\/sub>, Γ<sub>tijk<\/sub>", "t": "Constructal", "r": "Time as the speed of the channel. If agents transmit at machine speed and gates run at human speed, the budget is blown before V fires."}, "4-3": {"h": "Time × IV · Routing", "n": "Collisions(Milieu<sub>t<\/sub>, P<sub>ti<\/sub>, R<sub>tij<\/sub>, A<sub>tijk<\/sub>, Γ<sub>tijk<\/sub>)", "t": "Relativistic", "r": "Time dilated by the density of collisions. When reception takes decades, the payoff horizon exceeds the creator's life, which is how martyrs and saints arise."}, "4-4": {"h": "Time × V · Authorize", "n": "Allocation(Budget<sub>t<\/sub>, Payoff<sub>t+T<\/sub>, Survival<sub>t+T<\/sub>, G<sub>t<\/sub>, Unknown<sub>t<\/sub>) → I′", "t": "Newtonian", "r": "The one regime where a shared clock is deliberately imposed on the others, so that a gate has a common now to authorize against."}}, "chips": {"dante": {"label": "Dante", "on": ["1-0", "1-4", "2-2", "3-3", "0-0"], "against": [], "text": "<b>Dante.<\/b> Engine i=2: boa.md names him as the example of the fantastical principality. Lens: theological, and the poem is both ends of that turn at once, the principality (I) and the ledger (V). Read V through G: Inferno is the graveyard, Purgatorio the queue, Paradiso the sainthood list. Terza rima in the vernacular is the Γ that carried it (Aesthetic × III); Florence's factions and the exile are the collisions (Social × IV). Marked cells: Formal × I, Theological × I and V, Aesthetic × III, Social × IV."}, "nietzsche": {"label": "Nietzsche", "on": ["0-0", "2-2", "0-4"], "against": ["1-0", "1-4"], "text": "<b>Nietzsche.<\/b> Engine i=1 in this grid: flux, will, the earth. boa.md's table runs Birth of Tragedy as Dionysian flux (I), Apollonian image (II), satyr chorus (III), tragedy proper (IV), Socratic optimism (V). His villain is V over-authorizing. Solid rings: Formal × I, Aesthetic × III (the Satyr is his A) and Formal × V (the Socratic gate). Dashed rings: the two cells Dante fills, Theological × I and V, which he would read as the gate with the flux drained out."}, "bach": {"label": "Bach", "on": ["2-0", "2-1", "2-2", "2-3", "2-4"], "against": [], "text": "<b>Bach, Goldberg test.<\/b> The whole aesthetic turn: Patron, Commission, Score, Reception, Ledger / Archive, each checked in boa.md against the Goldberg Variations. III is degenerate (one keyboard), I is partly legend, and Bach is boa.md's saint case: nearly gone from the ledger, restored by posthumous authorization."}, "newton": {"label": "Newton", "on": ["0-0", "4-4"], "against": ["1-0"], "text": "<b>Newton.<\/b> Public engine i=1 (Formal × I), and the clock that gives Time × V its name. Dashed ring: Theological × I, because he also left a large body of theological and alchemical writing, so the public i=1 and a private i=2 sat in one man. A coupled case. The label 'Newtonian' on V is the absolute clock, which boa.md's axiom says time is not; the repair there is 'authorization'."}, "agent": {"label": "Digital agents", "on": ["0-4", "4-2", "4-4"], "against": [], "text": "<b>Digital agents.<\/b> V as five gates: budget, payoff, survival, G, Unknown. Marked cells: Formal × V (the gates), Time × III (agents transmit at machine speed) and Time × V (the shared clock). The design rule in boa.md: V's clock is set by the fastest operator it governs."}}, "intro": "Select a node on the spiral, or one of the names above. Each node shows its cell from boa.md, then a reading. Double rings mark the diagonal."};</script>
+<script>
+(function(){
+  var D=window.ENG, svg=document.getElementById("eng-svg"), det=document.getElementById("eng-detail");
+  if(!svg||!det) return;
+  var nodes=[].slice.call(svg.querySelectorAll(".e-node")), spokes=[].slice.call(svg.querySelectorAll(".e-spoke"));
+  var chips=[].slice.call(document.querySelectorAll(".chip[data-k]"));
+  function clear(){
+    svg.classList.remove("sel");
+    nodes.forEach(function(n){n.classList.remove("e-on","e-against","e-cur");});
+    spokes.forEach(function(s){s.classList.remove("e-on");});
+    chips.forEach(function(c){c.setAttribute("aria-pressed","false");});
+  }
+  function reset(){clear();det.textContent=D.intro;}
+  function byId(i){return document.getElementById("n-"+i);}
+  function showNode(n){
+    clear();
+    var c=n.getAttribute("data-c"), r=n.getAttribute("data-r"), d=D.cells[c+"-"+r];
+    svg.classList.add("sel"); n.classList.add("e-cur");
+    spokes.forEach(function(s){ if(s.getAttribute("data-row")===r) s.classList.add("e-on"); });
+    det.innerHTML="<h4>"+d.h+"</h4><div class=\"k\">Operator</div><p>"+d.n+"</p><div class=\"k\">Cell, from boa.md</div><p>"+d.t+"</p><div class=\"k\">Reading (Claude)</div><p>"+d.r+"</p>";
+  }
+  nodes.forEach(function(n){
+    n.addEventListener("click",function(){showNode(n);});
+    n.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();showNode(n);} });
+  });
+  chips.forEach(function(ch){
+    ch.addEventListener("click",function(){
+      var k=ch.getAttribute("data-k"), c=D.chips[k];
+      clear(); svg.classList.add("sel"); ch.setAttribute("aria-pressed","true");
+      c.on.forEach(function(i){var n=byId(i); if(n) n.classList.add("e-on");});
+      c.against.forEach(function(i){var n=byId(i); if(n) n.classList.add("e-against");});
+      det.innerHTML="<p>"+c.text+"</p>";
+    });
+  });
+  document.getElementById("eng-clear").addEventListener("click",reset);
+  document.getElementById("eng-zoom").addEventListener("click",function(){var f=document.querySelector(".eng-fig"),on=!f.classList.contains("zoom");f.classList.toggle("zoom",on);this.setAttribute("aria-pressed",String(on));});
+  document.getElementById("eng-theme").addEventListener("click",function(){document.getElementById("theme-btn").click();});
 })();
 </script>
 
