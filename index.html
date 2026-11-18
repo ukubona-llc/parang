@@ -296,6 +296,7 @@ button.tile[aria-selected="true"] strong { color: var(--accent); }
 /* Case study */
 .vid { position: relative; aspect-ratio: 16 / 9; background: #000; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
 .vid iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.vid video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; }
 .meta { margin: 12px 0 0; font: 600 1.02rem/1.35 var(--font-display); }
 .meta small { display: block; margin-top: 4px; color: var(--muted); font: 400 .85rem/1.4 var(--font-body); }
 details.desc { margin-top: 12px; color: var(--muted); font-size: .9rem; }
@@ -7749,7 +7750,82 @@ V.   Newtonian Time        — Execution
   <p class="meta" style="margin-top:12px">Underpromise and over deliver: the counter-case to Glengarry
     <small>Anthropic CEO Reveals Why He Wants An IPO Now | Jamie Dimon Questions Dario Amodei &middot; closes with Dario Amodei: &ldquo;A model we have at Anthropic: underpromise and over deliver&rdquo; (as supplied; I have not checked the wording against the clip) &middot; <a href="https://www.youtube.com/watch?v=l813jxkpFM0" target="_blank" rel="noopener">Open on YouTube</a></small></p>
   </div>
+  <div style="flex:1 1 320px;min-width:0">
+  <div class="vid">
+    <video controls preload="metadata" playsinline src="ukhona/rukiga.mp4" aria-label="Mbarara garage satire: a Mukiga migrant performing Runyankore and mechanical jargon"></video>
   </div>
+  <p class="meta" style="margin-top:12px">Mbarara garage satire: the Mukiga migrant performs the gatekeeper&rsquo;s language
+    <small>Local clip, Rukiga/Runyankore with mechanical jargon (<em>muhimbo, musijo, muje yo</em>) &middot; source and date not known to me, and I have not watched or heard it &middot; file expected at <code>ukhona/rukiga.mp4</code></small></p>
+  </div>
+  </div>
+
+  <h3 style="margin-top:28px">The third clip: pentad reading, transcription, translation</h3>
+  <p>Three adjacent clips on one question: what does sanctioned formality buy, and what does reach cost? The first block is the pasted reading of the garage satire, kept as given (author not named to me; the style looks like ChatGPT, which is a guess). The second is Gemini&rsquo;s Rukiga transcript and English translation, kept as supplied. I have not heard the audio, so neither the transcript nor the translation is checked by me.</p>
+  <details class="round" open style="margin-top:12px"><summary><span class="st blue">Pasted reading</span><span class="rl">The Mbarara garage satire on the pentad</span><span class="ln">as supplied, verbatim</span></summary><div class="verb prose" style="padding:18px;font-size:.95rem">
+<p>The Mbarara garage satire is a miniature drama of <strong>migration, inherited constraint, economic adaptation, social gatekeeping, and the possible conversion of stigma into capital.</strong></p>
+<p>Its pentad is not simply a sequence of psychological states. It is a recursive game in which the migrant tries to change the terms on which others value him.</p>
+<h4>The Mukiga migrant: five operators</h4>
+<p><strong>I. Interiority &mdash; Provincial outsider</strong></p>
+<p>The migrant arrives in Mbarara carrying the material and cultural imprint of Kigezi. His Rukiga identity is not inherently a deficit; it becomes one in a social field where he believes it discounts his prospects. The initial condition is exposure: he wants to trade, work, and advance without being reduced to his origins.</p>
+<p><strong>II. Kin-Network &mdash; Inherited constraint</strong></p>
+<p>The Kigezi kin-network supplies the lineage, land history, obligations, and identity from which he comes. Land pressure and limited opportunities help explain the migration; those same roots become something he feels compelled to conceal. He is geographically displaced but cannot simply shed his inheritance.</p>
+<p><strong>III. Constructal-Network &mdash; Tactical adaptation</strong></p>
+<p>Inside the garage, he encounters the material flow of work: vehicles, parts, tools, customers, repairs. He deploys <em>muhimbo, musijo, muje yo</em> and the exaggerated performance of Runyankore as low-cost signals of technical fluency. The wager is transactional: acquire trust, secure favorable terms, and keep the work moving before his actual competence is tested.</p>
+<p><strong>IV. Social-Network &mdash; Gatekeeping and belonging</strong></p>
+<p>The relevant social field is the Mbarara marketplace, where native Ankore speakers are represented in the satire as controlling the local linguistic and commercial terms of exchange. The migrant wants more than intelligibility: he wants acceptance and access to trade and capital. He therefore suppresses Kiga markers and imitates the prestige language. But the performance itself makes him vulnerable to ridicule.</p>
+<p><strong>V. Weights &rarr; I&prime; &mdash; The conversion or foreclosure of identity</strong></p>
+<p>Here the trajectory branches:</p>
+<ul>
+<li><strong>Foreclosure:</strong> The performance fails. Public satire exposes the mimicry, and the social field reasserts the provincial-outsider label. The migrant spends effort assimilating without acquiring durable bargaining power.</li>
+<li><strong>Conversion:</strong> Repeated encounters force actual learning. The worker acquires mechanical competence, commercial trust, and command of the language. What began as an attempt to hide Kiga identity becomes an asset: Kiga industriousness, technical skill, and accumulated local knowledge become independently valuable.</li>
+</ul>
+<h4>The recursive mechanism</h4>
+<p>I &rarr; II<br><strong>Origin becomes constraint</strong><br>Kigezi inheritance shapes the migrant&rsquo;s initial exposure.</p>
+<p>II &rarr; III<br><strong>Constraint generates adaptation</strong><br>Migration puts inherited identity into a new field of material exchange.</p>
+<p>III &rarr; IV<br><strong>Adaptation encounters power</strong><br>Jargon and linguistic mimicry are tested by people who control recognition and access.</p>
+<p>IV &rarr; V<br><strong>Recognition determines allocation</strong><br>Does the performance earn trust, ridicule, work, or exclusion?</p>
+<p>V &rarr; I&prime;<br><strong>Allocation changes the next starting condition</strong><br>Either provincial subordination is reproduced, or acquired competence changes the value of the migrant&rsquo;s identity.</p>
+<h4>The falsifiable propositions</h4>
+<div class="tw"><table class="stack"><thead><tr><th>Operator</th><th>What would we actually test?</th></tr></thead><tbody>
+<tr><td data-label="Operator">I</td><td data-label="What would we actually test?">Does perceived provincial status predict efforts to conceal Kiga identity?</td></tr>
+<tr><td data-label="Operator">II</td><td data-label="What would we actually test?">Do kinship obligations and land constraints predict migration and occupational choices?</td></tr>
+<tr><td data-label="Operator">III</td><td data-label="What would we actually test?">Does adopting Ankore speech or technical jargon improve customer trust or transaction outcomes?</td></tr>
+<tr><td data-label="Operator">IV</td><td data-label="What would we actually test?">Do native-language networks confer measurable advantages in referrals, credit, trade, or capital access?</td></tr>
+<tr><td data-label="Operator">V &rarr; I&prime;</td><td data-label="What would we actually test?">Does sustained participation produce independent competence, accumulated assets, and a changed social position&mdash;or merely reproduce outsider status?</td></tr>
+</tbody></table></div>
+<p>One important qualification: the video gives us a satirical representation of this transaction, not proof that all these economic and linguistic hierarchies operate as described. Those are the hypotheses to test.</p>
+<p><strong>The deepest proposition:</strong></p>
+<blockquote class="q">The migrant initially treats his inheritance as a liability to be concealed. Through repeated encounters with the host society, he may either internalize that subordination or convert the very inheritance he tried to suppress into productive capital.</blockquote>
+<p>And the final distinction matters: <strong>assimilation is not sovereignty.</strong> Speaking like the gatekeeper may buy entry. Becoming independently valuable changes the terms of entry.</p>
+<p>That is the pentad:</p>
+<p><strong>I &rarr; II &rarr; III &rarr; IV &rarr; V &rarr; I&prime;</strong></p>
+<p>Not the erasure of the Mukiga, but the possibility that the Mukiga returns to the game with a different weight.</p>
+</div><p class="note" style="margin:8px 18px 14px">Paste debris removed: a stray <code>&amp;#x20;</code> after &ldquo;That is the pentad:&rdquo;, and the LaTeX wrapper <code>\\[ \boxed{ &hellip; } \\]</code> around the closing line, which is set here as plain text. Markdown headings, bold, the table and the quote are rendered as the page&rsquo;s own markup; the words are unchanged.</p></details>
+  <details class="round" open><summary><span class="st plum">Gemini</span><span class="rl">Rukiga transcript and English translation</span><span class="ln">as supplied, verbatim; unverified</span></summary><pre class="verb">Here is the definitive transcript of the garage satire, capturing the linguistic affectation, the pseudo-technical mechanical catalog (muhimbo, musijo, muje yo), and the precise satirical tension of the Mukiga migrant performing urban assimilation in Mbarara.
+
+Part I: The Rukiga Transcript (Satirical Performance)
+
+Mechanic: "Eeeh, iwe muntu w'iwaitu... oza ota? Ikaara aha! Orikugira ngu nka banyowe aba bataine kyinyazi... nkworeka oku egari egi eri kukora!"
+
+The Technical Rant:
+
+* "Orikureeba muhimbo ogu ogu... ogu gwakwata musijo gya kigaati!"
+* "Agari tarikwetaba... mbu muje yo egwa omubwire bwa kumi!"
+* "No Mukiga raje... orikugamba Runyankore rw'omu kikaara eky'e Mbarara kwati ori omubazi wa bitara!"
+
+Part II: The English Translation
+
+Mechanic: "Ehh, my fellow countryman... how are you? Sit down here! You think people like us lack technical precision... let me show you how this machine operates!"
+
+The Technical Rant:
+
+* "You see this muhimbo (exhaust pipe/muffler) right here... this one collided straight into the musijo (suspension/undercarriage) of a heavy truck!"
+* "The vehicle is completely unresponsive... meaning the muje yo (gear transmission/drivetrain) dropped right at the tenth hour!"
+* "Look at you, a fellow Mukiga pretending... speaking that exaggerated Mbarara Runyankore as if you are an elite factory engineer!"</pre></details>
+  <details class="round"><summary><span class="st mid">Claude</span><span class="rl">Note on the transcript and the pairing</span><span class="ln">mine; can be attacked</span></summary><div class="verb prose" style="padding:18px;font-size:.95rem">
+<p><strong>The transcript is unverified.</strong> I have not heard the clip. Gemini gives no timestamps and no speaker boundaries beyond &ldquo;Mechanic&rdquo; and &ldquo;The Technical Rant&rdquo;, and its English does not map cleanly onto the Rukiga: the last line is addressed to a &ldquo;fellow Mukiga&rdquo; in the translation but the register in the original reads as a third-person jibe. The glosses of <em>muhimbo</em>, <em>musijo</em> and <em>muje yo</em> as exhaust, suspension and gearbox are also Gemini&rsquo;s. A native Rukiga or Runyankore speaker should check all of it before anyone leans on it.</p>
+<p><strong>Why it sits beside the other two.</strong> Glengarry shows the closer whose objective has displaced the client&rsquo;s interest: formality performed as the product. The Amodei line is the counter-case, reach kept honest by delivering more than was promised. The garage satire is a third position: borrowed formality (prestige language, trade jargon) used to buy entry before skill has been tested. On the Epilogue&rsquo;s plane that is reach claimed above what skill supports, and the pasted reading&rsquo;s line that assimilation is not sovereignty is the same distinction as hollow reach against earned reach. That placement is my reading of a clip I have not seen.</p>
+</div></details>
 
   <h3 style="margin-top:28px">Where does Elon fall on the curve?</h3>
   <p>A follow-up to the pairing above. The question and the reply are kept as given; the reply is mine and can be attacked. Placements are rough and rest on my memory of public reporting, which I have not rechecked.</p>
